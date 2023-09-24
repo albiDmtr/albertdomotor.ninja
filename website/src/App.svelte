@@ -26,7 +26,7 @@
 
       requestAnimationFrame(raf)
 </script>
-<h1>Hehe</h1>
+
 <svelte:window />
 <!-- <DotGrid dotDistance={40} dotSize={4} animation={"random"}/> -->
 
