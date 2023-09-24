@@ -56,21 +56,21 @@ let aboutElem
 <style>
     /* occupation data */
     .aalto .img {
-        background-image: url('./occupation_icons/aalto.png');
+        background-image: url('occupation_icons/aalto.png');
     }
     .aic .img {
-        background-image: url('./occupation_icons/aic.png');
+        background-image: url('occupation_icons/aic.png');
     }
     .pj .img {
-        background-image: url('./occupation_icons/pj.png');
+        background-image: url('occupation_icons/pj.png');
     }
 
     /* rest */
     .gh {
-        background-image: url('./social_icons/github.png');
+        background-image: url('social_icons/github.png');
     }
     .ln {
-        background-image: url('./social_icons/linkedin.png');
+        background-image: url('social_icons/linkedin.png');
     }
     .button:hover {
         transform: scale(1.1);

@@ -31,10 +31,10 @@
         color: var(--main-brand-color);
     }
     .tg {
-        background-image: url("./social_icons/telegram.png");
+        background-image: url("social_icons/telegram.png");
     }
     .wa {
-        background-image: url("./social_icons/whatsapp.png");
+        background-image: url("social_icons/whatsapp.png");
     }
     .button:hover {
         transform: scale(1.1);

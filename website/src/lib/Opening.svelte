@@ -75,7 +75,7 @@ on:enterViewport={() => {activeSection.set("");}}></div>
     .main-parallax-img {
         height: 80vh;
         width: 80vh;
-        background-image: url("./me.png");
+        background-image: url("me.png");
         background-size: contain;
         background-repeat: no-repeat;
         background-position: 60% 100%;

@@ -100,7 +100,7 @@
         width: 48px;
         height: 48px;
         background: var(--main-brand-color);
-        background-image: url("./logo.svg");
+        background-image: url("logo.svg");
         background-size: 90%;
         background-repeat: no-repeat;
         background-position: 50%;
