@@ -72,19 +72,19 @@ let workElem
 <style>
     /* Work content */
     .AIC {
-        background-image: url('work_icons/aic.png');
+        background-image: url('../../assets/work_icons/aic.png');
     }
     .PJ {
-        background-image: url('work_icons/pj.png');
+        background-image: url('../../assets/work_icons/pj.png');
     }
     .Marvin {
-        background-image: url('work_icons/marvin.png');
+        background-image: url('../../assets/work_icons/marvin.png');
     }
     .VT {
-        background-image: url('work_icons/vt.png');
+        background-image: url('../../assets/work_icons/vt.png');
     }
     .TT {
-        background-image: url('work_icons/tt.png');
+        background-image: url('../../assets/work_icons/tt.png');
     }
 
     .work-item {
