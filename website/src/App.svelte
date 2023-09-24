@@ -8,6 +8,9 @@
   import Footer from "./lib/Footer.svelte"
   import Loading from "./lib/Loading.svelte"
   import Lenis from '@studio-freight/lenis'
+  import { inject } from '@vercel/analytics';
+ 
+  inject();
 
   const lenis = new Lenis({
         lerp: 0.05,

@@ -19,8 +19,8 @@
     }
 </script>
 <div class="loading {loaded && timePassed ? 'loaded' : ''}" bind:this={loadingElem}>
-    <div class="anim1"><img src="../../public/loading/anim1.svg" width="220px" /></div>
-    <div class="anim2"><img src="../../public/loading/anim2.svg" width="220px" /></div>
+    <div class="anim1"><img src="../../assets/loading/anim1.svg" width="220px" /></div>
+    <div class="anim2"><img src="../../assets/loading/anim2.svg" width="220px" /></div>
 </div>
 
 <style>
