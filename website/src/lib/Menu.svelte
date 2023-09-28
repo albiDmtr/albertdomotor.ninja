@@ -111,7 +111,7 @@
         display: flex;
         border: 1px solid var(--main-brand-color);
         backdrop-filter: blur(16px);
-        background-color: rgba(5,5,46,.25);
+        background-color: rgba(5,5,46,.35);
         position: fixed;
         width: 500px;
         bottom: 20px;

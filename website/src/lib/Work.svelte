@@ -3,10 +3,35 @@
 import CallMade from "svelte-material-icons/CallMade.svelte"
 import viewport from './useViewportAction'
 import {activeSection} from "./store"
+import ArrowRight from "svelte-material-icons/ArrowRight.svelte"
+import { workData } from "./workData"
 let hoveredIcon = ""
 let workSidebar
 let workElem
 
+let workNo = 0
+
+let stickyElemEnterPos
+let screenHeight = window.innerHeight
+let effectStartPos
+$: effectStartPos = stickyElemEnterPos + screenHeight
+let scrollLength
+let workWrapper
+$: {if (workWrapper && workElem) {
+    scrollLength = workWrapper.offsetHeight - workElem.offsetHeight
+} }
+let effectActive = false
+let stepSize
+$: {scrollLength ? stepSize = (scrollLength / workData.length) : ""}
+window.onscroll = function() {
+    let scrollPos = document.documentElement.scrollTop
+    workNo = Math.min( Math.max(Math.floor((scrollPos-effectStartPos)/stepSize), 0), workData.length-1 )
+    if (scrollPos >+ effectStartPos && scrollPos < (effectStartPos+scrollLength)) {
+        effectActive = true
+    } else {
+        effectActive = false
+    }
+}
 </script>
 <div class="work-sidebar unactive" bind:this={workSidebar}>
     <div class="works-txt"><p>Works</p></div>
@@ -41,7 +66,7 @@ let workElem
         <div class="txt"><p>Toothsome Tomato</p></div>
     </div>
 </div>
-<div class="work-wrapper">
+<div class="work-wrapper" bind:this={workWrapper} >
     <div class="work-section-main" bind:this={workElem} id="work"
         use:viewport
         on:enterViewport={() => {
@@ -49,6 +74,7 @@ let workElem
             workSidebar.classList.remove("unactive");
             workElem.classList.add("shown");
             workElem.classList.remove("notshown");
+            stickyElemEnterPos = document.documentElement.scrollTop
             activeSection.set("work");}}
 		on:exitViewport={() => {
             workSidebar.classList.remove("active");
@@ -57,16 +83,32 @@ let workElem
             workElem.classList.remove("shown")
         }}>
         <div class="inner fading">
-        <div class="main-title">
-        <h2>Work</h2>
-        </div>
-        <div class="main-desc">
-            <p>I'm Albert Dömötör, software engineer and second year student at Aalto University.
-            I'm mostly familiar with frontend and backend web development.
-            <br/>I currently reside in Espoo, Finland.</p>
-        </div>
+            <div class="main-title">
+            <h2 class="above-txt">Works:</h2>
+            <h2 class="below-txt">{workData[workNo] ? workData[workNo].title : ""}</h2>
+            </div>
+            <div class="main-desc">
+                <div class="main-work-thumbnail" style="background-image: url('{workData[workNo] ? workData[workNo].thumbnailUrl : ""}');"></div>
+                <div class="main-work-desc">
+                    <p>{workData[workNo] ? workData[workNo].description : ""}</p>
+                    <div class="button-cont">
+                        <div class="action-button" style="background-image: url('{
+                            workData[workNo] && workData[workNo].actionUrl.includes("github") ? "./assets/social_icons/github.png" : "./assets/social_icons/youtube.png"
+                        }');"></div>
+                        <div class="more">Read More
+                            <span class="arrow"><ArrowRight /></span>
+                        </div>
+                        <div class="work-time">{workData[workNo] ? workData[workNo].time : ""}</div>
+                    </div>
+                </div>
+                
+            </div>
         </div>
     </div>
+</div>
+
+<div class="bg-img" style="background-image: url('{workData[workNo] && effectActive ? workData[workNo].thumbnailUrl : ""}');">
+
 </div>
 
 <style>
@@ -87,6 +129,108 @@ let workElem
         background-image: url('../../assets/work_icons/tt.png');
     }
 
+    /* work previews */
+    .bg-img {
+        position: fixed;
+        top:0;
+        left:0;
+        width: 100vw;
+        height: 100vh;        
+        background-size: cover;
+        filter: brightness(15%) saturate(20%);
+        box-shadow: inset 0 0 30vh 0 rgb(0,0,0);
+        transition: .5s;
+        z-index: -1;
+        
+    }
+    .arrow {
+        position: relative;
+        bottom: -2px;
+    }
+    .main-work-desc {
+        transition: .2s;
+        cursor: pointer;
+        border: solid 1px var(--main-brand-color);
+        backdrop-filter: blur(16px);
+        background-color: rgba(5,5,46,.35);
+        margin-top: -120px;
+        margin-left: -20px;
+        width: 650px;
+    }
+    .main-work-desc:hover {
+        transform: scale(1.02);
+    }
+    .work-time {
+        float: right;
+        color: white;
+        height: 45px;
+        opacity: 0.8;
+        text-align: right;
+        font-family: 'Inter', sans-serif;
+        width: 80%;
+        margin-right: 15px;
+        line-height: 2.7;
+    }
+    .button-cont {
+        display: flex;
+        width: 650px;
+        height: 45px;
+    }
+    .worktime {
+        float: right;
+        width: 200px;
+        margin: 0 !important;
+        position: relative;
+        bottom: -10px;
+        right: -20px;
+    }
+    .action-button {
+        height: 45px;
+        width: 45px;
+        background-color: var(--main-brand-color);
+        background-size: 70%;
+        background-repeat: no-repeat;
+        background-position: 50%;
+        opacity: 0.8;
+        overflow: hidden;
+        transition: .2s;
+    }
+    .action-button:hover {
+        background-size: 75%;
+    }
+    .more {
+        font-family: 'Inter', sans-serif;
+        border: solid 1px var(--main-brand-color);
+        width: 122px;
+        height: 45px;
+        overflow: hidden;
+        line-height: 2.7;
+        text-align: center;
+        opacity: 0.8;
+        color: white;
+        transition: .2s;
+        padding: 0 6px;
+    }
+    .more:hover {
+        color: var(--main-brand-color);
+    }
+    .main-work-thumbnail {
+        width: 800px;
+        height: 450px;
+        background-position: 50%;
+        background-size: cover;
+        filter: brightness(90%);
+        border: solid 1px var(--main-brand-color);
+        transition: .2s;
+    }
+    .main-work-thumbnail:hover {
+        transform: scale(1.02);
+    }
+    .main-desc p {
+        margin: 20px;
+    }
+
+    /* rest */
     .work-item {
         width: 250px;
         display: flex;
@@ -159,12 +303,22 @@ let workElem
     .work-section-main {
         height: 100vh;
         position: sticky;
-        top: 0;
+        top: -1px;
+        padding-top: 1px;
         display: flex;
         flex-direction: column;
         justify-content: center;
     }
 
+
+    .above-txt {
+        float: right;
+        line-height: 1.5;
+    }
+    .below-txt {
+        border-top: solid 1px var(--main-brand-color);
+        line-height: 1.5;
+    }
     .inner {
         width: 1000px;
         margin-left: calc(50vw - 500px);
@@ -179,8 +333,7 @@ let workElem
     }
     .main-desc {
         width: 800px;
-        border-left: solid 1px var(--main-brand-color);
-        padding: 20px;
+        margin: 20px;
     }
     h2 {
         color: rgba(255,255,255, 0.8);
