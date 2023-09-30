@@ -10,7 +10,7 @@ export const workData = [
         "title": "Programozd a jövőd!",
         "description":"Lorem ipsum dolor site amet2",
         "time": "September 2021 - August 2022",
-        "thumbnailUrl": "./assets/works/thumbnails/PJ_thumbnail.jpg",
+        "thumbnailUrl": "./assets/works/thumbnails/PJ_thumbnail.gif",
         "actionUrl": "https://youtube.com/albiDmtr"
     }
 ]
