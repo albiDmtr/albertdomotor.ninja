@@ -298,7 +298,7 @@ window.onscroll = function() {
     }
 
     .work-wrapper {
-        height: 220vh;
+        height: 800vh;
     }
     .work-section-main {
         height: 100vh;
