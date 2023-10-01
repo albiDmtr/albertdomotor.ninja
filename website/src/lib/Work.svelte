@@ -26,41 +26,52 @@ $: {scrollLength ? stepSize = (scrollLength / workData.length) : ""}
 window.onscroll = function() {
     let scrollPos = document.documentElement.scrollTop
     workNo = Math.min( Math.max(Math.floor((scrollPos-effectStartPos)/stepSize), 0), workData.length-1 )
-    if (scrollPos >+ effectStartPos && scrollPos < (effectStartPos+scrollLength)) {
+    if (scrollPos >= effectStartPos && scrollPos < (effectStartPos+scrollLength)) {
         effectActive = true
     } else {
         effectActive = false
     }
+    console.log(effectActive)
+    console.log(workNo)
 }
+
+let takeToWork = (workNo) => {} 
+$: {effectStartPos && stepSize ? takeToWork = (workNo) => {document.documentElement.scrollTop = effectStartPos+stepSize/2+(workNo*stepSize)} : ""} 
+
 </script>
 <div class="work-sidebar unactive" bind:this={workSidebar}>
     <div class="works-txt"><p>Works</p></div>
-    <div class="work-item {hoveredIcon == "AIC" ? "hover" : ""}">
+    <div class="work-item {hoveredIcon == "AIC" ? "hover" : ""} {workNo == 0 ? 'active-item' : ''}">
         <div class="wrapper"
+            on:click={() => takeToWork(0)}
             on:mouseenter={() => hoveredIcon = "AIC"}
             on:mouseleave={() => hoveredIcon = ""}><div class="work-icon AIC"></div></div>
         <div class="txt"><p>AIContentfy</p></div>
     </div>
-    <div class="work-item {hoveredIcon == "PJ" ? "hover" : ""}">
+    <div class="work-item {hoveredIcon == "PJ" ? "hover" : ""} {workNo && workNo == 1 ? 'active-item' : ''}">
         <div class="wrapper"
+        on:click={() => takeToWork(1)}
         on:mouseenter={() => hoveredIcon = "PJ"}
         on:mouseleave={() => hoveredIcon = ""}><div class="work-icon PJ"></div></div>
         <div class="txt"><p>Programozd a jövőd!</p></div>
     </div>
-    <div class="work-item {hoveredIcon == "Marvin" ? "hover" : ""}">
+    <div class="work-item {hoveredIcon == "Marvin" ? "hover" : ""} {workNo && workNo == 2 ? 'active-item' : ''}">
         <div class="wrapper"
+            on:click={() => takeToWork(2)}
             on:mouseenter={() => hoveredIcon = "Marvin"}
             on:mouseleave={() => hoveredIcon = ""}><div class="work-icon Marvin"></div></div>
         <div class="txt"><p>marvin.py</p></div>
     </div>
-    <div class="work-item {hoveredIcon == "VT" ? "hover" : ""}">
+    <div class="work-item {hoveredIcon == "VT" ? "hover" : ""} {workNo && workNo == 3 ? 'active-item' : ''}">
         <div class="wrapper"
+        on:click={() => takeToWork(3)}
         on:mouseenter={() => hoveredIcon = "VT"}
         on:mouseleave={() => hoveredIcon = ""}><div class="work-icon VT"></div></div>
         <div class="txt"><p>Vision Translate</p></div>
     </div>
-    <div class="work-item {hoveredIcon == "TT" ? "hover" : ""}">
+    <div class="work-item {hoveredIcon == "TT" ? "hover" : ""} {workNo && workNo == 4 ? 'active-item' : ''}">
         <div class="wrapper"
+        on:click={() => takeToWork(4)}
         on:mouseenter={() => hoveredIcon = "TT"}
         on:mouseleave={() => hoveredIcon = ""}><div class="work-icon TT"></div></div>
         <div class="txt"><p>Toothsome Tomato</p></div>
@@ -74,7 +85,7 @@ window.onscroll = function() {
             workSidebar.classList.remove("unactive");
             workElem.classList.add("shown");
             workElem.classList.remove("notshown");
-            stickyElemEnterPos = document.documentElement.scrollTop
+            stickyElemEnterPos = !stickyElemEnterPos ? document.documentElement.scrollTop : stickyElemEnterPos
             activeSection.set("work");}}
 		on:exitViewport={() => {
             workSidebar.classList.remove("active");
@@ -91,9 +102,9 @@ window.onscroll = function() {
                 <div class="main-work-thumbnail" style="background-image: url('{workData[workNo] ? workData[workNo].thumbnailUrl : ""}');"></div>
                 <div class="main-work-desc">
                     <p>{workData[workNo] ? workData[workNo].description : ""}</p>
-                    <div class="button-cont">
+                    <div class="button-cont" on:click={() => {window.open(workData[workNo] ? workData[workNo].actionUrl : "", '_blank')}}>
                         <div class="action-button" style="background-image: url('{
-                            workData[workNo] && workData[workNo].actionUrl.includes("github") ? "./assets/social_icons/github.png" : "./assets/social_icons/youtube.png"
+                            workData[workNo] ? workData[workNo].actionIconUrl : ""
                         }');"></div>
                         <div class="more">Read More
                             <span class="arrow"><ArrowRight /></span>
@@ -107,7 +118,7 @@ window.onscroll = function() {
     </div>
 </div>
 
-<div class="bg-img" style="background-image: url('{workData[workNo] && effectActive ? workData[workNo].thumbnailUrl : ""}');">
+<div class="bg-img" style="background-image: url('{workData[workNo] ? workData[workNo].thumbnailUrl : ""}'); opacity: {workData[workNo] && effectActive ? 1 : 0};">
 
 </div>
 
@@ -247,7 +258,7 @@ window.onscroll = function() {
         justify-content: center;
         transition: .3s;
     }
-    .work-item.hover .txt p {
+    .active-item .txt p {
         color:white;
     }
     .txt p {
@@ -263,10 +274,10 @@ window.onscroll = function() {
         text-align: center;
         margin: 0 0 0 25px;
     }
-    .work-icon:hover {
+    .active-item .wrapper .work-icon {
         filter: saturate(120%);
     }
-    .wrapper:hover {
+    .active-item .wrapper {
         transform: scale(1.1);
     }
     .work-icon {
@@ -275,6 +286,12 @@ window.onscroll = function() {
         background-size: cover;
         filter:saturate(50%) brightness(60%);
         transition: .2s;
+    }
+    .work-icon:hover {
+        filter: saturate(120%);
+    }
+    .wrapper:hover {
+        transform: scale(1.1);
     }
     .wrapper {
         border: solid 1px var(--main-brand-color);

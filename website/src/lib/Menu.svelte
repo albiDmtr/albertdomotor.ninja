@@ -11,7 +11,6 @@
     let section = ""
     activeSection.subscribe((value) => {
         section = value
-        console.log(section)
     })
 
 </script>

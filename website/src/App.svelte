@@ -22,9 +22,9 @@
       function raf(time) {
         lenis.raf(time)
         requestAnimationFrame(raf)
-      }
+  }
 
-      requestAnimationFrame(raf)
+  requestAnimationFrame(raf)
 </script>
 
 <svelte:window />
