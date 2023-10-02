@@ -104,7 +104,7 @@ $: {effectStartPos && stepSize ? takeToWork = (workNo) => {scrollToPos(effectSta
                     <p>{workData[workNo] ? workData[workNo].description : ""}</p>
                     <div class="button-cont" on:click={() => {window.open(workData[workNo] ? workData[workNo].actionUrl : "", '_blank')}}>
                         <div class="action-button" style="background-image: url('{
-                            workData[workNo] ? workData[workNo].actionIconUrl : ""
+                            workData[workNo] ? workData[workNo].actionIcon : ""
                         }');"></div>
                         <div class="more">Read More
                             <span class="arrow"><ArrowRight /></span>
@@ -121,11 +121,6 @@ $: {effectStartPos && stepSize ? takeToWork = (workNo) => {scrollToPos(effectSta
 <div class="bg-img" style="background-image: url('{workData[workNo] ? workData[workNo].thumbnailUrl : ""}'); opacity: {workData[workNo] && effectActive ? 1 : 0};">
 
 </div>
-{#each workData as work}
-    <img src={work.thumbnailUrl} class="work-{work.index} thumbnailImg" />
-    <img src={work.actionIconUrl} class="work-{work.index} actionImg" />
-{/each}
-<img src="../../assets/works/thumbnails/AIC_thumbnail.gif" class="hastobehardcoded" >
 <style>
     .thumbnailImg, .actionImg {
         display: none;

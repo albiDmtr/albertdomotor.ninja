@@ -1,3 +1,8 @@
+import aicIcon from '../../assets/occupation_icons/aic.png'
+import ytIcon from '../../assets/social_icons/youtube.png'
+import ghIcon from '../../assets/social_icons/github.png'
+import chIcon from '../../assets/social_icons/chromewebstore.png'
+
 export const workData = [
     {
         "title": "AIContentfy",
@@ -5,7 +10,7 @@ export const workData = [
         "time":"June - October 2023",
         "thumbnailUrl": "../../assets/works/thumbnails/AIC_thumbnail.gif",
         "actionUrl": "https://aicontentfy.com/",
-        "actionIconUrl": "../../assets/occupation_icons/aic.png",
+        "actionIcon": aicIcon,
         "index":0
     },
     {
@@ -14,7 +19,7 @@ export const workData = [
         "time": "September 2021 - August 2022",
         "thumbnailUrl": "./assets/works/thumbnails/PJ_thumbnail.gif",
         "actionUrl": "https://www.youtube.com/watch?v=E0sbYyfXweU&list=PL81QBF6Zpc2wpM3Tha00biOWdJ876KQzi",
-        "actionIconUrl": "./assets/social_icons/youtube.png",
+        "actionIcon": ytIcon,
         "index":1
     },
     {
@@ -23,7 +28,7 @@ export const workData = [
         "time": "February 2020 - April 2021",
         "thumbnailUrl": "./assets/works/thumbnails/marvin_thumbnail.gif",
         "actionUrl": "https://github.com/albiDmtr/marvin",
-        "actionIconUrl": "./assets/social_icons/github.png",
+        "actionIcon": ghIcon,
         "index":2
     },
     {
@@ -32,7 +37,7 @@ export const workData = [
         "time": "October - December 2019",
         "thumbnailUrl": "./assets/works/thumbnails/VT_thumbnail.gif",
         "actionUrl": "https://chrome.google.com/webstore/detail/vision-translate-smart-hi/aemapjnikiphnefgmocicmlmbdhodkea",
-        "actionIconUrl": "./assets/social_icons/chromewebstore.png",
+        "actionIconUrl": chIcon,
         "index":3
     },
     {
@@ -41,7 +46,7 @@ export const workData = [
         "time": "September 2021",
         "thumbnailUrl": "./assets/works/thumbnails/TT_thumbnail.gif",
         "actionUrl": "https://github.com/albiDmtr/toothsome-tomato",
-        "actionIconUrl": "./assets/social_icons/github.png",
+        "actionIconUrl": ghIcon,
         "index":4
     }
 ]
