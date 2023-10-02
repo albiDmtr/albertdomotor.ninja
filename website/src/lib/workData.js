@@ -5,7 +5,8 @@ export const workData = [
         "time":"June - October 2023",
         "thumbnailUrl": "../../assets/works/thumbnails/AIC_thumbnail.gif",
         "actionUrl": "https://aicontentfy.com/",
-        "actionIconUrl": "../../assets/occupation_icons/aic.png"
+        "actionIconUrl": "../../assets/occupation_icons/aic.png",
+        "index":0
     },
     {
         "title": "Programozd a jövőd!",
@@ -13,7 +14,8 @@ export const workData = [
         "time": "September 2021 - August 2022",
         "thumbnailUrl": "./assets/works/thumbnails/PJ_thumbnail.gif",
         "actionUrl": "https://www.youtube.com/watch?v=E0sbYyfXweU&list=PL81QBF6Zpc2wpM3Tha00biOWdJ876KQzi",
-        "actionIconUrl": "./assets/social_icons/youtube.png"
+        "actionIconUrl": "./assets/social_icons/youtube.png",
+        "index":1
     },
     {
         "title": "marvin.py",
@@ -21,7 +23,8 @@ export const workData = [
         "time": "February 2020 - April 2021",
         "thumbnailUrl": "./assets/works/thumbnails/marvin_thumbnail.gif",
         "actionUrl": "https://github.com/albiDmtr/marvin",
-        "actionIconUrl": "./assets/social_icons/github.png"
+        "actionIconUrl": "./assets/social_icons/github.png",
+        "index":2
     },
     {
         "title": "Vision Translate",
@@ -29,7 +32,8 @@ export const workData = [
         "time": "October - December 2019",
         "thumbnailUrl": "./assets/works/thumbnails/VT_thumbnail.gif",
         "actionUrl": "https://chrome.google.com/webstore/detail/vision-translate-smart-hi/aemapjnikiphnefgmocicmlmbdhodkea",
-        "actionIconUrl": "./assets/social_icons/chromewebstore.png"
+        "actionIconUrl": "./assets/social_icons/chromewebstore.png",
+        "index":3
     },
     {
         "title": "Toothsome Tomato",
@@ -37,6 +41,7 @@ export const workData = [
         "time": "September 2021",
         "thumbnailUrl": "./assets/works/thumbnails/TT_thumbnail.gif",
         "actionUrl": "https://github.com/albiDmtr/toothsome-tomato",
-        "actionIconUrl": "./assets/social_icons/github.png"
+        "actionIconUrl": "./assets/social_icons/github.png",
+        "index":4
     }
 ]

@@ -38,7 +38,6 @@ window.onscroll = function() {
 
 let takeToWork = (workNo) => {} 
 $: {effectStartPos && stepSize ? takeToWork = (workNo) => {scrollToPos(effectStartPos+stepSize/2+(workNo*stepSize))} : ""} 
-
 </script>
 <div class="work-sidebar unactive" bind:this={workSidebar}>
     <div class="works-txt"><p>Works</p></div>
@@ -122,8 +121,14 @@ $: {effectStartPos && stepSize ? takeToWork = (workNo) => {scrollToPos(effectSta
 <div class="bg-img" style="background-image: url('{workData[workNo] ? workData[workNo].thumbnailUrl : ""}'); opacity: {workData[workNo] && effectActive ? 1 : 0};">
 
 </div>
-
+{#each workData as work}
+    <img src={work.thumbnailUrl} class="work-{work.index} thumbnailImg" width="0" height="0" />
+    <img src={work.actionIconUrl} class="work-{work.index} actionImg" width="0" height="0"/>
+{/each}
 <style>
+    .thumbnailImg, .actionImg {
+        display: none;
+    }
     /* Work content */
     .AIC {
         background-image: url('../../assets/work_icons/aic.png');
