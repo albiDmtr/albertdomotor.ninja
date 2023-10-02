@@ -3,9 +3,9 @@ export const workData = [
         "title": "AIContentfy",
         "description":"Lorem ipsum dolor site amet",
         "time":"June - October 2023",
-        "thumbnailUrl": "./assets/works/thumbnails/AIC_thumbnail.gif",
+        "thumbnailUrl": "../../assets/works/thumbnails/AIC_thumbnail.gif",
         "actionUrl": "https://aicontentfy.com/",
-        "actionIconUrl": "./assets/occupation_icons/aic.png"
+        "actionIconUrl": "../../assets/occupation_icons/aic.png"
     },
     {
         "title": "Programozd a jövőd!",

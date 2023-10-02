@@ -6,6 +6,8 @@
     import Close from "svelte-material-icons/Close.svelte"
     import { githubUrl, cvUrl } from "./data"
     import { activeSection } from "./store"
+    import { scrollToElem } from "./helpers"
+
     let isMenuOpened = false
     let onHover = false
     let section = ""
@@ -29,10 +31,10 @@
     </button>
     <div class="menu-items">
         <div class="about-button" on:click={() => {isMenuOpened = false}}>
-            <a href="#about" class="{section =='about' ? 'selected' : ''}">About</a>
+            <a on:click={() => scrollToElem("about")} class="{section =='about' ? 'selected' : ''}">About</a>
         </div>
         <div  on:click={() => {isMenuOpened = false}}>
-            <a href="#work" class="{section =='work' ? 'selected' : ''}">Work</a>
+            <a on:click={() => scrollToElem("work")} class="{section =='work' ? 'selected' : ''}">Work</a>
         </div>
         <div  on:click={() => {isMenuOpened = false}}>
             <a  href="{cvUrl}" target=”_blank”>CV</a>
@@ -41,7 +43,7 @@
             <a  href="{githubUrl}" target=”_blank”>GitHub</a>
         </div>
         <div  on:click={() => {isMenuOpened = false}}>
-            <a  href="#contact" class="{section =='contact' ? 'selected' : ''}">Contact</a>
+            <a on:click={() => scrollToElem("contact")} class="{section =='contact' ? 'selected' : ''}">Contact</a>
         </div>
     </div>
 </div>

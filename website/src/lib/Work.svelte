@@ -5,6 +5,7 @@ import viewport from './useViewportAction'
 import {activeSection} from "./store"
 import ArrowRight from "svelte-material-icons/ArrowRight.svelte"
 import { workData } from "./workData"
+import { scrollToPos } from "./helpers"
 let hoveredIcon = ""
 let workSidebar
 let workElem
@@ -36,7 +37,7 @@ window.onscroll = function() {
 }
 
 let takeToWork = (workNo) => {} 
-$: {effectStartPos && stepSize ? takeToWork = (workNo) => {document.documentElement.scrollTop = effectStartPos+stepSize/2+(workNo*stepSize)} : ""} 
+$: {effectStartPos && stepSize ? takeToWork = (workNo) => {scrollToPos(effectStartPos+stepSize/2+(workNo*stepSize))} : ""} 
 
 </script>
 <div class="work-sidebar unactive" bind:this={workSidebar}>
@@ -329,7 +330,6 @@ $: {effectStartPos && stepSize ? takeToWork = (workNo) => {document.documentElem
 
 
     .above-txt {
-        float: right;
         line-height: 1.5;
     }
     .below-txt {
@@ -347,6 +347,7 @@ $: {effectStartPos && stepSize ? takeToWork = (workNo) => {document.documentElem
         padding: 20px;
         margin-top: 0;
         height: 100px;
+        text-align: right;
     }
     .main-desc {
         width: 800px;
