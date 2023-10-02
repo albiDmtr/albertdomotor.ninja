@@ -99,7 +99,7 @@ $: {effectStartPos && stepSize ? takeToWork = (workNo) => {scrollToPos(effectSta
             <h2 class="below-txt">{workData[workNo] ? workData[workNo].title : ""}</h2>
             </div>
             <div class="main-desc">
-                <div class="main-work-thumbnail" style="background-image: url('{workData[workNo] ? workData[workNo].thumbnailUrl : ""}');"></div>
+                <div class="main-work-thumbnail" style="background-image: url('{workData[workNo] ? workData[workNo].thumbnail : ""}');"></div>
                 <div class="main-work-desc">
                     <p>{workData[workNo] ? workData[workNo].description : ""}</p>
                     <div class="button-cont" on:click={() => {window.open(workData[workNo] ? workData[workNo].actionUrl : "", '_blank')}}>
@@ -118,7 +118,7 @@ $: {effectStartPos && stepSize ? takeToWork = (workNo) => {scrollToPos(effectSta
     </div>
 </div>
 
-<div class="bg-img" style="background-image: url('{workData[workNo] ? workData[workNo].thumbnailUrl : ""}'); opacity: {workData[workNo] && effectActive ? 1 : 0};">
+<div class="bg-img" style="background-image: url('{workData[workNo] ? workData[workNo].thumbnail : ""}'); opacity: {workData[workNo] && effectActive ? 1 : 0};">
 
 </div>
 <style>
