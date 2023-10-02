@@ -119,7 +119,13 @@ $: {effectStartPos && stepSize ? takeToWork = (workNo) => {scrollToPos(effectSta
 </div>
 
 <div class="bg-img" style="background-image: url('{workData[workNo] ? workData[workNo].thumbnail : ""}'); opacity: {workData[workNo] && effectActive ? 1 : 0};">
+</div>
 
+<div class="preload-cont">
+{#each workData as work}
+    <img src={work.thumbnail} class="thumbnailImg" width="0" height="0" />
+    <img src={work.actionIcon} class="actionImg" width="0" height="0"/>
+{/each}
 </div>
 <style>
     .thumbnailImg, .actionImg {
