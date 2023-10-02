@@ -122,9 +122,10 @@ $: {effectStartPos && stepSize ? takeToWork = (workNo) => {scrollToPos(effectSta
 
 </div>
 {#each workData as work}
-    <img src={work.thumbnailUrl} class="work-{work.index} thumbnailImg" width="0" height="0" />
-    <img src={work.actionIconUrl} class="work-{work.index} actionImg" width="0" height="0"/>
+    <img src={work.thumbnailUrl} class="work-{work.index} thumbnailImg" />
+    <img src={work.actionIconUrl} class="work-{work.index} actionImg" />
 {/each}
+<img src="../../assets/works/thumbnails/AIC_thumbnail.gif" class="hastobehardcoded" >
 <style>
     .thumbnailImg, .actionImg {
         display: none;
