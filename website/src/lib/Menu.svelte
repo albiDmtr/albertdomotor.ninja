@@ -51,6 +51,10 @@
 <style>
     .hamburger span {
         margin-top: 7px;
+        width: 40px;
+        height: 50px;
+        padding: 0;
+        overflow: hidden;
     }
     .hamburger {
         display: none;
@@ -164,7 +168,7 @@
             width: 100vw;
             height: 100vh;
             background: rgba(255,68,229);
-            animation: menuOpen 0.6s ease-in-out 0s 1;
+            animation: menuOpen 0.6s ease-in-out 0s 1 forwards;
             overflow: hidden;
         }
         .menuClosed .menu-items {
@@ -175,7 +179,7 @@
             width: 0;
             height: 0;
             background: rgba(255,68,229);
-            animation: menuClose 0.6s ease-in-out 0s 1;
+            animation: menuClose 0.6s ease-in-out 0s 1 forwards;
             overflow: hidden;
         }
         .menu-items div {
@@ -207,7 +211,7 @@
             100%   {height: 100vh; width: 100vw; position: fixed; top: 0;}
         }
         @keyframes menuClose {
-            0%   {height: 100vh; width: 100vw;}
+            0%   {height: 100vh; width: 100vw; position: fixed; bottom: 0;}
             50%   {height: 100vh; width: 55px;}
             100%   {height: 0; width: 55px;}
         }
