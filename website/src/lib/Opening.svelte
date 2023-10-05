@@ -1,10 +1,10 @@
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Merriweather:ital,wght@1,700&display=swap" rel="stylesheet">
 <script>
 import {parallaxElems, handleParallax} from "./Parallax"
+//let parallaxElems = []
+//const handleParallax = () => {console.log("ee")}
 import viewport from './useViewportAction'
 import {activeSection} from "./store"
+
 
 let mainElem
 
@@ -102,5 +102,32 @@ on:enterViewport={() => {activeSection.set("");}}></div>
     }
     @media (max-aspect-ratio: 1/1) {
         /*mobile*/
+        .main-parallax-img {
+            width: 90vw;
+            height: 90vw;
+            position: absolute;
+            top: calc(44vh - 40vw);
+            left: 5vw;
+        }
+        .albert {
+            padding-top: calc(44vh - 55vw);
+            font-size: 24vw;
+            padding-left: 6vw;
+            z-index: 2;
+        }
+        .domotor {
+            padding-top: calc(44vh - 15vw);
+            font-size: 14vw;
+            padding-left: 55vw;
+            -webkit-text-stroke: 0.5vh transparent;
+            z-index: 2;
+        }
+        .main-parallax-title {
+            font-size: 5.5vw;
+            width: 86vw;
+            position: absolute;
+            padding-top: 70vh;
+            padding-left: 7vw;
+        }
     }
 </style>
