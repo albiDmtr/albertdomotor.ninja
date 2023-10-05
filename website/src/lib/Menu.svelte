@@ -204,12 +204,16 @@
         @keyframes menuOpen {
             0%   {height: 0; width: 55px;}
             50%   {height: 100vh; width: 55px;}
-            100%   {height: 100vh; width: 100vw;}
+            100%   {height: 100vh; width: 100vw; position: fixed; top: 0;}
         }
         @keyframes menuClose {
             0%   {height: 100vh; width: 100vw;}
             50%   {height: 100vh; width: 55px;}
             100%   {height: 0; width: 55px;}
+        }
+
+        :global(.selected) {
+            color: rgba(255,255,255,0.5) !important;
         }
     }
 </style>
