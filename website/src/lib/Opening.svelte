@@ -4,6 +4,7 @@ import {parallaxElems, handleParallax} from "./Parallax"
 //const handleParallax = () => {console.log("ee")}
 import viewport from './useViewportAction'
 import {activeSection} from "./store"
+import ArrowDown from "svelte-material-icons/ArrowDown.svelte"
 let mainElem
 
 setTimeout(() => {
@@ -24,12 +25,18 @@ setTimeout(() => {
     <div class="main-parallax-title fading" bind:this="{parallaxElems[3]}" data-parallax="4">
         Software Engineer, Digital Systems and Design student at Aalto University
     </div>
+    <span class="arrow-down" bind:this="{parallaxElems[4]}" data-parallax="-2">
+        <ArrowDown />
+    </span>
 </div>
 <div class="placeholder"
 use:viewport
 on:enterViewport={() => {activeSection.set("");}}></div>
 
 <style>
+    .arrow-down {
+        display: none;
+    }
     .placeholder {
         width: 100vw;
         height: 100vh;
@@ -105,23 +112,34 @@ on:enterViewport={() => {activeSection.set("");}}></div>
         transform: scale(1);
         transition: 1s;
     }
+    @media (max-aspect-ratio: 3/4) {
+        .arrow-down {
+            display: block;
+            position: fixed;
+            bottom: 12vh;
+            left: calc(46vw);
+            font-size: 9vw;
+            color: var(--main-brand-color);
+            opacity: 0.8;
+        }
+    }
     @media (max-aspect-ratio: 1/1) {
         /*mobile*/
         .main-parallax-img {
             width: 90vw;
             height: 90vw;
             position: absolute;
-            top: calc(44vh - 40vw);
+            top: calc(40vh - 45vw);
             left: 5vw;
         }
         .albert {
-            padding-top: calc(44vh - 55vw);
+            padding-top: calc(40vh - 55vw);
             font-size: 24vw;
             padding-left: 6vw;
             z-index: 2;
         }
         .domotor {
-            padding-top: calc(44vh - 15vw);
+            padding-top: calc(40vh - 15vw);
             font-size: 14vw;
             padding-left: 55vw;
             -webkit-text-stroke: 0.5vh transparent;
@@ -131,7 +149,7 @@ on:enterViewport={() => {activeSection.set("");}}></div>
             font-size: 5.5vw;
             width: 86vw;
             position: absolute;
-            padding-top: 70vh;
+            padding-top: 66vh;
             padding-left: 7vw;
         }
     }
