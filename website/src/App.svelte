@@ -57,6 +57,8 @@
     :global(body) {
       width: 100vw;
       overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility; 
       touch-action: pan-y;
     }
   
