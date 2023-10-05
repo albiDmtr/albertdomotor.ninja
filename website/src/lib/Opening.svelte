@@ -4,8 +4,6 @@ import {parallaxElems, handleParallax} from "./Parallax"
 //const handleParallax = () => {console.log("ee")}
 import viewport from './useViewportAction'
 import {activeSection} from "./store"
-
-
 let mainElem
 
 setTimeout(() => {
@@ -14,6 +12,11 @@ setTimeout(() => {
 }, 1200);
 
 </script>
+<svelte:head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true">
+    <link href="https://fonts.googleapis.com/css2?family=Aleo:ital,wght@1,700&family=Bebas+Neue&display=swap" rel="stylesheet">
+</svelte:head>
 <div class="main-parallax-container opening-unactive" on:mousemove={handleParallax} bind:this="{mainElem}">
     <div class="main-parallax-img fading"  bind:this="{parallaxElems[0]}" data-parallax="-1"></div>
     <div class="main-parallax-text albert fading" bind:this="{parallaxElems[1]}" data-parallax="2">Albert</div>
@@ -32,7 +35,7 @@ on:enterViewport={() => {activeSection.set("");}}></div>
         height: 100vh;
     }
     .main-parallax-title {
-        font-family: 'Merriweather';
+        font-family: 'Aleo', serif;
         font-size: 2.5vh;
         width: 40vh;
         text-align: center;

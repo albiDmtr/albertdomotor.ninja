@@ -7,7 +7,6 @@
     import Visiontranslate from "./routes/Visiontranslate.svelte"
     import Toothsometomato from "./routes/Toothsometomato.svelte"
     import Notfound from "./routes/Notfound.svelte"
-  
     export let url = "";
 </script>
   
