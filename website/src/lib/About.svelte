@@ -181,4 +181,44 @@ let aboutElem
         font-family: 'Inter', sans-serif;
         margin: 0;
     }
+    @media (max-width: 1000px) {
+        .inner {
+            display: block;
+            width: 100%;
+            margin: 0 auto;
+            position: relative;
+            left: -8px;
+        }
+        .main-title {
+            width: auto;
+            height: auto;
+            max-width: 600px;
+            width: 80vw;
+        }
+        .main-title h2 {
+            float: left;
+            margin: 15px 20px;
+        }
+        .main-desc {
+            max-width: 600px;
+            margin: 0 auto;
+            width: 80vw;
+            overflow: hidden;
+            border-top: solid 1px var(--main-brand-color);
+            border-left: none;
+            padding: 15px;
+        }
+        .occupation {
+            width: 100%;
+            max-width: 350px;
+        }
+        .titles {
+            margin-top: 20px;
+        }
+    }
+    @media (max-width: 390px) {
+        .url {
+            display: none;
+        }
+    }
 </style>
