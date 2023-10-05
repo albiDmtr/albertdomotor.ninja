@@ -15,7 +15,7 @@ setTimeout(() => {
 <svelte:head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true">
-    <link href="https://fonts.googleapis.com/css2?family=Aleo:ital,wght@1,700&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Merriweather:ital,wght@1,700&display=swap" rel="stylesheet">
 </svelte:head>
 <div class="main-parallax-container opening-unactive" on:mousemove={handleParallax} bind:this="{mainElem}">
     <div class="main-parallax-img fading"  bind:this="{parallaxElems[0]}" data-parallax="-1"></div>
@@ -35,7 +35,9 @@ on:enterViewport={() => {activeSection.set("");}}></div>
         height: 100vh;
     }
     .main-parallax-title {
-        font-family: 'Aleo', serif;
+        font-family: 'Merriweather', serif;
+        font-weight: 700;
+        font-style: italic;
         font-size: 2.5vh;
         width: 40vh;
         text-align: center;
