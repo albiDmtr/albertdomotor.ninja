@@ -86,12 +86,13 @@ $: {effectStartPos && stepSize ? takeToWork = (workNo) => {scrollToPos(effectSta
             workElem.classList.add("shown");
             workElem.classList.remove("notshown");
             stickyElemEnterPos = !stickyElemEnterPos ? document.documentElement.scrollTop : stickyElemEnterPos
-            activeSection.set("work");}}
+            activeSection.set("work");
+            }}
 		on:exitViewport={() => {
             workSidebar.classList.remove("active");
             workSidebar.classList.add("unactive");
             workElem.classList.add("notshown");
-            workElem.classList.remove("shown")
+            workElem.classList.remove("shown");
         }}>
         <div class="inner fading">
             <div class="main-title">

@@ -33,7 +33,7 @@ on:enterViewport={() => {activeSection.set("");}}></div>
         height: 100vh;
     }
     .main-parallax-title {
-        font-family: 'Merriweather', serif;
+        font-family: 'Merriweather';
         font-size: 2.5vh;
         width: 40vh;
         text-align: center;

@@ -58,6 +58,7 @@
     :global(body) {
       width: 100vw;
       overflow-x: hidden;
+      touch-action: pan-y;
     }
   
   
