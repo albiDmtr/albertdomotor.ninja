@@ -4,7 +4,6 @@ import {parallaxElems, handleParallax} from "./Parallax"
 //const handleParallax = () => {console.log("ee")}
 import viewport from './useViewportAction'
 import {activeSection} from "./store"
-import ArrowDown from "svelte-material-icons/ArrowDown.svelte"
 let mainElem
 
 setTimeout(() => {
@@ -25,18 +24,12 @@ setTimeout(() => {
     <div class="main-parallax-title fading" bind:this="{parallaxElems[3]}" data-parallax="4">
         Software Engineer, Digital Systems and Design student at Aalto University
     </div>
-    <span class="arrow-down" bind:this="{parallaxElems[4]}" data-parallax="-2">
-        <ArrowDown />
-    </span>
 </div>
 <div class="placeholder"
 use:viewport
 on:enterViewport={() => {activeSection.set("");}}></div>
 
 <style>
-    .arrow-down {
-        display: none;
-    }
     .placeholder {
         width: 100vw;
         height: 100vh;
@@ -111,17 +104,6 @@ on:enterViewport={() => {activeSection.set("");}}></div>
     :global(.opening-active) {
         transform: scale(1);
         transition: 1s;
-    }
-    @media (max-aspect-ratio: 3/4) {
-        .arrow-down {
-            display: block;
-            position: fixed;
-            bottom: 12vh;
-            left: calc(46vw);
-            font-size: 9vw;
-            color: var(--main-brand-color);
-            opacity: 0.8;
-        }
     }
     @media (max-aspect-ratio: 1/1) {
         /*mobile*/

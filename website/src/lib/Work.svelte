@@ -107,7 +107,7 @@ $: {effectStartPos && stepSize ? takeToWork = (workNo) => {scrollToPos(effectSta
                         <div class="action-button" style="background-image: url('{
                             workData[workNo] ? workData[workNo].actionIcon : ""
                         }');"></div>
-                        <div class="more">Read More
+                        <div class="more" on:click={() => {window.open(workData[workNo] ? workData[workNo].actionUrl : "", '_blank')}}>Read More
                             <span class="arrow"><ArrowRight /></span>
                         </div>
                         <div class="work-time">{workData[workNo] ? workData[workNo].time : ""}</div>

@@ -7,6 +7,7 @@
     import { githubUrl, cvUrl } from "./data"
     import { activeSection } from "./store"
     import { scrollToElem } from "./helpers"
+    import ArrowDown from "svelte-material-icons/ArrowDown.svelte"
 
     let isMenuOpened = false
     let onHover = false
@@ -47,8 +48,15 @@
         </div>
     </div>
 </div>
-
+<div class="arrow-down">
+    <span>
+        <ArrowDown />
+    </span>
+</div>
 <style>
+    .arrow-down {
+        display: none;
+    }
     .hamburger span {
         margin-top: 7px;
         width: 40px;
@@ -134,6 +142,25 @@
 
     @media (max-width: 500px) {
         /*mobile*/
+        .arrow-down {
+            display: block;
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            width:55px;
+            height: 55px;
+            font-size: 40px;
+            background-color: var(--main-brand-color);
+            color: black;
+            
+        }
+        .arrow-down span {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: 4px;
+            transform: translate(-50%, -50%);
+        }
         .hamburger span {
             animation: iconMoveIn 0.6s ease-in-out 0s 1;
         }
