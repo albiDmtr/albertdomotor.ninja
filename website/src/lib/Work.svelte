@@ -124,6 +124,7 @@ $: {effectStartPos && stepSize ? takeToWork = (workNo) => {scrollToPos(effectSta
 </div>
 {#key workNo}
     <div class="bg-img fadeIn{workData[workNo] ? workNo%2 : ''}">
+        <div class="shadow"></div>
         <video autoplay muted loop playsinline>
             <source src="{workData[workNo] ? workData[workNo].thumbnail : ''}" type="video/mp4" />
         </video>
@@ -140,6 +141,11 @@ $: {effectStartPos && stepSize ? takeToWork = (workNo) => {scrollToPos(effectSta
 {/each}
 </div>
 <style>
+    .bg-img video {
+        min-width: 100vw;
+        min-height: 100vh;
+        z-index: -2;
+    }
     .thumbnailImg, .actionImg {
         opacity: 0;
         width: 0;
@@ -201,12 +207,17 @@ $: {effectStartPos && stepSize ? takeToWork = (workNo) => {scrollToPos(effectSta
         left:0;
         width: 100vw;
         height: 100vh;        
-        background-size: cover;
         filter: brightness(15%) saturate(20%);
-        box-shadow: inset 0 0 30vh 0 rgb(0,0,0);
         transition: .5s;
         z-index: -1;
-        
+    }
+    .bg-img .shadow {
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left:0;
+        box-shadow: inset 0 0 30vh 0 rgb(0,0,0);
     }
     .arrow {
         position: relative;

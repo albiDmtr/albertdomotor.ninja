@@ -30,6 +30,11 @@
       transition: 2s;
       opacity: 1;
     }
+    @media (pointer:coarse) {
+      :global(.notshown) {
+        opacity: 1 !important;
+      }
+    }
   
     :global(.focusin) {
       opacity: 1;
