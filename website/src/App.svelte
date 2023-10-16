@@ -32,7 +32,7 @@
     }
     @media (pointer:coarse) {
       :global(.notshown) {
-        opacity: 1 !important;
+        opacity: 0.6 !important;
       }
     }
   
