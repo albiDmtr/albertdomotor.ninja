@@ -130,7 +130,7 @@ $: {effectStartPos && stepSize ? takeToWork = (workNo) => {scrollToPos(effectSta
 </div>
 <style>
     .thumbnailImg, .actionImg {
-        display: none;
+        opacity: 0;
     }
     /* Work content */
     .AIC {
