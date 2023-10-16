@@ -30,7 +30,7 @@ export const workData = [
     },
     {
         "title": "marvin.py",
-        "description":"I built a trading bot to daytrade cryptocurrencies. ",
+        "description":"I built an open source, extendable trading bot to daytrade cryptocurrencies. The bot uses WebSocket APIs to handle events instantaneously, and Docker and Google Cloud for deployment.",
         "time": "February 2020 - April 2021",
         "thumbnail": marvinThumbnail,
         "actionUrl": "https://github.com/albiDmtr/marvin",
@@ -39,7 +39,7 @@ export const workData = [
     },
     {
         "title": "Vision Translate",
-        "description":"Lorem ipsum dolor site amet2",
+        "description":"Vision Translate is a browser extension that helps learning a new language by associating words with images and as well as making word quizes for you. It is used by over a thousand people.",
         "time": "October - December 2019",
         "thumbnail": vtThumbnail,
         "actionUrl": "https://chrome.google.com/webstore/detail/vision-translate-smart-hi/aemapjnikiphnefgmocicmlmbdhodkea",
@@ -48,7 +48,7 @@ export const workData = [
     },
     {
         "title": "Toothsome Tomato",
-        "description":"Lorem ipsum dolor site amet2",
+        "description":"I made Toothsome Tomato as a small UI design experiment. It is a simple pomodoro timer app, nothing more, nothing less.",
         "time": "September 2021",
         "thumbnail": ttThumbnail,
         "actionUrl": "https://github.com/albiDmtr/toothsome-tomato",
