@@ -75,6 +75,9 @@
         border: none;
         overflow: hidden;
         transition: .6s;
+        padding-inline: 0 !important;
+        padding-block: 1 !important;
+        padding: 0 !important;
     }
     .menuOpen .hamburger {
         color: black;
