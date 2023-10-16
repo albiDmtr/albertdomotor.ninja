@@ -101,7 +101,7 @@ $: {effectStartPos && stepSize ? takeToWork = (workNo) => {scrollToPos(effectSta
             </div>
             <div class="main-desc">
                 {#key workNo}
-                    <video class="main-work-thumbnail animIn{workData[workNo] ? workNo%2 : ''}" autoplay muted loop>
+                    <video class="main-work-thumbnail animIn{workData[workNo] ? workNo%2 : ''}" autoplay muted loop playsinline>
                         <source src="{workData[workNo] ? workData[workNo].thumbnail : ''}" type="video/mp4" />
                     </video>
                 {/key}         
@@ -124,17 +124,17 @@ $: {effectStartPos && stepSize ? takeToWork = (workNo) => {scrollToPos(effectSta
 </div>
 {#key workNo}
     <div class="bg-img fadeIn{workData[workNo] ? workNo%2 : ''}">
-        <video autoplay muted loop>
+        <video autoplay muted loop playsinline>
             <source src="{workData[workNo] ? workData[workNo].thumbnail : ''}" type="video/mp4" />
         </video>
     </div>
 {/key}
 <div class="preload-cont">
 {#each workData as work}
-    <video autoplay muted loop class="thumbnailImg">
+    <video autoplay muted loop playsinline class="thumbnailImg">
         <source src={work.thumbnail} type="video/mp4" />
     </video>
-    <video autoplay muted loop class="actionImg">
+    <video autoplay muted loop playsinline class="actionImg">
         <source src={work.actionIcon} type="video/mp4" />
     </video>
 {/each}
