@@ -55,7 +55,6 @@
       --main-brand-color: rgb(255,68,229);
     }
     :global(body) {
-      width: 100vw;
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility; 
