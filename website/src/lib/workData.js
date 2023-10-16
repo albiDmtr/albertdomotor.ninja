@@ -3,11 +3,11 @@ import ytIcon from '../../assets/social_icons/youtube.png'
 import ghIcon from '../../assets/social_icons/github.png'
 import chIcon from '../../assets/social_icons/chromewebstore.png'
 
-import aicThumbnail from '../../assets/works/thumbnails/AIC_thumbnail.gif'
-import pjThumbnail from '../../assets/works/thumbnails/PJ_thumbnail.gif'
-import marvinThumbnail from '../../assets/works/thumbnails/marvin_thumbnail.gif'
-import vtThumbnail from '../../assets/works/thumbnails/VT_thumbnail.gif'
-import ttThumbnail from '../../assets/works/thumbnails/TT_thumbnail.gif'
+import aicThumbnail from '../../assets/works/thumbnails/AIC_thumbnail.mp4'
+import pjThumbnail from '../../assets/works/thumbnails/PJ_thumbnail.mp4'
+import marvinThumbnail from '../../assets/works/thumbnails/marvin_thumbnail.mp4'
+import vtThumbnail from '../../assets/works/thumbnails/VT_thumbnail.mp4'
+import ttThumbnail from '../../assets/works/thumbnails/TT_thumbnail.mp4'
 
 export const workData = [
     {

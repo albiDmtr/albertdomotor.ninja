@@ -100,7 +100,11 @@ $: {effectStartPos && stepSize ? takeToWork = (workNo) => {scrollToPos(effectSta
             <h2 class="below-txt">{workData[workNo] ? workData[workNo].title : ""}</h2>
             </div>
             <div class="main-desc">
-                <div class="main-work-thumbnail" style="background-image: url('{workData[workNo] ? workData[workNo].thumbnail : ""}');"></div>
+                {#key workNo}
+                    <video class="main-work-thumbnail animIn{workData[workNo] ? workNo%2 : ''}" autoplay muted loop>
+                        <source src="{workData[workNo] ? workData[workNo].thumbnail : ''}" type="video/mp4" />
+                    </video>
+                {/key}         
                 <div class="main-work-desc">
                     <p>{workData[workNo] ? workData[workNo].description : ""}</p>
                     <div class="button-cont" on:click={() => {window.open(workData[workNo] ? workData[workNo].actionUrl : "", '_blank')}}>
@@ -118,19 +122,60 @@ $: {effectStartPos && stepSize ? takeToWork = (workNo) => {scrollToPos(effectSta
         </div>
     </div>
 </div>
-
-<div class="bg-img" style="background-image: url('{workData[workNo] ? workData[workNo].thumbnail : ""}'); opacity: {workData[workNo] && effectActive ? 1 : 0};">
-</div>
-
+{#key workNo}
+    <div class="bg-img fadeIn{workData[workNo] ? workNo%2 : ''}">
+        <video autoplay muted loop>
+            <source src="{workData[workNo] ? workData[workNo].thumbnail : ''}" type="video/mp4" />
+        </video>
+    </div>
+{/key}
 <div class="preload-cont">
 {#each workData as work}
-    <img src={work.thumbnail} class="thumbnailImg" width="0" height="0" />
-    <img src={work.actionIcon} class="actionImg" width="0" height="0"/>
+    <video autoplay muted loop class="thumbnailImg">
+        <source src={work.thumbnail} type="video/mp4" />
+    </video>
+    <video autoplay muted loop class="actionImg">
+        <source src={work.actionIcon} type="video/mp4" />
+    </video>
 {/each}
 </div>
 <style>
     .thumbnailImg, .actionImg {
         opacity: 0;
+        width: 0;
+        height: 0;
+    }
+    .fadeIn0 {
+        animation-name: fadeIn;
+        animation-duration: 1s;
+        animation-delay: 0s;
+        animation-iteration-count: 1;
+    }
+    .fadeIn1 {
+        animation-name: fadeIn;
+        animation-duration: 1s;
+        animation-delay: 0s;
+        animation-iteration-count: 1;
+    }
+    @keyframes fadeIn {
+        0% {opacity: 0;}
+        100% {opacity: 1;}
+    }
+    .animIn0 {
+        animation-name: animIn;
+        animation-duration: 0.8s;
+        animation-delay: 0s;
+        animation-iteration-count: 1;
+    }
+    .animIn1 {
+        animation-name: animIn;
+        animation-duration: 0.8s;
+        animation-delay: 0s;
+        animation-iteration-count: 1;
+    }
+    @keyframes animIn {
+        0% {opacity: 0; transform: scale(0);}
+        100% {opacity: 1; transform: scale(1);}
     }
     /* Work content */
     .AIC {
