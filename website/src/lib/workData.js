@@ -12,7 +12,7 @@ import ttThumbnail from '../../assets/works/thumbnails/TT_thumbnail.gif'
 export const workData = [
     {
         "title": "AIContentfy",
-        "description":"Lorem ipsum dolor site amet",
+        "description":"As part of my traineeship at AIContentfy, I implemented various frontend features and backend changes to make the platform's user experience more polished.",
         "time":"June - October 2023",
         "thumbnail": aicThumbnail,
         "actionUrl": "https://aicontentfy.com/",
@@ -21,7 +21,7 @@ export const workData = [
     },
     {
         "title": "Programozd a jövőd!",
-        "description":"Lorem ipsum dolor site amet2",
+        "description":"I was the campaign ambassador of an EU project with the goal of making teenagers more interested in programming. I produced online educational content, authored articles, and participated in panel discussions and conferences as part of the program. ",
         "time": "September 2021 - August 2022",
         "thumbnail": pjThumbnail,
         "actionUrl": "https://www.youtube.com/watch?v=E0sbYyfXweU&list=PL81QBF6Zpc2wpM3Tha00biOWdJ876KQzi",
@@ -30,7 +30,7 @@ export const workData = [
     },
     {
         "title": "marvin.py",
-        "description":"Lorem ipsum dolor site amet2",
+        "description":"I built a trading bot to daytrade cryptocurrencies. ",
         "time": "February 2020 - April 2021",
         "thumbnail": marvinThumbnail,
         "actionUrl": "https://github.com/albiDmtr/marvin",

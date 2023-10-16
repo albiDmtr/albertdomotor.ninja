@@ -48,7 +48,7 @@
         </div>
     </div>
 </div>
-<div class="arrow-down">
+<div class="arrow-down {section =='' ? 'active' : ''}" on:click={() => scrollToElem("about")}>
     <span>
         <ArrowDown />
     </span>
@@ -56,6 +56,7 @@
 <style>
     .arrow-down {
         display: none;
+        z-index: 999;
     }
     .hamburger span {
         margin-top: 7px;
@@ -70,8 +71,6 @@
         font-size: 40px;
         width: 55px;
         height: 55px !important;
-        justify-content: center;
-        align-items: center;
         color: black;
         border: none;
         overflow: hidden;
@@ -152,7 +151,8 @@
             font-size: 40px;
             background-color: var(--main-brand-color);
             color: black;
-            
+            opacity: 0;
+            transition: .3s;
         }
         .arrow-down span {
             position: absolute;
@@ -160,6 +160,9 @@
             left: 50%;
             margin-top: 4px;
             transform: translate(-50%, -50%);
+        }
+        .arrow-down.active {
+            opacity: 1;
         }
         .hamburger span {
             animation: iconMoveIn 0.6s ease-in-out 0s 1;
@@ -178,14 +181,20 @@
         .main-logo {
             width: 55px;
             height: 55px !important;
-            z-index: 1001;
+            z-index: 1002;
             background-color: rgb(250,250,250);
             opacity: 1;
             border: none !important;
         }
         .hamburger {
-            display: flex;
+            display: block;
             z-index: 1001;
+        }
+        .hamburger span {
+            position: absolute;
+            top: 50%;
+            margin-top: 4px;
+            transform: translate(-50%, -50%);
         }
         .menuOpen .menu-items {
             position: fixed;
@@ -225,12 +234,12 @@
         }
 
         @keyframes iconMoveOut {
-            0%   {transform: translateX(0px);}
-            100% {transform: translateX(-55px);}
+            0%   {margin-left: 0;}
+            100% {margin-left: -55px;}
         }
         @keyframes iconMoveIn {
-            0%   {transform: translateX(-55px);}
-            100% {transform: translateX(0px);}
+            0%   {margin-left: -55px;}
+            100% {margin-left: 0;}
         }
         @keyframes menuOpen {
             0%   {height: 0; width: 55px;}

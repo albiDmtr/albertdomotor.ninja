@@ -394,4 +394,68 @@ $: {effectStartPos && stepSize ? takeToWork = (workNo) => {scrollToPos(effectSta
         from {opacity: 1;}
         to {opacity: 0;}
     }
+    @media (max-width: 1200px) {
+        .bg-img {
+            display: none;
+        }
+        .works-txt {
+            display: none;
+        }
+        .work-sidebar {
+            width: 100vw;
+            height: 45px;
+            flex-direction: row;
+            position: fixed;
+            left: 0;
+            top: initial;
+            bottom: 12vh;
+        }
+        .work-item .txt {
+            display: none;
+        }
+        .work-item {
+            width: 45px;
+            margin: 10px;
+        }
+        .inner {
+            display: block;
+            width: 100%;
+            margin-left: auto;
+            position: relative;
+            top: -6vh;
+        }
+        .main-desc {
+            margin: 0;
+            width: auto;
+        }
+        .main-work-thumbnail {
+            width: 95vw;
+            height: calc(95vw / (16/9));
+            margin-left: calc(2.5vw - 5px );
+        }
+        .main-title {
+            width: 95vw;
+            height: 85px;
+            padding: 0;
+            margin-left: calc(2.5vw - 5px );
+        }
+        .above-txt {
+            text-align: left;
+            display: block;
+            width: 95vw;
+            float: left;
+        }
+        .below-txt {
+            display: block;
+            float: left;
+        }
+        .main-work-desc {
+            margin: 0;
+            width: 95vw;
+            margin-left: calc(2.5vw - 5px );
+        }
+        .work-time {
+            display: none;
+        }
+    }
 </style>
