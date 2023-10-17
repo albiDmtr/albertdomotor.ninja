@@ -8,7 +8,7 @@ export const scrollToPos = (pos) => {
     document.documentElement.scrollTop = pos
 
     lenis.set(new Lenis({
-        lerp: 0.05,
+        lerp: 0.1,
         smooth: true,
         direction: "vertical",
         wheelMultiplier: 3
@@ -21,7 +21,7 @@ export const scrollToElem = (id) => {
     document.getElementById(id).scrollIntoView()
 
     lenis.set(new Lenis({
-        lerp: 0.05,
+        lerp: 0.1,
         smooth: true,
         direction: "vertical",
         wheelMultiplier: 3
