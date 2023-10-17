@@ -6,12 +6,14 @@
     import Marvin from "./routes/Marvin.svelte"
     import Visiontranslate from "./routes/Visiontranslate.svelte"
     import Toothsometomato from "./routes/Toothsometomato.svelte"
+    import CV from "./routes/CV.svelte"
     import Notfound from "./routes/Notfound.svelte"
     export let url = "";
 </script>
   
 <Router {url}>
     <Route path="/"><Home /></Route>
+    <Route path="/cv" component={CV} />
     <Route path="/works/aicontentfy" component={Aicontentfy} />
     <Route path="/works/programozd-a-jovod" component={Programozdajovod} />
     <Route path="/works/marvin" component={Marvin} />

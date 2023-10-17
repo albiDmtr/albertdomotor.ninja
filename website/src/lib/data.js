@@ -1,6 +1,6 @@
 export const githubUrl = 'https://github.com/albiDmtr'
 export const linkedinUrl = 'https://www.linkedin.com/in/albert-d%C3%B6m%C3%B6t%C3%B6r-799273261/'
-export const cvUrl = ''
+export const cvUrl = '/cv'
 export const emailAddress = 'hello@albertdomotor.ninja'
 export const phoneNumber = '+358403626092'
 export const whatsAppUrl = 'https://wa.link/l9nro6'
