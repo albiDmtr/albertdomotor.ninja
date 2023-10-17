@@ -38,6 +38,7 @@ window.onscroll = function() {
 
 let takeToWork = (workNo) => {} 
 $: {effectStartPos && stepSize ? takeToWork = (workNo) => {scrollToPos(effectStartPos+stepSize/2+(workNo*stepSize))} : ""} 
+
 </script>
 <div class="work-sidebar unactive" bind:this={workSidebar}>
     <div class="works-txt"><p>Works</p></div>
@@ -122,11 +123,11 @@ $: {effectStartPos && stepSize ? takeToWork = (workNo) => {scrollToPos(effectSta
         </div>
     </div>
 </div>
-{#key workNo}
+{#key [workNo, effectActive]}
     <div class="bg-img fadeIn{workData[workNo] ? workNo%2 : ''}">
         <div class="shadow"></div>
         <video autoplay muted loop playsinline>
-            <source src="{workData[workNo] ? workData[workNo].thumbnail : ''}" type="video/mp4" />
+            <source src="{effectActive && workData[workNo] ? workData[workNo].thumbnail : ''}" type="video/mp4" />
         </video>
     </div>
 {/key}
