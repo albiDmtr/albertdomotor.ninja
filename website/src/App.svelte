@@ -1,6 +1,7 @@
 <script>
     import { Router, Link, Route } from "svelte-routing"
     import Home from "./routes/Home.svelte"
+    import Work from "./routes/Work.svelte"
     import Aicontentfy from "./routes/Aicontentfy.svelte"
     import Programozdajovod from "./routes/Programozdajovod.svelte"
     import Marvin from "./routes/Marvin.svelte"
@@ -14,11 +15,12 @@
 <Router {url}>
     <Route path="/"><Home /></Route>
     <Route path="/cv" component={CV} />
-    <Route path="/works/aicontentfy" component={Aicontentfy} />
-    <Route path="/works/programozd-a-jovod" component={Programozdajovod} />
-    <Route path="/works/marvin" component={Marvin} />
-    <Route path="/works/vision-translate" component={Visiontranslate} />
-    <Route path="/works/toothsome-tomato" component={Toothsometomato} />
+    <Route path="/work" component={Work} />
+    <Route path="/work/aicontentfy" component={Aicontentfy} />
+    <Route path="/work/programozd-a-jovod" component={Programozdajovod} />
+    <Route path="/work/marvin" component={Marvin} />
+    <Route path="/work/vision-translate" component={Visiontranslate} />
+    <Route path="/work/toothsome-tomato" component={Toothsometomato} />
     <Route component={Notfound} />
 </Router>
 

@@ -24,7 +24,7 @@ $: {if (workWrapper && workElem) {
 let effectActive = false
 let stepSize
 $: {scrollLength ? stepSize = (scrollLength / workData.length) : ""}
-window.onscroll = function() {
+export const onScroll = () => {
     let scrollPos = document.documentElement.scrollTop
     workNo = Math.min( Math.max(Math.floor((scrollPos-effectStartPos)/stepSize), 0), workData.length-1 )
     if (scrollPos >= effectStartPos && scrollPos < (effectStartPos+scrollLength)) {
@@ -32,9 +32,8 @@ window.onscroll = function() {
     } else {
         effectActive = false
     }
-    console.log(effectActive)
-    console.log(workNo)
 }
+window.onscroll = onScroll
 
 let takeToWork = (workNo) => {} 
 $: {effectStartPos && stepSize ? takeToWork = (workNo) => {scrollToPos(effectStartPos+stepSize/2+(workNo*stepSize))} : ""} 
@@ -88,6 +87,7 @@ $: {effectStartPos && stepSize ? takeToWork = (workNo) => {scrollToPos(effectSta
             workElem.classList.remove("notshown");
             stickyElemEnterPos = !stickyElemEnterPos ? document.documentElement.scrollTop : stickyElemEnterPos
             activeSection.set("work");
+            setTimeout(onScroll, 1);
             }}
 		on:exitViewport={() => {
             workSidebar.classList.remove("active");
