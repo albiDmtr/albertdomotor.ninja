@@ -112,7 +112,7 @@ $: {effectStartPos && stepSize ? takeToWork = (workNo) => {scrollToPos(effectSta
                             <div class="action-button" style="background-image: url('{
                                 workData[workNo] ? workData[workNo].actionIcon : ""
                             }');"></div>
-                            <a href="{workData[workNo] ? workData[workNo].url : ""}">
+                            <a href="{workData[workNo] ? workData[workNo].actionUrl : ""}">
                             <div class="more">Read More
                                 <span class="arrow"><ArrowRight /></span>
                             </div>
