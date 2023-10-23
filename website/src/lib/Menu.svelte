@@ -18,7 +18,7 @@
 
 </script>
 <div class="main-menu {onHover ? "logoHovered" : ""} {isMenuOpened ? "menuOpen" : "menuClosed"}">
-    <div class="main-logo" on:mouseenter={() => {onHover = true}}  on:mouseleave={() => {onHover = false}}></div>
+    <div class="main-logo" on:click={() => scrollToElem("top")} on:mouseenter={() => {onHover = true}}  on:mouseleave={() => {onHover = false}}></div>
     <button class="hamburger" on:click={() => {isMenuOpened = !isMenuOpened}} >
         {#if isMenuOpened}
             <span class="close">

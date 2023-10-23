@@ -16,6 +16,7 @@ export const workData = [
         "time":"June - October 2023",
         "thumbnail": aicThumbnail,
         "actionUrl": "https://aicontentfy.com/",
+        "url" : "/work/aicontentfy",
         "actionIcon": aicIcon,
         "index":0
     },
@@ -25,6 +26,7 @@ export const workData = [
         "time": "September 2021 - August 2022",
         "thumbnail": pjThumbnail,
         "actionUrl": "https://www.youtube.com/watch?v=E0sbYyfXweU&list=PL81QBF6Zpc2wpM3Tha00biOWdJ876KQzi",
+        "url" : "/work/programozd-a-jovod",
         "actionIcon": ytIcon,
         "index":1
     },
@@ -34,6 +36,7 @@ export const workData = [
         "time": "February 2020 - April 2021",
         "thumbnail": marvinThumbnail,
         "actionUrl": "https://github.com/albiDmtr/marvin",
+        "url" : "/work/marvin",
         "actionIcon": ghIcon,
         "index":2
     },
@@ -43,6 +46,7 @@ export const workData = [
         "time": "October - December 2019",
         "thumbnail": vtThumbnail,
         "actionUrl": "https://chrome.google.com/webstore/detail/vision-translate-smart-hi/aemapjnikiphnefgmocicmlmbdhodkea",
+        "url" : "/work/vision-translate",
         "actionIcon": chIcon,
         "index":3
     },
@@ -52,6 +56,7 @@ export const workData = [
         "time": "September 2021",
         "thumbnail": ttThumbnail,
         "actionUrl": "https://github.com/albiDmtr/toothsome-tomato",
+        "url" : "/work/toothsome-tomato",
         "actionIcon": ghIcon,
         "index":4
     }

@@ -18,7 +18,11 @@ export const scrollToPos = (pos) => {
 export const scrollToElem = (id) => {
     get(lenis).destroy()
 
-    document.getElementById(id).scrollIntoView()
+    if (document.getElementById(id)) {
+        document.getElementById(id).scrollIntoView()
+    } else {
+        window.location.href = `${window.location.origin}/#${id}`
+    }
 
     lenis.set(new Lenis({
         lerp: 0.1,

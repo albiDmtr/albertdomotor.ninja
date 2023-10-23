@@ -108,15 +108,17 @@ $: {effectStartPos && stepSize ? takeToWork = (workNo) => {scrollToPos(effectSta
                 {/key}         
                 <div class="main-work-desc">
                     <p>{workData[workNo] ? workData[workNo].description : ""}</p>
-                    <div class="button-cont" on:click={() => {window.open(workData[workNo] ? workData[workNo].actionUrl : "", '_blank')}}>
-                        <div class="action-button" style="background-image: url('{
-                            workData[workNo] ? workData[workNo].actionIcon : ""
-                        }');"></div>
-                        <div class="more" on:click={() => {window.open(workData[workNo] ? workData[workNo].actionUrl : "", '_blank')}}>Read More
-                            <span class="arrow"><ArrowRight /></span>
+                        <div class="button-cont">
+                            <div class="action-button" style="background-image: url('{
+                                workData[workNo] ? workData[workNo].actionIcon : ""
+                            }');"></div>
+                            <a href="{workData[workNo] ? workData[workNo].url : ""}">
+                            <div class="more">Read More
+                                <span class="arrow"><ArrowRight /></span>
+                            </div>
+                            </a>
+                            <div class="work-time">{workData[workNo] ? workData[workNo].time : ""}</div>
                         </div>
-                        <div class="work-time">{workData[workNo] ? workData[workNo].time : ""}</div>
-                    </div>
                 </div>
                 
             </div>
@@ -226,7 +228,6 @@ $: {effectStartPos && stepSize ? takeToWork = (workNo) => {scrollToPos(effectSta
     }
     .main-work-desc {
         transition: .2s;
-        cursor: pointer;
         border: solid 1px var(--main-brand-color);
         backdrop-filter: blur(16px);
         background-color: rgba(5,5,46,.35);
@@ -272,9 +273,6 @@ $: {effectStartPos && stepSize ? takeToWork = (workNo) => {scrollToPos(effectSta
         overflow: hidden;
         transition: .2s;
     }
-    .action-button:hover {
-        background-size: 75%;
-    }
     .more {
         font-family: 'Inter', sans-serif;
         border: solid 1px var(--main-brand-color);
@@ -287,6 +285,10 @@ $: {effectStartPos && stepSize ? takeToWork = (workNo) => {scrollToPos(effectSta
         color: white;
         transition: .2s;
         padding: 0 6px;
+        cursor: pointer;
+    }
+    a {
+        text-decoration: none;
     }
     .more:hover {
         color: var(--main-brand-color);
