@@ -11,7 +11,7 @@
     import Notfound from "./routes/Notfound.svelte"
     export let url = "";
 </script>
-  
+<link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
 <Router {url}>
     <Route path="/"><Home /></Route>
     <Route path="/cv" component={CV} />
@@ -26,6 +26,10 @@
 
 <!-- Global styles -->
 <style>
+    :global(p, h1, h2, h3, h4, h5, h6) {
+      color: white;
+      font-family: 'Inter', sans-serif;
+    }
     :global(.notshown) {
       transition: 2s;
       opacity: 0;
