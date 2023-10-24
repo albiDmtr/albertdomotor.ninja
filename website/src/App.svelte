@@ -9,6 +9,7 @@
     import Toothsometomato from "./routes/Toothsometomato.svelte"
     import CV from "./routes/CV.svelte"
     import Notfound from "./routes/Notfound.svelte"
+    import PerformanceCheck from "./routes/PerformanceCheck.svelte"
     export let url = "";
 </script>
 <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
@@ -21,6 +22,7 @@
     <Route path="/work/marvin" component={Marvin} />
     <Route path="/work/vision-translate" component={Visiontranslate} />
     <Route path="/work/toothsome-tomato" component={Toothsometomato} />
+    <Route path="/performance" component={PerformanceCheck} />
     <Route component={Notfound} />
 </Router>
 
