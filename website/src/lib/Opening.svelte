@@ -1,5 +1,5 @@
 <script>
-import {parallaxElems, handleParallax} from "./Parallax"
+import {parallaxElems, handleParallax, disableEffect, enableEffect} from "./Parallax"
 //let parallaxElems = []
 //const handleParallax = () => {console.log("ee")}
 import viewport from './useViewportAction'
@@ -17,7 +17,10 @@ setTimeout(() => {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Merriweather:ital,wght@1,700&display=swap" rel="stylesheet">
 </svelte:head>
-<div id="top" class="main-parallax-container opening-unactive" on:mousemove={handleParallax} bind:this="{mainElem}">
+<div
+    class="main-parallax-container opening-unactive"
+    on:mousemove={handleParallax}
+    bind:this="{mainElem}">
     <div class="main-parallax-img fading"  bind:this="{parallaxElems[0]}" data-parallax="-1"></div>
     <div class="main-parallax-text albert fading" bind:this="{parallaxElems[1]}" data-parallax="2">Albert</div>
     <div class="main-parallax-text domotor fading" bind:this="{parallaxElems[2]}" data-parallax="1">Dömötör</div>
@@ -26,9 +29,10 @@ setTimeout(() => {
     </div>
 </div>
 <div class="placeholder"
+id="top"
 use:viewport
-on:enterViewport={() => {activeSection.set("");}}></div>
-
+on:enterViewport={() => {activeSection.set(""); enableEffect();}}
+on:exitViewport={disableEffect}></div>
 <style>
     .placeholder {
         width: 100vw;
@@ -87,7 +91,7 @@ on:enterViewport={() => {activeSection.set("");}}></div>
         top: 2.5vh;
         left: calc(50vw - 40vh);
         z-index: 3;
-        transition: 0.1s;
+        transition: 0s;
     }
     .main-parallax-container {
         position: absolute;
