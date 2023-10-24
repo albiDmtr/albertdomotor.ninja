@@ -8,11 +8,8 @@
     import Footer from "../lib/Footer.svelte"
     import Loading from "../lib/Loading.svelte"
     import { inject } from '@vercel/analytics';
-    import {get} from 'svelte/store'
-    import { lenis } from "../lib/store"
    
     inject();
-    get(lenis).destroy();
   
   </script>
   
@@ -21,6 +18,5 @@
   <Menu />
   <Opening />
   <About />
-  <Work />
   <Contact />
   <Footer />
