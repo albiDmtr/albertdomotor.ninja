@@ -2,6 +2,7 @@
 import {parallaxElems, handleParallax, disableEffect, enableEffect} from "./Parallax"
 //let parallaxElems = []
 //const handleParallax = () => {console.log("ee")}
+import ParallaxElem from "./ParallaxElem.svelte";
 import viewport from './useViewportAction'
 import {activeSection} from "./store"
 let mainElem
@@ -21,12 +22,20 @@ setTimeout(() => {
     class="main-parallax-container opening-unactive"
     on:mousemove={handleParallax}
     bind:this="{mainElem}">
-    <div class="main-parallax-img fading"  bind:this="{parallaxElems[0]}" data-parallax="-1"></div>
-    <div class="main-parallax-text albert fading" bind:this="{parallaxElems[1]}" data-parallax="2">Albert</div>
-    <div class="main-parallax-text domotor fading" bind:this="{parallaxElems[2]}" data-parallax="1">Dömötör</div>
-    <div class="main-parallax-title fading" bind:this="{parallaxElems[3]}" data-parallax="4">
-        Software Engineer, Digital Systems and Design student at Aalto University
-    </div>
+    <ParallaxElem  front=1>
+        <div class="main-parallax-text domotor fading">Dömötör</div>
+    </ParallaxElem>
+    <ParallaxElem front=-1>
+        <div class="main-parallax-img fading"></div>
+    </ParallaxElem>
+    <ParallaxElem front=2>
+        <div class="main-parallax-text albert fading">Albert</div>
+    </ParallaxElem>
+    <ParallaxElem  front=3>
+        <div class="main-parallax-title fading">
+            Software Engineer, Digital Systems and Design student at Aalto University
+        </div>
+    </ParallaxElem>
 </div>
 <div class="placeholder"
 id="top"
@@ -34,6 +43,66 @@ use:viewport
 on:enterViewport={() => {activeSection.set(""); enableEffect();}}
 on:exitViewport={disableEffect}></div>
 <style>
+    /* parallax */
+    .main-parallax-img {
+        animation: float-img 20s linear 0s infinite;
+    }
+    .albert {
+        animation: float-albert 20s linear 0s infinite;
+    }
+    .domotor {
+        animation: float-domotor 20s linear 0s infinite;
+    }
+    .main-parallax-title {
+        animation: float-txt 20s linear 0s infinite;
+    }
+
+    @keyframes float-txt {
+        0% {transform: translate(0px, 20px);}
+        12.5% {transform: translate(14px, 14px);}
+        25% {transform: translate(20px, 0px);}
+        37.5% {transform: translate(14px, -14px);}
+        50% {transform: translate(0px, -20px);}
+        62.5% {transform: translate(-14px, -14px);}
+        75% {transform: translate(-20px, 0px);}
+        87.5% {transform: translate(-14px, 14px);}
+        100% {transform: translate(0px, 20px);}
+    }
+    @keyframes float-albert {
+        0% {transform: translate(0px, 14px);}
+        12.5% {transform: translate(9.3px, 9.3px);}
+        25% {transform: translate(14px, 0px);}
+        37.5% {transform: translate(9.3px, -9.3px);}
+        50% {transform: translate(0px, -14px);}
+        62.5% {transform: translate(-9.3px, -9.3px);}
+        75% {transform: translate(-14px, 0px);}
+        87.5% {transform: translate(-9.3px, 9.3px);}
+        100% {transform: translate(0px, 14px);}
+    }
+    @keyframes float-domotor {
+        0% {transform: translate(0px, 7px);}
+        12.5% {transform: translate(4.7px, 4.7px);}
+        25% {transform: translate(7px, 0px);}
+        37.5% {transform: translate(4.7px, -4.7px);}
+        50% {transform: translate(0px, -7px);}
+        62.5% {transform: translate(-4.7px, -4.7px);}
+        75% {transform: translate(-7px, 0px);}
+        87.5% {transform: translate(-4.7px, 4.7px);}
+        100% {transform: translate(0px, 7px);}
+    }
+    @keyframes float-img {
+        0% {transform: translate(-0px, -7px);}
+        12.5% {transform: translate(-4.7px, -4.7px);}
+        25% {transform: translate(-7px, -0px);}
+        37.5% {transform: translate(-4.7px, 4.7px);}
+        50% {transform: translate(-0px, 7px);}
+        62.5% {transform: translate(4.7px, 4.7px);}
+        75% {transform: translate(7px, 0px);}
+        87.5% {transform: translate(4.7px, -4.7px);}
+        100% {transform: translate(0px, -7px);}
+    }
+
+    /* rest */
     .placeholder {
         width: 100vw;
         height: 100vh;
