@@ -2,12 +2,10 @@ export let parallaxElems = []
 
 let interval
 export const disableEffect = () => {
-    console.log("vau")
     clearInterval(interval)
 }
 export const enableEffect = () => {
-    console.log("active")
-    interval = setInterval(updateParallax, 30)
+    //interval = setInterval(updateParallax, 30)
 }
 
 let mouseX = 0

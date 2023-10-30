@@ -1,5 +1,5 @@
 <script>
-    import { Router, Link, Route } from "svelte-routing"
+    import { Route, router } from "tinro"
     import Home from "./routes/Home.svelte"
     import Work from "./routes/Work.svelte"
     import Aicontentfy from "./routes/Aicontentfy.svelte"
@@ -8,26 +8,71 @@
     import Visiontranslate from "./routes/Visiontranslate.svelte"
     import Toothsometomato from "./routes/Toothsometomato.svelte"
     import CV from "./routes/CV.svelte"
+    import { fade } from 'svelte/transition'
     import Notfound from "./routes/Notfound.svelte"
-    export let url = "";
+    import Cv from "./routes/CV.svelte";
+    export let url = ""
+
+    router.subscribe( _ => {window.scrollTo(0, 0);})
 </script>
-<link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
-<Router {url}>
-    <Route path="/"><Home /></Route>
-    <Route path="/cv" component={CV} />
-    <Route path="/work" component={Work} />
-    <Route path="/work/aicontentfy" component={Aicontentfy} />
-    <Route path="/work/programozd-a-jovod" component={Programozdajovod} />
-    <Route path="/work/marvin" component={Marvin} />
-    <Route path="/work/vision-translate" component={Visiontranslate} />
-    <Route path="/work/toothsome-tomato" component={Toothsometomato} />
-    <Route component={Notfound} />
-</Router>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=true>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<div id=app>
+  <main>
+    <Route path="/">
+        <Home />
+    </Route>
+    <Route path="/cv">
+      <Cv />
+    </Route>
+    <Route path="/work/*">
+        <Route path="/">
+          <div in:fade={{duration: 1200}} out:fade={{duration: 500}}>
+            <Work />
+          </div>
+        </Route>
+        <Route path="/aicontentfy">
+          <div in:fade={{duration: 1200}} out:fade={{duration: 500}}>
+            <Aicontentfy />
+          </div>
+        </Route>
+        <Route path="/programozd-a-jovod">
+          <div in:fade={{duration: 1200}} out:fade={{duration: 500}}>
+            <Programozdajovod />
+          </div>
+        </Route>
+        <Route path="/marvin">
+          <div in:fade={{duration: 1200}} out:fade={{duration: 500}}>
+            <Marvin />
+          </div>
+        </Route>
+        <Route path="/vision-translate">
+          <div in:fade={{duration: 1200}} out:fade={{duration: 500}}>
+            <Visiontranslate />
+          </div>
+        </Route>
+        <Route path="/toothsome-tomato">
+          <div in:fade={{duration: 1200}} out:fade={{duration: 500}}>
+            <Toothsometomato />
+          </div>
+        </Route>
+    </Route>
+    <Route fallback>
+      <Notfound />
+    </Route>
+  </main>
+</div>
 
 <!-- Global styles -->
 <style>
     :global(p, h1, h2, h3, h4, h5, h6) {
       color: white;
+      font-family: 'Inter', sans-serif;
+    }
+    :global(a) {
+      color: var(--main-brand-color);
       font-family: 'Inter', sans-serif;
     }
     :global(.notshown) {
@@ -66,6 +111,7 @@
   
     :global(:root) {
       --main-brand-color: rgb(255,68,229);
+      --main-brand-color-08: rgba(255,68,229,0.9);
     }
     :global(body) {
       overflow-x: hidden;
@@ -105,21 +151,5 @@
           transition-timing-function: ease-out;
           opacity: 0 !important;
     }
-  
-    /* Dot grid */
-    :global(.dot-active) {
-          background-color: var(--main-brand-color);
-          z-index: 0;
-          transition: .5s;
-    }
-    :global(.dot-half-active) {
-          background-color: rgba(255,68,229,0.5);
-          z-index: 0;
-          transition: .5s;
-    }
-    :global(.dot-inactive) {
-        background-color: rgba(255,255,255,0.1);
-        z-index: 0;
-        transition: .5s;
-    }
+
 </style>

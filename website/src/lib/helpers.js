@@ -31,3 +31,16 @@ export const scrollToElem = (id) => {
         wheelMultiplier: 3
     }));
 }
+
+export const killLenis = () => {
+    get(lenis).destroy()
+}
+
+export const newLenis = (lerp, multiplier) => {
+    lenis.set(new Lenis({
+        lerp: lerp,
+        smooth: true,
+        direction: "vertical",
+        wheelMultiplier: multiplier
+    }));
+}

@@ -1,4 +1,7 @@
 <script>
+    import {meta} from 'tinro';
+    const route = meta()
+
     let loaded = false
     let loadingElem
     document.querySelector("body").style.height = "100vh";
@@ -18,10 +21,12 @@
         },200)
     }
 </script>
-<div class="loading {loaded && timePassed ? 'loaded' : ''}" bind:this={loadingElem}>
-    <div class="anim1"><img src="../../assets/loading/anim1.svg" width="220px" /></div>
-    <div class="anim2"><img src="../../assets/loading/anim2.svg" width="220px" /></div>
-</div>
+{#if !route.from}
+    <div class="loading {loaded && timePassed ? 'loaded' : ''}" bind:this={loadingElem}>
+        <div class="anim1"><img src="../../assets/loading/anim1.svg" width="220px" /></div>
+        <div class="anim2"><img src="../../assets/loading/anim2.svg" width="220px" /></div>
+    </div>
+{/if}
 
 <style>
     .anim1 {
