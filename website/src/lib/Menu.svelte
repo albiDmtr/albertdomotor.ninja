@@ -9,6 +9,7 @@
     import { scrollToElem } from "./helpers"
     import ArrowDown from "svelte-material-icons/ArrowDown.svelte"
 
+    let isHamburgerTapped = false
     let isMenuOpened = false
     let onHover = false
     let section = ""
@@ -17,9 +18,9 @@
     })
 
 </script>
-<div class="main-menu {onHover ? "logoHovered" : ""} {isMenuOpened ? "menuOpen" : "menuClosed"}">
+<div class="main-menu {onHover ? "logoHovered" : ""} {isHamburgerTapped ? isMenuOpened ? "menuOpen" : "menuClosed" : ""}">
     <div class="main-logo" on:click={() => scrollToElem("top")} on:mouseenter={() => {onHover = true}}  on:mouseleave={() => {onHover = false}}></div>
-    <button class="hamburger" on:click={() => {isMenuOpened = !isMenuOpened}} >
+    <button class="hamburger" on:click={() => {isMenuOpened = !isMenuOpened; isHamburgerTapped = true}} >
         {#if isMenuOpened}
             <span class="close">
                 <Close />
@@ -96,6 +97,7 @@
     }
     div a:hover {
         color: var(--main-brand-color);
+        filter: brightness(240%);
         font-size: 15px;
     }
     div a {
@@ -199,6 +201,16 @@
             margin-top: 4px;
             transform: translate(-50%, -50%);
         }
+        .main-menu .menu-items {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            display: block;
+            width: 0;
+            height: 0;
+            background: rgba(255,68,229);
+            overflow: hidden;
+        }
         .menuOpen .menu-items {
             position: fixed;
             bottom: 0;
@@ -208,18 +220,9 @@
             height: 100vh;
             background: rgba(255,68,229);
             animation: menuOpen 0.6s ease-in-out 0s 1 forwards;
-            overflow: hidden;
         }
         .menuClosed .menu-items {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            display: block;
-            width: 0;
-            height: 0;
-            background: rgba(255,68,229);
             animation: menuClose 0.6s ease-in-out 0s 1 forwards;
-            overflow: hidden;
         }
         .menu-items div {
             display: block;
@@ -228,8 +231,9 @@
             height: 55px;
             margin-left: 40px;
         }
+        /* cause of menu jumping down iOS error */
         .about-button {
-            margin-top: 40px;
+            padding-top: 40px !important;
         }
         .menu-items div a {
             font-size: 22px;

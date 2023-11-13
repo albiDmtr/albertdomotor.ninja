@@ -14,21 +14,24 @@
             {title: "Time", elems: ["June - October 2023"]},
             {title: "Techniques", elems: ["Node.js","TypeScript","React","MongoDB","Express.js","Google Cloud APIs"]},
         ]}>
-        As part of my traineeship at AIContentfy, I implemented various frontend features and backend
-        changes to make the platform's user experience more polished. I worked on many smaller features,
-        here you can find some of it that I'm particularly proud of.
+        AIContentfy is a platform designed for automating content generation to enhance SEO. In my role as a fullstack
+        software engineer, I contributed to the implementation of various features.
         <Button text="Go To Website" url="https://app.aicontentfy.com/sign-in" />
     </TextSection>
     <Image src="{mainPage}" alt="The Main Screen Of The App" />
     <TextSection title="My Role">
-        As a trainee at AIContentfy, I implemented frontend changes in the app and modified some backend functionalities.
+        Implementing frontend features and backend changes to make the platform's user experience more polished.
+        I primarily worked on the React frontend, but I also made backend modifications to improve efficiency or support new
+        features.
     </TextSection>
     <Image src="{reportsImg}" alt="The Reports Dashboard" />
-    <TextSection title="Google Cloud APIs">
-        I implemented a feature to track the performance of the service which used the Google Analytics API and OAuth2.
+    <TextSection title="The Dashboard">
+        I created a feature that tracks blog performance using Google Analytics data. At the dashboard, users can view various
+        metrics and get suggestions on how to improve reach.
     </TextSection>
     <Image src="{reportsAuth}" alt="The authorization screen of the Reports feature" />
     <TextSection title="Google Cloud APIs">
-        I implemented a feature to track the performance of the service which used the Google Analytics API and OAuth2.
+        The Google OAuth and Analytics API was used to retrieve a wide range of data, such as traffic sources, user behavior,
+        and conversion metrics. This data was then processed and presented in a user-friendly format within the Reports feature.
     </TextSection>
 </MainPage>

@@ -4,6 +4,10 @@
     import Cursor from "../Cursor.svelte";
     import ArrowLeft from "svelte-material-icons/ArrowLeft.svelte"
     import { workData } from "../workData"
+    import {activeSection} from "../store"
+    import { router } from "tinro"
+
+    activeSection.set("");
 
     export let workIndex
     let isHovered = false
@@ -15,11 +19,19 @@
 
     killLenis()
     newLenis(0.05, 1)
+
+    router.subscribe( _ => {window.scrollTo(0, 0);})
 </script>
+<svelte:head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Merriweather:ital,wght@1,700&display=swap" rel="stylesheet">
+    <title>Work – {workData[workIndex].title}</title>
+</svelte:head>
 <Cursor/>
 <Menu/>
 <div class="main-work-page">
-    <a href="/#">
+    <a href="/?section={workData[workIndex].urlSafe}" data-cooltransition>
     <div class="back {isHovered ? 'hover' : ''}" on:mouseenter={() => {isHovered = true}} on:mouseleave={() => {isHovered = false}}>
         <div class="arrow"><span><ArrowLeft/></span></div><div class="back-txt"><p>Works</p></div>
     </div>
@@ -29,7 +41,7 @@
             <source src="{workData[workIndex].thumbnail}" type="video/mp4" />
         </video>
         <div class="main-title {scrollPos > 50 ? 'sticked' : ''}">
-            <h1>
+            <h1 name={workData[workIndex].title}>
                 {workData[workIndex].title}
             </h1>
         </div>
@@ -38,32 +50,9 @@
         <slot />
     </div>
 </div>
-<div class="opening-bg {scrollPos > 50 ? 'inactive' : ''}"></div>
-
 <style>
-    h1 {
-        background: var(--main-brand-color-08);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent; 
-        -moz-background-clip: text;
-        -moz-text-fill-color: transparent;
-    }
     .main-work-page {
         padding-bottom: 75px;
-    }
-    .opening-bg {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        z-index: -1;
-        background: linear-gradient(0deg, var(--main-brand-color) 13%, rgba(0,0,0,0) 95%);
-        opacity: 0.3;
-        transition: .6s;
-    }
-    .opening-bg.inactive {
-        opacity: 0;
     }
     .main-content {
         width: 100%;
@@ -76,7 +65,7 @@
         height: auto;
         filter: brightness(84%);
         border: solid 1px var(--main-brand-color);
-        z-index: 10;
+        z-index: 10 !important;
         margin-top: 140px;
         transition: .8s;
     }
@@ -90,15 +79,16 @@
         transform: scale(1.03);
     }
     .main-title h1 {
-        font-size: 110px;
         color: var(--main-brand-color);
-        -webkit-font-smoothing: antialiased;
-        paint-order: fill stroke;
-        font-weight: 900;
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 130px;
+        font-weight: 600;
+        text-shadow: rgba(0,0,0,0.1) 0 0 20px;
         z-index: 12;
         margin:0;
         width: 800px;
         margin: auto;
+        opacity: 0.94;
         transition: .6s;
     }
     .main-title {
@@ -112,13 +102,12 @@
     }
     .main-title.sticked {
         position: fixed;
-        top: 16px;
+        top: 20px;
         left:0;
     }
     .main-title.sticked h1 {
-        -webkit-text-stroke: 0 var(--main-brand-color);
-        font-size: 36px;
-        width: 240px;
+        font-size: 38px;
+        width: 234px;
     }
     .main-header {
         text-align: center;
@@ -180,7 +169,7 @@
     }
     @media (max-width: 1000px) {
         .main-title h1 {
-            font-size: 45px;
+            font-size: 60px;
             width: 80vw;
         }
         .main-header video {
@@ -189,11 +178,11 @@
         .main-title.sticked {
             position: fixed;
             left: 0;
-            top: 12px;
+            top: 10px;
         }
         .main-title.sticked h1 {
-            font-size: 30px;
-            width: 54vw;
+            font-size: 38px;
+            width: 51vw;
         }
         .main-title {
             position: fixed;

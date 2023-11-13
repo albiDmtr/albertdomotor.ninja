@@ -6,15 +6,18 @@
   import Work from "../lib/Work.svelte"
   import Contact from "../lib/Contact.svelte"
   import Footer from "../lib/Footer.svelte"
-  import Loading from "../lib/Loading.svelte"
   import { inject } from '@vercel/analytics'
-  import { router } from "tinro"
+  import { killLenis, newLenis } from "../lib/helpers"
  
-  inject();
+  inject()
+
+  killLenis()
+  newLenis(0.1, 3)
 
 </script>
-
-<Loading />
+<svelte:head>
+  <title>Albert Dömötör – Software Engineer</title>
+</svelte:head>
 <Cursor />
 <Menu />
 <Opening />

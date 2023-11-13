@@ -1,5 +1,5 @@
 <script>
-    import {meta} from 'tinro';
+    import {meta, router} from 'tinro';
     const route = meta()
 
     let loaded = false
@@ -20,7 +20,28 @@
             document.querySelector("body").style.overflowY = "initial";
         },200)
     }
+
+    // transition
+    const transitionTime = 800
+    let transition = ""
+    router.subscribe( _ => {transition = "out"; setTimeout(() => {transition = ""},transitionTime)})
+
+    const clickHandler = (e, link) => {
+        e.preventDefault()
+        setTimeout(() => { router.goto(link.href) }, transitionTime )
+        transition = "in"
+    }
+    const setListeners = () => {
+        const links = document.querySelectorAll('[data-cooltransition]')
+        for (var link of links) {
+            link.setAttribute("data-tinro-ignore", true)
+            link.addEventListener("click", (e) => {clickHandler(e, link)})
+        }
+    }
+    router.subscribe(() => setTimeout(setListeners,1))
+
 </script>
+<div class="transition {transition}"></div>
 {#if !route.from}
     <div class="loading {loaded && timePassed ? 'loaded' : ''}" bind:this={loadingElem}>
         <div class="anim1"><img src="../../assets/loading/anim1.svg" width="220px" /></div>
@@ -29,6 +50,28 @@
 {/if}
 
 <style>
+    .transition {
+        position: fixed;
+        z-index: 1000000;
+        height: 100vh;
+        width: 0vw;
+        background-color: var(--main-brand-color);
+    }
+    .in {
+        animation: transitionInAnim .8s ease-out 0s 1;
+    }
+    .out {
+        animation: transitionOutAnim .8s ease-out 0s 1;
+    }
+    @keyframes transitionInAnim {
+        0% {position: fixed; top: 0; left: 0; width: 0vw;}
+        100% {position: fixed; top: 0; left: 0; width: 100vw;}
+    }
+    @keyframes transitionOutAnim {
+        0% {position: fixed; top: 0; right: 0; width: 100vw;}
+        100% {position: fixed; top: 0; right: 0; width: 0vw;}
+    }
+
     .anim1 {
         position: fixed;
         top: calc(50vh - 100px);

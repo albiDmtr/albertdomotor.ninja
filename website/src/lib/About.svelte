@@ -39,14 +39,14 @@ let aboutElem
                 <div>
                     <p>Fullstack Software Developer<br/><span>AIContentfy</span></p>
                 </div>
-                <span class="url"><CallMade /></span>
+                <a href="https://aicontentfy.com/" target="_blank"><span class="url"><CallMade /></span></a>
             </div>
             <div class="occupation pj">
                 <div class="img"></div>
                 <div>
                     <p>Campaign Ambassador<br/><span>Programozd a jövőd!</span></p>
                 </div>
-                <span class="url"><CallMade /></span>
+                <a href="https://programozdajovod.hu/" target="_blank"><span class="url"><CallMade /></span></a>
             </div>
         </div>
     </div>

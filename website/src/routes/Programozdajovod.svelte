@@ -6,28 +6,30 @@
     import reportsImg from '../../assets/works/AIC/report.jpg'
     import mainPage from '../../assets/works/AIC/main-page.jpg'
     import Button from '../lib/work/Button.svelte'
+    import Video from "../lib/work/Video.svelte";
 </script>
 <MainPage workIndex=1>
     <TextSection
         title="Project Info"
         subsections={[
-            {title: "Time", elems: ["June - October 2023"]},
-            {title: "Techniques", elems: ["Node.js","TypeScript","React","MongoDB","Express.js","Google Cloud APIs"]},
+            {title: "Time", elems: ["September 2021 -","August 2022"]},
+            {title: "Techniques", elems: ["Adobe Creative Cloud","Video editing","Graphic design"]},
         ]}>
-        As part of my traineeship at AIContentfy, I implemented various frontend features and backend
-        changes to make the platform's user experience more polished. I worked on many smaller features,
-        here you can find some of it that I'm particularly proud of.
-        <Button text="Go To Website" url="https://app.aicontentfy.com/sign-in" />
+        Programozd a jövőd! is an EU project run by the Ministry of Innovation and Technology of Hungary,
+        with the goal of making teenagers more interested in programming.
+        <Button text="Go To Website" url="https://programozdajovod.hu" />
     </TextSection>
-    <Image src="{mainPage}" alt="The Main Screen Of The App" />
-    <TextSection title="Google Cloud APIs">
-        I implemented a feature to track the performance of the service which used the Google Analytics API and OAuth2.
+    <Video url="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2F311GINOP%2Fvideos%2F186877426815462%2F&show_text=false&width=560&t=0" alt="Video About One of Our Events" />
+    <TextSection title="My Role">
+        As an ambassador of the program, I created educational content about emerging technologies 
+        such as AI and NFTs, participated in panel discussions about IT, and engaged with fellow teenagers
+        at our events.
     </TextSection>
-    <Image src="{reportsImg}" alt="The Reports Dashboard" />
-    <TextSection title="Google Cloud APIs">
-        I implemented a feature to track the performance of the service which used the Google Analytics API and OAuth2.
+    <Video url="https://www.youtube.com/embed/IbiLzes_cSQ" alt="Video About NFTs" />
+    <TextSection title="Educational Videos">
+        I regularly made videos about all the interesting fields of IT in an entertaining form. 
     </TextSection>
-    <Image src="{reportsAuth}" alt="The authorization screen of the Reports feature" />
+    <Video url="https://www.youtube.com/embed/E0sbYyfXweU" alt="Video About Quantum Computers" />
     <TextSection title="Google Cloud APIs">
         I implemented a feature to track the performance of the service which used the Google Analytics API and OAuth2.
     </TextSection>

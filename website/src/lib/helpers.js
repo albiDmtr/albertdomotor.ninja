@@ -33,7 +33,9 @@ export const scrollToElem = (id) => {
 }
 
 export const killLenis = () => {
-    get(lenis).destroy()
+    if (get(lenis)) {
+        get(lenis).destroy()
+    }
 }
 
 export const newLenis = (lerp, multiplier) => {
