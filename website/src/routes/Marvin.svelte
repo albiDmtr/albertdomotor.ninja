@@ -12,13 +12,10 @@
     <TextSection
         title="Project Info"
         subsections={[
-            {title: "Time", elems: ["June - October 2023"]},
-            {title: "Techniques", elems: ["Node.js","TypeScript","React","MongoDB","Express.js","Google Cloud APIs"]},
+            {title: "Time", elems: ["February 2020 -","April 2021"]},
+            {title: "Techniques", elems: ["Python","Docker","Google Cloud","WebSocket"]},
         ]}>
-        As part of my traineeship at AIContentfy, I implemented various frontend features and backend
-        changes to make the platform's user experience more polished. I worked on many smaller features,
-        here you can find some of it that I'm particularly proud of.
-        <Button text="Go To Website" url="https://app.aicontentfy.com/sign-in" />
+         Marvin is an open source, extendable trading bot to daytrade cryptocurrencies.
     </TextSection>
     <Repo
         url="https://raw.githubusercontent.com/albiDmtr/marvin/main/README.md"

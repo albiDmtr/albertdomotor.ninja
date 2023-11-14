@@ -24,7 +24,7 @@
     let innerHtml
     onMount(async () => {
         fetch(url)
-        .then(response => response.text().then((res) => innerHtml = snarkdown(res).replace("<em>","_")))
+        .then(response => response.text().then((res) => innerHtml = snarkdown(res).replace("<em>","_").replace("------------","<hr>")))
         .catch(error => {
             console.log(error)
             return []
@@ -32,7 +32,7 @@
     })
 
 </script>
-<a class="gh-url" href="ghUrl">
+<a class="gh-url" href="{ghUrl}" target="_blank">
 <div class="gh-cont">
     <div class="gh-button">
     </div>
@@ -160,7 +160,7 @@
     .md-inner {
         padding: 15px 25px;
     }
-    :global(.md h3, .md h4) {
+    :global(.md h3, .md h4, .md h5) {
         color: black;
     }
     :global(.md h1, .md h2) {
@@ -216,6 +216,9 @@
         }
         .md:hover {
             transform: none;
+        }
+        :global(.md-inner img) {
+            max-width: 100%;
         }
     }
 </style>

@@ -43,7 +43,7 @@ export const workData = [
     },
     {
         "title": "Vision Translate",
-        "description":"Vision Translate is a browser extension that helps learning a new language by associating words with images and as well as making word quizes for you. It is used by over a thousand people.",
+        "description":"Vision Translate is a browser extension that helps learning a new language by associating words with images as well as making word quizes for you. It is used by over a thousand people.",
         "time": "October - December 2019",
         "thumbnail": vtThumbnail,
         "actionUrl": "https://chrome.google.com/webstore/detail/vision-translate-smart-hi/aemapjnikiphnefgmocicmlmbdhodkea",

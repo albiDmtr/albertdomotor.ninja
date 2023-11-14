@@ -27,10 +27,12 @@
     </TextSection>
     <Video url="https://www.youtube.com/embed/IbiLzes_cSQ" alt="Video About NFTs" />
     <TextSection title="Educational Videos">
-        I regularly made videos about all the interesting fields of IT in an entertaining form. 
+        I regularly made videos about all the interesting fields of IT, breaking down complex concepts into
+        digestible and entertaining segments, making it accessible for viewers with varying levels of expertise.
     </TextSection>
     <Video url="https://www.youtube.com/embed/E0sbYyfXweU" alt="Video About Quantum Computers" />
-    <TextSection title="Google Cloud APIs">
-        I implemented a feature to track the performance of the service which used the Google Analytics API and OAuth2.
+    <TextSection title="More of my content">
+        You can find all of my Youtube videos 
+        <a href="https://www.youtube.com/watch?v=E0sbYyfXweU&list=PL81QBF6Zpc2wpM3Tha00biOWdJ876KQzi" target="_blank">here</a>.
     </TextSection>
 </MainPage>
