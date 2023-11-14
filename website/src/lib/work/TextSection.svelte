@@ -34,7 +34,6 @@
         width: 100%;
         display: flex;
         padding: 0 20px 20px 20px;
-        padding-top: -16px;
     }
     .sub-elem h4 {
         font-size: 22px;

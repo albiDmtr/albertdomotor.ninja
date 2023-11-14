@@ -75,7 +75,7 @@
         width: 45px;
         display: inline-block;
         background-color: var(--main-brand-color);
-        background-image: url('../../assets/social_icons/github.png');
+        background-image: url('../../../assets/social_icons/github.png');
         background-size: 60%;
         background-position: 50%;
         background-repeat: no-repeat;
