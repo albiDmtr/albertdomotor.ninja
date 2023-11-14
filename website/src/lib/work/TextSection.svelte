@@ -68,6 +68,7 @@
     }
     .title {
         flex-basis: 150px;
+        text-wrap: nowrap;
     }
     .body {
         flex-grow: 1;
