@@ -1,6 +1,9 @@
 <script>
     import CV from '../../assets/CV/CV.pdf'
 </script>
+<svelte:head>
+    <title>CV – Albert Dömötör</title>
+</svelte:head>
 <iframe src="{CV}" class="frame"></iframe>
 
 <style>

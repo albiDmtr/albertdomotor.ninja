@@ -1,5 +1,5 @@
 <script>
-    import { Route, router } from "tinro"
+    import { Route } from "tinro"
     import Home from "./routes/Home.svelte"
     import Work from "./routes/Work.svelte"
     import Aicontentfy from "./routes/Aicontentfy.svelte"
@@ -7,13 +7,11 @@
     import Marvin from "./routes/Marvin.svelte"
     import Visiontranslate from "./routes/Visiontranslate.svelte"
     import Toothsometomato from "./routes/Toothsometomato.svelte"
-    import CV from "./routes/CV.svelte"
-    import { fade } from 'svelte/transition'
+    import Transition from "./lib/Transition.svelte"
     import Notfound from "./routes/Notfound.svelte"
     import Cv from "./routes/CV.svelte";
     export let url = ""
 
-    router.subscribe( _ => {window.scrollTo(0, 0);})
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=true>
@@ -29,38 +27,29 @@
     </Route>
     <Route path="/work/*">
         <Route path="/">
-          <div in:fade={{duration: 1200}} out:fade={{duration: 500}}>
             <Work />
-          </div>
         </Route>
         <Route path="/aicontentfy">
-          <div in:fade={{duration: 1200}} out:fade={{duration: 500}}>
             <Aicontentfy />
-          </div>
         </Route>
         <Route path="/programozd-a-jovod">
-          <div in:fade={{duration: 1200}} out:fade={{duration: 500}}>
             <Programozdajovod />
-          </div>
         </Route>
         <Route path="/marvin">
-          <div in:fade={{duration: 1200}} out:fade={{duration: 500}}>
             <Marvin />
-          </div>
         </Route>
         <Route path="/vision-translate">
-          <div in:fade={{duration: 1200}} out:fade={{duration: 500}}>
             <Visiontranslate />
-          </div>
         </Route>
         <Route path="/toothsome-tomato">
-          <div in:fade={{duration: 1200}} out:fade={{duration: 500}}>
             <Toothsometomato />
-          </div>
         </Route>
     </Route>
     <Route fallback>
       <Notfound />
+    </Route>
+    <Route>
+      <Transition />
     </Route>
   </main>
 </div>
@@ -111,10 +100,11 @@
   
     :global(:root) {
       --main-brand-color: rgb(255,68,229);
-      --main-brand-color-08: rgba(255,68,229,0.9);
+      --main-brand-color-alt: rgb(216, 58, 195);
     }
     :global(body) {
       overflow-x: hidden;
+      overflow-y: scroll !important;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility; 
       touch-action: pan-y;

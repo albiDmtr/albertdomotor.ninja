@@ -11,7 +11,7 @@
 
   </script>
   
-  <svelte:window on:mousemove={handleMouseMove}/>
+  <svelte:body on:mousemove={handleMouseMove}/>
   <div class="cursor" bind:this="{cursorElem}"></div>
 
   <style>
@@ -31,6 +31,7 @@
         backdrop-filter: invert(80%);
         z-index: 100000;
         background: rgba(255,68,229,0.6);
+        transition: opacity 0.3s;
     }
     @media (hover: none){
       .cursor {

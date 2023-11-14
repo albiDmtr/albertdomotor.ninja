@@ -1,4 +1,5 @@
 import aicIcon from '../../assets/occupation_icons/aic.png'
+import pjIcon from '../../assets/occupation_icons/pj.png'
 import ytIcon from '../../assets/social_icons/youtube.png'
 import ghIcon from '../../assets/social_icons/github.png'
 import chIcon from '../../assets/social_icons/chromewebstore.png'
@@ -16,7 +17,7 @@ export const workData = [
         "time":"June - October 2023",
         "thumbnail": aicThumbnail,
         "actionUrl": "https://aicontentfy.com/",
-        "url" : "/work/aicontentfy",
+        "urlSafe" : "aicontentfy",
         "actionIcon": aicIcon,
         "index":0
     },
@@ -26,8 +27,8 @@ export const workData = [
         "time": "September 2021 - August 2022",
         "thumbnail": pjThumbnail,
         "actionUrl": "https://www.youtube.com/watch?v=E0sbYyfXweU&list=PL81QBF6Zpc2wpM3Tha00biOWdJ876KQzi",
-        "url" : "/work/programozd-a-jovod",
-        "actionIcon": ytIcon,
+        "urlSafe" : "programozd-a-jovod",
+        "actionIcon": pjIcon,
         "index":1
     },
     {
@@ -36,17 +37,17 @@ export const workData = [
         "time": "February 2020 - April 2021",
         "thumbnail": marvinThumbnail,
         "actionUrl": "https://github.com/albiDmtr/marvin",
-        "url" : "/work/marvin",
+        "urlSafe" : "marvin",
         "actionIcon": ghIcon,
         "index":2
     },
     {
         "title": "Vision Translate",
-        "description":"Vision Translate is a browser extension that helps learning a new language by associating words with images and as well as making word quizes for you. It is used by over a thousand people.",
+        "description":"Vision Translate is a browser extension that helps learning a new language by associating words with images as well as making word quizes for you. It is used by over a thousand people.",
         "time": "October - December 2019",
         "thumbnail": vtThumbnail,
         "actionUrl": "https://chrome.google.com/webstore/detail/vision-translate-smart-hi/aemapjnikiphnefgmocicmlmbdhodkea",
-        "url" : "/work/vision-translate",
+        "urlSafe" : "vision-translate",
         "actionIcon": chIcon,
         "index":3
     },
@@ -56,7 +57,7 @@ export const workData = [
         "time": "September 2021",
         "thumbnail": ttThumbnail,
         "actionUrl": "https://github.com/albiDmtr/toothsome-tomato",
-        "url" : "/work/toothsome-tomato",
+        "urlSafe" : "toothsome-tomato",
         "actionIcon": ghIcon,
         "index":4
     }

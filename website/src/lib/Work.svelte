@@ -1,17 +1,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
 <script>
-import CallMade from "svelte-material-icons/CallMade.svelte"
 import viewport from './useViewportAction'
 import {activeSection} from "./store"
 import ArrowRight from "svelte-material-icons/ArrowRight.svelte"
 import { workData } from "./workData"
-import { scrollToPos } from "./helpers"
+import { scrollToElem } from "./helpers"
+
 let hoveredIcon = ""
 let workSidebar
 let workElem
-
-let workNo = 0
-
 let stickyElemEnterPos
 let screenHeight = window.innerHeight
 let effectStartPos
@@ -21,63 +18,82 @@ let workWrapper
 $: {if (workWrapper && workElem) {
     scrollLength = workWrapper.offsetHeight - workElem.offsetHeight
 } }
-let effectActive = false
 let stepSize
 $: {scrollLength ? stepSize = (scrollLength / workData.length) : ""}
-export const onScroll = () => {
-    let scrollPos = document.documentElement.scrollTop
-    workNo = Math.min( Math.max(Math.floor((scrollPos-effectStartPos)/stepSize), 0), workData.length-1 )
-    if (scrollPos >= effectStartPos && scrollPos < (effectStartPos+scrollLength)) {
-        effectActive = true
-    } else {
-        effectActive = false
-    }
-}
-window.onscroll = onScroll
 
-let takeToWork = (workNo) => {} 
-$: {effectStartPos && stepSize ? takeToWork = (workNo) => {scrollToPos(effectStartPos+stepSize/2+(workNo*stepSize))} : ""} 
+let workNo = 0
+
+let moreHover = false
+
+// scrolling to the correct section
+const urlParams = new URLSearchParams(window.location.search)
+const section = urlParams.get('section')
+if (section) {
+    setTimeout(() => scrollToElem(section), 1)
+}
+
+// effectActive csak odaplaccsanaskor valtozzon
+let bgActive = false
+
+const observer = new IntersectionObserver(
+    ([e]) => {if (e.intersectionRatio == 1) {bgActive = true} else {bgActive = false}}, {
+  threshold: [1],
+});
+
+$: if (workElem) {observer.observe(workElem)} 
 
 </script>
 <div class="work-sidebar unactive" bind:this={workSidebar}>
     <div class="works-txt"><p>Works</p></div>
     <div class="work-item {hoveredIcon == "AIC" ? "hover" : ""} {workNo == 0 ? 'active-item' : ''}">
         <div class="wrapper"
-            on:click={() => takeToWork(0)}
+            on:click={() => scrollToElem("aicontentfy")}
             on:mouseenter={() => hoveredIcon = "AIC"}
             on:mouseleave={() => hoveredIcon = ""}><div class="work-icon AIC"></div></div>
         <div class="txt"><p>AIContentfy</p></div>
     </div>
     <div class="work-item {hoveredIcon == "PJ" ? "hover" : ""} {workNo && workNo == 1 ? 'active-item' : ''}">
         <div class="wrapper"
-        on:click={() => takeToWork(1)}
+        on:click={() => scrollToElem("programozd-a-jovod")}
         on:mouseenter={() => hoveredIcon = "PJ"}
         on:mouseleave={() => hoveredIcon = ""}><div class="work-icon PJ"></div></div>
         <div class="txt"><p>Programozd a jövőd!</p></div>
     </div>
     <div class="work-item {hoveredIcon == "Marvin" ? "hover" : ""} {workNo && workNo == 2 ? 'active-item' : ''}">
         <div class="wrapper"
-            on:click={() => takeToWork(2)}
+            on:click={() => scrollToElem("marvin")}
             on:mouseenter={() => hoveredIcon = "Marvin"}
             on:mouseleave={() => hoveredIcon = ""}><div class="work-icon Marvin"></div></div>
         <div class="txt"><p>marvin.py</p></div>
     </div>
     <div class="work-item {hoveredIcon == "VT" ? "hover" : ""} {workNo && workNo == 3 ? 'active-item' : ''}">
         <div class="wrapper"
-        on:click={() => takeToWork(3)}
+        on:click={() => scrollToElem("vision-translate")}
         on:mouseenter={() => hoveredIcon = "VT"}
         on:mouseleave={() => hoveredIcon = ""}><div class="work-icon VT"></div></div>
         <div class="txt"><p>Vision Translate</p></div>
     </div>
     <div class="work-item {hoveredIcon == "TT" ? "hover" : ""} {workNo && workNo == 4 ? 'active-item' : ''}">
         <div class="wrapper"
-        on:click={() => takeToWork(4)}
+        on:click={() => scrollToElem("toothsome-tomato")}
         on:mouseenter={() => hoveredIcon = "TT"}
         on:mouseleave={() => hoveredIcon = ""}><div class="work-icon TT"></div></div>
         <div class="txt"><p>Toothsome Tomato</p></div>
     </div>
 </div>
 <div class="work-wrapper" bind:this={workWrapper} >
+    {#key stepSize}
+    {#each workData as work}
+        <div class="pos-elem"
+            id="{work.urlSafe}"
+            style="position: absolute; top: {+(work.index*stepSize)}px;"
+            use:viewport
+            on:enterViewport={() => {
+                workNo = work.index;
+            }}>
+        </div>
+    {/each}
+    {/key}
     <div class="work-section-main" bind:this={workElem} id="work"
         use:viewport
         on:enterViewport={() => {
@@ -85,9 +101,7 @@ $: {effectStartPos && stepSize ? takeToWork = (workNo) => {scrollToPos(effectSta
             workSidebar.classList.remove("unactive");
             workElem.classList.add("shown");
             workElem.classList.remove("notshown");
-            stickyElemEnterPos = !stickyElemEnterPos ? document.documentElement.scrollTop : stickyElemEnterPos
             activeSection.set("work");
-            setTimeout(onScroll, 1);
             }}
 		on:exitViewport={() => {
             workSidebar.classList.remove("active");
@@ -109,11 +123,11 @@ $: {effectStartPos && stepSize ? takeToWork = (workNo) => {scrollToPos(effectSta
                 <div class="main-work-desc">
                     <p>{workData[workNo] ? workData[workNo].description : ""}</p>
                         <div class="button-cont">
-                            <div class="action-button" style="background-image: url('{
-                                workData[workNo] ? workData[workNo].actionIcon : ""
-                            }');"></div>
-                            <a href="{workData[workNo] ? workData[workNo].actionUrl : ""}">
-                            <div class="more">Read More
+                            <a href="{workData[workNo] ? `/work/${workData[workNo].urlSafe}` : ""}"
+                            data-cooltransition>
+                            <div class="more {moreHover ? 'hover' : ''}"
+                                on:mouseenter={() => moreHover = true}
+                                on:mouseleave={() => moreHover = false}>Read More
                                 <span class="arrow"><ArrowRight /></span>
                             </div>
                             </a>
@@ -125,11 +139,11 @@ $: {effectStartPos && stepSize ? takeToWork = (workNo) => {scrollToPos(effectSta
         </div>
     </div>
 </div>
-{#key [workNo, effectActive]}
+{#key [workNo, bgActive]}
     <div class="bg-img fadeIn{workData[workNo] ? workNo%2 : ''}">
         <div class="shadow"></div>
         <video autoplay muted loop playsinline>
-            <source src="{effectActive && workData[workNo] ? workData[workNo].thumbnail : ''}" type="video/mp4" />
+            <source src="{bgActive && workData[workNo] ? workData[workNo].thumbnail : ''}" type="video/mp4" />
         </video>
     </div>
 {/key}
@@ -144,6 +158,11 @@ $: {effectStartPos && stepSize ? takeToWork = (workNo) => {scrollToPos(effectSta
 {/each}
 </div>
 <style>
+    .pos-elem {
+        z-index: -1;
+        width: 100px;
+        height: 100px;
+    }
     .bg-img video {
         min-width: 100vw;
         min-height: 100vh;
@@ -223,8 +242,18 @@ $: {effectStartPos && stepSize ? takeToWork = (workNo) => {scrollToPos(effectSta
         box-shadow: inset 0 0 30vh 0 rgb(0,0,0);
     }
     .arrow {
+        font-size: 20px;
+        font-weight: 900;
+        float: right;
         position: relative;
-        bottom: -2px;
+        top: 3px;
+        right: 8px;
+        transition: .3s;
+    }
+    .hover .arrow {
+        position: relative;
+        top: 3px;
+        right: 4px;
     }
     .main-work-desc {
         transition: .2s;
@@ -275,15 +304,16 @@ $: {effectStartPos && stepSize ? takeToWork = (workNo) => {scrollToPos(effectSta
     }
     .more {
         font-family: 'Inter', sans-serif;
-        border: solid 1px var(--main-brand-color);
-        width: 122px;
+        background: var(--main-brand-color);
+        width: 145px;
         height: 45px;
         overflow: hidden;
-        line-height: 2.7;
+        line-height: 45px;
         text-align: center;
         opacity: 0.8;
-        color: white;
-        transition: .2s;
+        color: black;
+        font-weight: 400;
+        transition: .3s;
         padding: 0 6px;
         cursor: pointer;
     }
@@ -291,7 +321,8 @@ $: {effectStartPos && stepSize ? takeToWork = (workNo) => {scrollToPos(effectSta
         text-decoration: none;
     }
     .more:hover {
-        color: var(--main-brand-color);
+        background-color: white;
+        opacity: 0.8;
     }
     .main-work-thumbnail {
         width: 800px;
@@ -383,13 +414,13 @@ $: {effectStartPos && stepSize ? takeToWork = (workNo) => {scrollToPos(effectSta
     }
 
     .work-wrapper {
+        position: relative;
         height: 800vh;
     }
     .work-section-main {
-        height: 100vh;
+        height: 98vh;
         position: sticky;
-        top: -1px;
-        padding-top: 1px;
+        top: 1vh;
         display: flex;
         flex-direction: column;
         justify-content: center;

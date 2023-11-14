@@ -188,6 +188,7 @@ on:exitViewport={disableEffect}></div>
             position: absolute;
             top: calc(40vh - 45vw);
             left: 5vw;
+            z-index: 2;
         }
         .albert {
             padding-top: calc(40vh - 55vw);

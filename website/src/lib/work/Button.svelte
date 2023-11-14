@@ -9,6 +9,7 @@
     a {
         color: black;
         background-color: var(--main-brand-color);
+        border: solid 1px var(--main-brand-color);
         padding: 10px 15px 12px 15px;
         font-weight: 500;
         text-transform: uppercase;
