@@ -3,8 +3,11 @@
 </script>
 <svelte:head>
     <title>CV – Albert Dömötör</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 </svelte:head>
-<iframe src="{CV}" class="frame"></iframe>
+<body>
+    <iframe src="{CV}" class="frame"></iframe>
+</body>
 
 <style>
     .frame {
@@ -14,5 +17,8 @@
         top:0;
         left:0;
         border: none;
+    }
+    :global(body) {
+      touch-action: pinch-zoom !important;
     }
 </style>
