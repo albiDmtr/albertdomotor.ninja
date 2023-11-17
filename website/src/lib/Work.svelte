@@ -116,7 +116,9 @@ $: if (workElem) {observer.observe(workElem)}
             </div>
             <div class="main-desc">
                 {#key workNo}
-                    <video class="main-work-thumbnail animIn{workData[workNo] ? workNo%2 : ''}" autoplay muted loop playsinline>
+                    <video class="main-work-thumbnail animIn{workData[workNo] ? workNo%2 : ''}"
+                    style="background-image: url('{workData[workNo] ? workData[workNo].fallback : ''}');"
+                    autoplay muted loop playsinline>
                         <source src="{workData[workNo] ? workData[workNo].thumbnail : ''}" type="video/mp4" />
                     </video>
                 {/key}         
@@ -142,7 +144,9 @@ $: if (workElem) {observer.observe(workElem)}
 {#key [workNo, bgActive]}
     <div class="bg-img fadeIn{workData[workNo] ? workNo%2 : ''}">
         <div class="shadow"></div>
-        <video autoplay muted loop playsinline>
+        <video
+        style="background-image: url('{bgActive && workData[workNo] ? workData[workNo].fallback : ''}');"
+        autoplay muted loop playsinline>
             <source src="{bgActive && workData[workNo] ? workData[workNo].thumbnail : ''}" type="video/mp4" />
         </video>
     </div>
@@ -152,9 +156,7 @@ $: if (workElem) {observer.observe(workElem)}
     <video autoplay muted loop playsinline class="thumbnailImg">
         <source src={work.thumbnail} type="video/mp4" />
     </video>
-    <video autoplay muted loop playsinline class="actionImg">
-        <source src={work.actionIcon} type="video/mp4" />
-    </video>
+    <img class="thumbnailImg" src={work.fallback} />
 {/each}
 </div>
 <style>

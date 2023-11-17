@@ -37,7 +37,8 @@
     </div>
     </a>
     <div class="main-header">
-        <video autoplay muted loop playsinline class="{scrollPos > 50 ? 'shrunk' : ''}">
+        <video autoplay muted loop playsinline class="{scrollPos > 50 ? 'shrunk' : ''}"
+            style="background-image: url('{workData[workIndex].fallback}');">
             <source src="{workData[workIndex].thumbnail}" type="video/mp4" />
         </video>
         <div class="main-title {scrollPos > 50 ? 'sticked' : ''}">
