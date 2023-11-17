@@ -18,7 +18,7 @@
         left:0;
         border: none;
     }
-    :global(body) {
+    body {
       touch-action: pinch-zoom !important;
     }
 </style>
