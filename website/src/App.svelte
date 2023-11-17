@@ -19,6 +19,8 @@
 
 <div id=app>
   <main>
+  <Route>
+    <Transition />
     <Route path="/">
         <Home />
     </Route>
@@ -48,9 +50,7 @@
     <Route fallback>
       <Notfound />
     </Route>
-    <Route>
-      <Transition />
-    </Route>
+  </Route>
   </main>
 </div>
 

@@ -18,7 +18,4 @@
         left:0;
         border: none;
     }
-    body {
-      touch-action: pinch-zoom !important;
-    }
 </style>
