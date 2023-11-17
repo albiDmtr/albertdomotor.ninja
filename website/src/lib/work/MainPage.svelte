@@ -31,7 +31,9 @@
 <Cursor/>
 <Menu/>
 <div class="main-work-page">
-    <a href="/?section={workData[workIndex].urlSafe}" data-cooltransition>
+    <a href="/?section={workData[workIndex].urlSafe}"
+        on:click={() => {document.querySelector('body')?.classList.remove("stop-scrolling")}}
+        data-cooltransition>
     <div class="back {isHovered ? 'hover' : ''}" on:mouseenter={() => {isHovered = true}} on:mouseleave={() => {isHovered = false}}>
         <div class="arrow"><span><ArrowLeft/></span></div><div class="back-txt"><p>Works</p></div>
     </div>

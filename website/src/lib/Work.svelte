@@ -86,7 +86,7 @@ $: if (workElem) {observer.observe(workElem)}
     {#each workData as work}
         <div class="pos-elem"
             id="{work.urlSafe}"
-            style="position: absolute; top: {+(work.index*stepSize)}px;"
+            style="position: absolute; top: {(stepSize/2)+(work.index*stepSize)}px;"
             use:viewport
             on:enterViewport={() => {
                 workNo = work.index;

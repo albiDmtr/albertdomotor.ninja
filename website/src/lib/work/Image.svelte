@@ -43,17 +43,17 @@
 </script>
 <svelte:window on:keydown|preventDefault={onKeyDown} />
 
+<button class="close-btn {imgOpen ? 'shown' : 'notShown'}"
+on:click={() => {imgOpen = false}}>
+    <span>
+        <Close />
+    </span>
+    </button>
 <div class="main-img-cont {imgOpen ? 'open' : 'closed'} {inView ? "in-view" : "out-view"}"
     on:click={() => {screenWidth > 1000 ? imgOpen = !imgOpen : !imgOpen ? imgOpen = true : ''}}
     use:viewport
     on:enterViewport={() => {inView = true}}
     on:exitViewport={() => {inView = false}}>
-    <button class="close-btn"
-        on:click={() => {screenWidth > 1000 ? '' : imgOpen = false}}>
-        <span>
-            <Close />
-        </span>
-    </button>
     <div class="img" style="background-image: url('{src}');"
     bind:this={img} on:mousemove={(e) => {imgOpen && screenWidth > 1000 ? handleZoom(e) : ''}}
     on:mouseleave={handleLeave}>
@@ -87,7 +87,7 @@
         display: none;
         opacity: 0;
     }
-    .open .close-btn {
+    .close-btn.shown {
         display: block;
         opacity: 1;
     }
@@ -207,7 +207,7 @@
         .close-btn {
             position: fixed;
             top: 0;
-            right: 10px;
+            left: calc(100vw - 55px);
             width: 55px;
             height: 55px;
             background-color: var(--main-brand-color);
@@ -221,6 +221,10 @@
             width: calc(100% - 8px );
             margin-left: 0;
             margin-top: 86px;
+        }
+        .open .img:hover {
+            transform: none;
+            background-size: contain;
         }
     }
 </style>
