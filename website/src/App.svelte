@@ -10,7 +10,6 @@
     import Transition from "./lib/Transition.svelte"
     import Notfound from "./routes/Notfound.svelte"
     import Cv from "./routes/CV.svelte";
-    export let url = ""
 
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">

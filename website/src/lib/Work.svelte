@@ -157,7 +157,7 @@ $: if (workElem) {observer.observe(workElem)}
     <video autoplay muted loop playsinline class="thumbnailImg">
         <source src={work.thumbnail} type="video/mp4" />
     </video>
-    <img class="thumbnailImg" src={work.fallback} />
+    <img class="thumbnailImg" src={work.fallback} alt="preload img" />
 {/each}
 </div>
 <style>
