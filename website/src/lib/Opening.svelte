@@ -1,10 +1,7 @@
 <script>
-import {parallaxElems, handleParallax, disableEffect, enableEffect} from "./Parallax"
-//let parallaxElems = []
-//const handleParallax = () => {console.log("ee")}
 import ParallaxElem from "./ParallaxElem.svelte";
 import viewport from './useViewportAction'
-import {activeSection} from "./store"
+import {sectionEnter, sectionLeave} from "./store"
 let mainElem
 
 setTimeout(() => {
@@ -20,7 +17,6 @@ setTimeout(() => {
 </svelte:head>
 <div
     class="main-parallax-container opening-unactive"
-    on:mousemove={handleParallax}
     bind:this="{mainElem}">
     <ParallaxElem  front=1>
         <div class="main-parallax-text domotor fading">Dömötör</div>
@@ -40,8 +36,8 @@ setTimeout(() => {
 <div class="placeholder"
 id="top"
 use:viewport
-on:enterViewport={() => {activeSection.set(""); enableEffect();}}
-on:exitViewport={disableEffect}></div>
+on:enterViewport={() => {sectionEnter("");}}
+on:exitViewport={() => {sectionLeave("");}}></div>
 <style>
     /* parallax */
     .main-parallax-img {

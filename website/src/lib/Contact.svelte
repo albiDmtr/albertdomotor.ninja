@@ -1,15 +1,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
 <script>
     import {emailAddress, phoneNumber, whatsAppUrl, telegramUrl} from "./data"
-    import {activeSection} from "./store"
+    import {sectionEnter, sectionLeave} from "./store"
     import viewport from './useViewportAction'
     let contactElem
 </script>
 <div class="contact-wrapper">
     <div class="contact-section-main notshown" bind:this={contactElem} id="contact"
     use:viewport
-    on:enterViewport={() => {activeSection.set("contact"); contactElem.classList.add("shown"); contactElem.classList.remove("notshown");}}
-    on:exitViewport={() => {contactElem.classList.remove("shown"); contactElem.classList.add("notshown")}}>
+    on:enterViewport={() => {sectionEnter("contact"); contactElem.classList.add("shown"); contactElem.classList.remove("notshown");}}
+    on:exitViewport={() => {sectionLeave("contact"); contactElem.classList.remove("shown"); contactElem.classList.add("notshown")}}>
         <div class="inner fading">
             <div class="main-title">
             <h2>Contact</h2>

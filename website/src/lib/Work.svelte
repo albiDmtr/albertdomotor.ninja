@@ -1,7 +1,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
 <script>
 import viewport from './useViewportAction'
-import {activeSection} from "./store"
+import {sectionEnter, sectionLeave} from "./store"
 import ArrowRight from "svelte-material-icons/ArrowRight.svelte"
 import { workData } from "./workData"
 import { scrollToElem } from "./helpers"
@@ -101,13 +101,14 @@ $: if (workElem) {observer.observe(workElem)}
             workSidebar.classList.remove("unactive");
             workElem.classList.add("shown");
             workElem.classList.remove("notshown");
-            activeSection.set("work");
+            sectionEnter("work");
             }}
 		on:exitViewport={() => {
             workSidebar.classList.remove("active");
             workSidebar.classList.add("unactive");
             workElem.classList.add("notshown");
             workElem.classList.remove("shown");
+            sectionLeave("work");
         }}>
         <div class="inner fading">
             <div class="main-title">

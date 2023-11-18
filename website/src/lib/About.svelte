@@ -3,14 +3,14 @@
 import CallMade from "svelte-material-icons/CallMade.svelte"
 import {githubUrl, linkedinUrl} from "./data"
 import viewport from './useViewportAction'
-import {activeSection} from "./store"
+import {sectionEnter, sectionLeave} from "./store"
 let aboutElem
 </script>
 <div class="about-wrapper">
 <div class="about-section-main notshown fading" bind:this={aboutElem} id="about"
     use:viewport
-    on:enterViewport={() => {activeSection.set("about"); aboutElem.classList.add("shown"); aboutElem.classList.remove("notshown");}}
-    on:exitViewport={() => {aboutElem.classList.remove("shown"); aboutElem.classList.add("notshown")}}>
+    on:enterViewport={() => {sectionEnter("about"); aboutElem.classList.add("shown"); aboutElem.classList.remove("notshown");}}
+    on:exitViewport={() => {sectionLeave("about"); aboutElem.classList.remove("shown"); aboutElem.classList.add("notshown")}}>
     <div class="inner">
     <div class="main-title">
     <h2>About</h2>
