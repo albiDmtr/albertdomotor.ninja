@@ -19,16 +19,16 @@ setTimeout(() => {
     class="main-parallax-container opening-unactive"
     bind:this="{mainElem}">
     <ParallaxElem  front=1>
-        <div class="main-parallax-text domotor fading">Dömötör</div>
+        <div class="main-parallax-text domotor fading parallax-elem">Dömötör</div>
     </ParallaxElem>
     <ParallaxElem front=-1>
-        <div class="main-parallax-img fading"></div>
+        <div class="main-parallax-img fading parallax-elem"></div>
     </ParallaxElem>
     <ParallaxElem front=2>
-        <div class="main-parallax-text albert fading">Albert</div>
+        <div class="main-parallax-text albert fading parallax-elem">Albert</div>
     </ParallaxElem>
     <ParallaxElem  front=3>
-        <div class="main-parallax-title fading">
+        <div class="main-parallax-title fading parallax-elem">
             Software Engineer, Digital Systems and Design student at Aalto University
         </div>
     </ParallaxElem>
@@ -116,7 +116,6 @@ on:exitViewport={() => {sectionLeave("");}}></div>
         padding-left: calc(50vw - 60vh);
         z-index: 4;
         text-shadow: 0 0 1.4vh rgba(0,0,0,0.2);
-        transition: 0.1s;
     }
     .domotor {
         padding-top: 40vh;
@@ -142,8 +141,6 @@ on:exitViewport={() => {sectionLeave("");}}></div>
         position: absolute;
         top: 0;
         left: 0;
-
-        transition: 0.1s;
     }
     .main-parallax-img {
         height: 80vh;
@@ -156,7 +153,6 @@ on:exitViewport={() => {sectionLeave("");}}></div>
         top: 2.5vh;
         left: calc(50vw - 40vh);
         z-index: 3;
-        transition: 0s;
     }
     .main-parallax-container {
         position: absolute;

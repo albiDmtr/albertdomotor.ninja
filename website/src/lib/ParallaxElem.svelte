@@ -19,5 +19,6 @@
 <style>
     div {
         z-index: 1;
+        transition: .1s;
     }
 </style>
