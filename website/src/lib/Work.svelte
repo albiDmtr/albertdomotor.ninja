@@ -480,12 +480,13 @@ $: if (workElem) {observer.observe(workElem)}
         animation-fill-mode: forwards;
     }
     @keyframes appear {
-        from {opacity: 0;}
-        to {opacity: 1;}
+        0% {opacity: 0; visibility: visible;}
+        100% {opacity: 1; visibility: visible;}
     }
     @keyframes disappear {
-        from {opacity: 1;}
-        to {opacity: 0;}
+        0% {opacity: 1; visibility: visible;}
+        99% {opacity: 0; visibility: visible;}
+        100% {opacity: 0; visibility: hidden;}
     }
     @media (max-width: 1200px) {
         .bg-img {

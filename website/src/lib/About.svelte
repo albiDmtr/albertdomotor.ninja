@@ -4,7 +4,10 @@ import CallMade from "svelte-material-icons/CallMade.svelte"
 import {githubUrl, linkedinUrl} from "./data"
 import viewport from './useViewportAction'
 import {sectionEnter, sectionLeave} from "./store"
+import { easterEgg } from "./helpers"
 let aboutElem
+
+const setupEasterEgg = (el) => easterEgg(document, el)
 </script>
 <div class="about-wrapper">
 <div class="about-section-main notshown fading" bind:this={aboutElem} id="about"
@@ -16,7 +19,7 @@ let aboutElem
     <h2>About</h2>
     </div>
     <div class="main-desc">
-        <p>I'm Albert Dömötör, software engineer and second year student at Aalto University.
+        <p use:setupEasterEgg>I'm Albert Dömötör, software engineer and second year student at Aalto University.
         I'm mostly familiar with frontend and backend web development but I'm interested in
         everything that has to do with building things.
         <br/>I currently reside in Espoo, Finland.
