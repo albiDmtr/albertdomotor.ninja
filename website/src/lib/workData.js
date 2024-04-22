@@ -1,20 +1,20 @@
-import aicIcon from '../../assets/occupation_icons/aic.png'
-import pjIcon from '../../assets/occupation_icons/pj.png'
-import ytIcon from '../../assets/social_icons/youtube.png'
-import ghIcon from '../../assets/social_icons/github.png'
-import chIcon from '../../assets/social_icons/chromewebstore.png'
-
 import aicThumbnail from '../../assets/works/thumbnails/AIC_thumbnail.mp4'
 import pjThumbnail from '../../assets/works/thumbnails/PJ_thumbnail.mp4'
 import marvinThumbnail from '../../assets/works/thumbnails/marvin_thumbnail.mp4'
 import vtThumbnail from '../../assets/works/thumbnails/VT_thumbnail.mp4'
-import ttThumbnail from '../../assets/works/thumbnails/TT_thumbnail.mp4'
+import xsvThumbnail from '../../assets/works/thumbnails/XSV_thumbnail.mp4'
 
 import aicFallback from '../../assets/works/thumbnails/fallbacks/AIC.png'
 import pjFallback from '../../assets/works/thumbnails/fallbacks/PJ.png'
 import marvinFallback from '../../assets/works/thumbnails/fallbacks/marvin.png'
 import vtFallback from '../../assets/works/thumbnails/fallbacks/VT.png'
-import ttFallback from '../../assets/works/thumbnails/fallbacks/TT.png'
+import xsvFallback from '../../assets/works/thumbnails/fallbacks/XSV.png'
+
+import aicIcon from '../../assets/work_icons/AIC.png'
+import xsvIcon from '../../assets/work_icons/XSV.png'
+import pjIcon from '../../assets/work_icons/PJ.png'
+import marvinIcon from '../../assets/work_icons/marvin.png'
+import vtIcon from '../../assets/work_icons/VT.png'
 
 export const workData = [
     {
@@ -23,10 +23,21 @@ export const workData = [
         "time":"June - October 2023",
         "thumbnail": aicThumbnail,
         "fallback": aicFallback,
+        "icon": aicIcon,
         "actionUrl": "https://aicontentfy.com/",
         "urlSafe" : "aicontentfy",
-        "actionIcon": aicIcon,
         "index":0
+    },
+    {
+        "title": "XSValley",
+        "description":"I'm responsible for the website and visual identity of XSValley, an Aaltoes project that aims to connect university students with startups in Silicon Valley. I built their website and designed their logo and other visual elements.",
+        "time":"March 2024",
+        "thumbnail": xsvThumbnail,
+        "fallback": xsvFallback,
+        "icon": xsvIcon,
+        "actionUrl": "https://aicontentfy.com/",
+        "urlSafe" : "xsvalley",
+        "index":1
     },
     {
         "title": "Programozd a jövőd!",
@@ -34,10 +45,10 @@ export const workData = [
         "time": "September 2021 - August 2022",
         "thumbnail": pjThumbnail,
         "fallback": pjFallback,
+        "icon": pjIcon,
         "actionUrl": "https://www.youtube.com/watch?v=E0sbYyfXweU&list=PL81QBF6Zpc2wpM3Tha00biOWdJ876KQzi",
         "urlSafe" : "programozd-a-jovod",
-        "actionIcon": pjIcon,
-        "index":1
+        "index":2
     },
     {
         "title": "marvin.py",
@@ -45,10 +56,10 @@ export const workData = [
         "time": "February 2020 - April 2021",
         "thumbnail": marvinThumbnail,
         "fallback": marvinFallback,
+        "icon": marvinIcon,
         "actionUrl": "https://github.com/albiDmtr/marvin",
         "urlSafe" : "marvin",
-        "actionIcon": ghIcon,
-        "index":2
+        "index":3
     },
     {
         "title": "Vision Translate",
@@ -56,20 +67,9 @@ export const workData = [
         "time": "October - December 2019",
         "thumbnail": vtThumbnail,
         "fallback": vtFallback,
+        "icon": vtIcon,
         "actionUrl": "https://chrome.google.com/webstore/detail/vision-translate-smart-hi/aemapjnikiphnefgmocicmlmbdhodkea",
         "urlSafe" : "vision-translate",
-        "actionIcon": chIcon,
-        "index":3
-    },
-    {
-        "title": "Toothsome Tomato",
-        "description":"I made Toothsome Tomato as a small UI design experiment. It is a simple pomodoro timer app, nothing more, nothing less.",
-        "time": "September 2021",
-        "thumbnail": ttThumbnail,
-        "fallback": ttFallback,
-        "actionUrl": "https://github.com/albiDmtr/toothsome-tomato",
-        "urlSafe" : "toothsome-tomato",
-        "actionIcon": ghIcon,
         "index":4
     }
 ]

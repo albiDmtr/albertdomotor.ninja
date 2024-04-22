@@ -4,7 +4,7 @@
     import Repo from "../lib/work/Repo.svelte";
     import Button from '../lib/work/Button.svelte'
 </script>
-<MainPage workIndex=3>
+<MainPage workIndex=4>
     <TextSection
         title="Project Info"
         subsections={[

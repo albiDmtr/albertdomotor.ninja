@@ -45,41 +45,15 @@ $: if (workElem) {observer.observe(workElem)}
 </script>
 <div class="work-sidebar unactive" bind:this={workSidebar}>
     <div class="works-txt"><p>Works</p></div>
-    <div class="work-item {hoveredIcon == "AIC" ? "hover" : ""} {workNo == 0 ? 'active-item' : ''}">
-        <div class="wrapper"
-            on:click={() => scrollToElem("aicontentfy")}
-            on:mouseenter={() => hoveredIcon = "AIC"}
-            on:mouseleave={() => hoveredIcon = ""}><div class="work-icon AIC"></div></div>
-        <div class="txt"><p>AIContentfy</p></div>
-    </div>
-    <div class="work-item {hoveredIcon == "PJ" ? "hover" : ""} {workNo && workNo == 1 ? 'active-item' : ''}">
-        <div class="wrapper"
-        on:click={() => scrollToElem("programozd-a-jovod")}
-        on:mouseenter={() => hoveredIcon = "PJ"}
-        on:mouseleave={() => hoveredIcon = ""}><div class="work-icon PJ"></div></div>
-        <div class="txt"><p>Programozd a jövőd!</p></div>
-    </div>
-    <div class="work-item {hoveredIcon == "Marvin" ? "hover" : ""} {workNo && workNo == 2 ? 'active-item' : ''}">
-        <div class="wrapper"
-            on:click={() => scrollToElem("marvin")}
-            on:mouseenter={() => hoveredIcon = "Marvin"}
-            on:mouseleave={() => hoveredIcon = ""}><div class="work-icon Marvin"></div></div>
-        <div class="txt"><p>marvin.py</p></div>
-    </div>
-    <div class="work-item {hoveredIcon == "VT" ? "hover" : ""} {workNo && workNo == 3 ? 'active-item' : ''}">
-        <div class="wrapper"
-        on:click={() => scrollToElem("vision-translate")}
-        on:mouseenter={() => hoveredIcon = "VT"}
-        on:mouseleave={() => hoveredIcon = ""}><div class="work-icon VT"></div></div>
-        <div class="txt"><p>Vision Translate</p></div>
-    </div>
-    <div class="work-item {hoveredIcon == "TT" ? "hover" : ""} {workNo && workNo == 4 ? 'active-item' : ''}">
-        <div class="wrapper"
-        on:click={() => scrollToElem("toothsome-tomato")}
-        on:mouseenter={() => hoveredIcon = "TT"}
-        on:mouseleave={() => hoveredIcon = ""}><div class="work-icon TT"></div></div>
-        <div class="txt"><p>Toothsome Tomato</p></div>
-    </div>
+    {#each workData as work, index}
+        <div class="work-item {hoveredIcon == work.urlSafe ? "hover" : ""} {workNo == index ? 'active-item' : ''}">
+            <div class="wrapper"
+                on:click={() => scrollToElem(work.urlSafe)} 
+                on:mouseenter={() => hoveredIcon = work.urlSafe}
+                on:mouseleave={() => hoveredIcon = ""}><div class="work-icon {work.urlSafe}" style="background-image: url({work.icon});"></div></div>
+            <div class="txt"><p>{work.title}</p></div>
+        </div>
+    {/each}
 </div>
 <div class="work-wrapper" bind:this={workWrapper} >
     {#key stepSize}
@@ -211,6 +185,9 @@ $: if (workElem) {observer.observe(workElem)}
     /* Work content */
     .AIC {
         background-image: url('../../assets/work_icons/aic.png');
+    }
+    .XSV {
+        background-image: url('../../assets/work_icons/xsv.png');
     }
     .PJ {
         background-image: url('../../assets/work_icons/pj.png');

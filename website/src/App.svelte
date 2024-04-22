@@ -3,10 +3,10 @@
     import Home from "./routes/Home.svelte"
     import Work from "./routes/Work.svelte"
     import Aicontentfy from "./routes/Aicontentfy.svelte"
+    import XSvalley from "./routes/XSvalley.svelte"
     import Programozdajovod from "./routes/Programozdajovod.svelte"
     import Marvin from "./routes/Marvin.svelte"
     import Visiontranslate from "./routes/Visiontranslate.svelte"
-    import Toothsometomato from "./routes/Toothsometomato.svelte"
     import Transition from "./lib/Transition.svelte"
     import Notfound from "./routes/Notfound.svelte"
     import Cv from "./routes/CV.svelte";
@@ -33,6 +33,9 @@
         <Route path="/aicontentfy">
             <Aicontentfy />
         </Route>
+        <Route path="/xsvalley">
+            <XSvalley />
+        </Route>
         <Route path="/programozd-a-jovod">
             <Programozdajovod />
         </Route>
@@ -41,9 +44,6 @@
         </Route>
         <Route path="/vision-translate">
             <Visiontranslate />
-        </Route>
-        <Route path="/toothsome-tomato">
-            <Toothsometomato />
         </Route>
     </Route>
     <Route fallback>

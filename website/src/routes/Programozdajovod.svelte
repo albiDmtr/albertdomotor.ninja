@@ -8,7 +8,7 @@
     import Button from '../lib/work/Button.svelte'
     import Video from "../lib/work/Video.svelte";
 </script>
-<MainPage workIndex=1>
+<MainPage workIndex=2>
     <TextSection
         title="Project Info"
         subsections={[
