@@ -10,11 +10,11 @@ import marvinFallback from '../../assets/works/thumbnails/fallbacks/marvin.png'
 import vtFallback from '../../assets/works/thumbnails/fallbacks/VT.png'
 import xsvFallback from '../../assets/works/thumbnails/fallbacks/XSV.png'
 
-import aicIcon from '../../assets/work_icons/AIC.png'
-import xsvIcon from '../../assets/work_icons/XSV.png'
-import pjIcon from '../../assets/work_icons/PJ.png'
+import aicIcon from '../../assets/work_icons/aic.png'
+import xsvIcon from '../../assets/work_icons/xsv.png'
+import pjIcon from '../../assets/work_icons/pj.png'
 import marvinIcon from '../../assets/work_icons/marvin.png'
-import vtIcon from '../../assets/work_icons/VT.png'
+import vtIcon from '../../assets/work_icons/vt.png'
 
 export const workData = [
     {
