@@ -23,11 +23,15 @@
     <button class="hamburger" on:click={() => {isMenuOpened = !isMenuOpened; isHamburgerTapped = true}} >
         {#if isMenuOpened}
             <span class="close">
-                <Close />
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                </svg>                  
             </span>
         {:else}
             <span class="menu">
-                <Menu />
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>                  
             </span>
         {/if}
     </button>
@@ -114,11 +118,11 @@
         height: 48px;
     }
     .main-logo {
-        width: 48px;
+        width: 50px;
         height: 48px;
         background: var(--main-brand-color);
         background-image: url("../../assets/logo.svg");
-        background-size: 90%;
+        background-size: 80%;
         background-repeat: no-repeat;
         background-position: 50%;
         transition: .2s;
@@ -136,6 +140,8 @@
         z-index: 1000;
         transition: .2s;
         cursor: pointer;
+        border-radius: var(--main-border-radius);
+        box-shadow: var(--main-shadow);
     }
     .main-menu:hover {
         transform: scale(1.05);
@@ -179,9 +185,13 @@
             width: auto;
             position: fixed;
             height: 55px;
-            bottom: 0;
-            left: 0;
+            bottom: 10px;
+            left: 10px;
             backdrop-filter: none;
+            border-radius: var(--main-border-radius);
+            overflow: hidden;
+            border: var(--dark-border);
+            box-sizing: border-box;
         }
         .main-logo {
             width: 55px;
@@ -229,7 +239,7 @@
             background: var(--main-brand-color);
             width: 100px;
             height: 55px;
-            margin-left: 40px;
+            margin-left: 50px;
         }
         /* cause of menu jumping down iOS error */
         .about-button {
@@ -249,14 +259,14 @@
             100% {margin-left: 0;}
         }
         @keyframes menuOpen {
-            0%   {height: 0; width: 55px;}
-            50%   {height: 100vh; width: 55px;}
+            0%   {height: 0; width: 65px;}
+            50%   {height: 100vh; width: 65px;}
             100%   {height: 100vh; width: 100vw; position: fixed; top: 0;}
         }
         @keyframes menuClose {
             0%   {height: 100vh; width: 100vw; position: fixed; bottom: 0;}
-            50%   {height: 100vh; width: 55px;}
-            100%   {height: 0; width: 55px;}
+            50%   {height: 100vh; width: 65px;}
+            100%   {height: 0; width: 65px;}
         }
 
         :global(.selected) {

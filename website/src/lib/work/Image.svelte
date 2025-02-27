@@ -2,7 +2,6 @@
 <script>
     import { killLenis, newLenis } from "../helpers"
     import viewport from '../useViewportAction'
-    import Close from "svelte-material-icons/Close.svelte"
     export let src
     export let alt
 
@@ -46,7 +45,9 @@
 <button class="close-btn {imgOpen ? 'shown' : 'notShown'}"
 on:click={() => {imgOpen = false}}>
     <span>
-        <Close />
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+        </svg>          
     </span>
     </button>
 <div class="main-img-cont {imgOpen ? 'open' : 'closed'} {inView ? "in-view" : "out-view"}"
@@ -80,6 +81,7 @@ on:click={() => {imgOpen = false}}>
         width: 40px;
         height: 40px;
         border: solid 1px var(--main-brand-color);
+        border-radius: var(--main-border-radius);
         background-color: rgba(5,5,46,.35);
         color: var(--main-brand-color);
         cursor: pointer;
@@ -97,6 +99,7 @@ on:click={() => {imgOpen = false}}>
     }
     .alt {
         border: solid 1px var(--main-brand-color);
+        border-radius: var(--main-border-radius);
         width: fit-content;
         max-width: 70%;
         position: relative;
@@ -149,6 +152,7 @@ on:click={() => {imgOpen = false}}>
         text-align: center;
         background-color: rgba(5,5,46,.5);
         border: solid 1px var(--main-brand-color);
+        border-radius: var(--main-border-radius);
     }
     .open {
         z-index: 10000;

@@ -1,6 +1,9 @@
+<script>
+    const currentYear = new Date().getFullYear();
+</script>
 <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
 <div class="footer">
-    <p>© Albert Dömötör, 2023</p>
+    <p>© Albert Dömötör, {currentYear}</p>
 </div>
 
 <style>

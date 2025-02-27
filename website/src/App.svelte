@@ -55,6 +55,19 @@
 
 <!-- Global styles -->
 <style>
+    :global(:root) {
+      --main-brand-color: rgb(255,68,229);
+      --main-brand-color-alt: rgb(216, 58, 195);
+      --main-border-radius: 5px;
+      --dark-border: solid 1px rgba(10, 10, 10, 0.102);
+      --main-shadow: 0 1px 3px 0 rgb(0 0 0 / .1), 0 1px 2px -1px rgb(0 0 0 / .1);
+    }
+
+    :global(h2) {
+      font-weight: 550;
+      font-size: 22px;
+    }
+
     :global(p, h1, h2, h3, h4, h5, h6) {
       color: white;
       font-family: 'Inter', sans-serif;
@@ -97,10 +110,6 @@
     :global(:nth-child(9)) { --nth-child: 9 }
     :global(:nth-child(10)) { --nth-child: 10 }
   
-    :global(:root) {
-      --main-brand-color: rgb(255,68,229);
-      --main-brand-color-alt: rgb(216, 58, 195);
-    }
     :global(body) {
       overflow-x: hidden;
       overflow-y: scroll !important;
@@ -109,9 +118,8 @@
       touch-action: pan-y;
     }
   
-  
     :global(::-webkit-scrollbar){
-      width: 8px;
+      width: 3px;
     }
   
     :global(::-webkit-scrollbar-track) {

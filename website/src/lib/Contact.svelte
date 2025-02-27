@@ -40,16 +40,17 @@
         transform: scale(1.1);
     }
     .button {
-        width: 24px;
-        height: 24px;
+        width: 28px;
+        height: 28px;
         background-color: var(--main-brand-color);
         margin: 8px 8px 0 0;
         display: inline-block;
-        background-size: 80%;
+        background-size: 55%;
         background-repeat: no-repeat;
         background-position: 50%;
         transition: .2s;
         cursor: pointer;
+        border-radius: var(--main-border-radius);
     }
     .contact-wrapper {
         height: 220vh;

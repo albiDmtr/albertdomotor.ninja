@@ -9,7 +9,7 @@
     import mobileAnim from '../../assets/works/XSV/scrollthrough-mobile.mp4'
     import Button from '../lib/work/Button.svelte'
 </script>
-<MainPage workIndex=1>
+<MainPage workId="xsvalley">
     <TextSection
         title="Project Info"
         subsections={[

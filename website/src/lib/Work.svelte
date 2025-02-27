@@ -102,10 +102,14 @@ $: if (workElem) {observer.observe(workElem)}
                         <div class="button-cont">
                             <a href="{workData[workNo] ? `/work/${workData[workNo].urlSafe}` : ""}"
                             data-cooltransition>
+                            <!-- svelte-ignore a11y-no-static-element-interactions -->
                             <div class="more {moreHover ? 'hover' : ''}"
                                 on:mouseenter={() => moreHover = true}
-                                on:mouseleave={() => moreHover = false}>Read More
-                                <span class="arrow"><ArrowRight /></span>
+                                on:mouseleave={() => moreHover = false}>
+                                <p>Read More</p>
+                                <svg class="arrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                                </svg>                                  
                             </div>
                             </a>
                             <div class="work-time">{workData[workNo] ? workData[workNo].time : ""}</div>
@@ -222,18 +226,17 @@ $: if (workElem) {observer.observe(workElem)}
         box-shadow: inset 0 0 30vh 0 rgb(0,0,0);
     }
     .arrow {
-        font-size: 20px;
-        font-weight: 900;
-        float: right;
+        width: 18px;
+        height: 18px;
+        margin-left: 4px;
+        color: black;
         position: relative;
-        top: 3px;
-        right: 8px;
+        right: 0;
         transition: .3s;
     }
     .hover .arrow {
         position: relative;
-        top: 3px;
-        right: 4px;
+        right: -4px;
     }
     .main-work-desc {
         transition: .2s;
@@ -243,6 +246,8 @@ $: if (workElem) {observer.observe(workElem)}
         margin-top: -120px;
         margin-left: -20px;
         width: 650px;
+        border-radius: var(--main-border-radius);
+        box-shadow: var(--main-shadow);
     }
     .main-work-desc:hover {
         transform: scale(1.02);
@@ -250,18 +255,18 @@ $: if (workElem) {observer.observe(workElem)}
     .work-time {
         float: right;
         color: white;
-        height: 45px;
         opacity: 0.8;
         text-align: right;
         font-family: 'Inter', sans-serif;
         width: 80%;
-        margin-right: 15px;
-        line-height: 2.7;
     }
     .button-cont {
         display: flex;
+        align-items: center;
+        box-sizing: border-box;
         width: 650px;
-        height: 45px;
+        height: fit-content;
+        padding: 8px;
     }
     .worktime {
         float: right;
@@ -285,17 +290,19 @@ $: if (workElem) {observer.observe(workElem)}
     .more {
         font-family: 'Inter', sans-serif;
         background: var(--main-brand-color);
-        width: 145px;
-        height: 45px;
         overflow: hidden;
-        line-height: 45px;
         text-align: center;
         opacity: 0.8;
-        color: black;
         font-weight: 400;
         transition: .3s;
-        padding: 0 6px;
         cursor: pointer;
+        border-radius: var(--main-border-radius);
+        display: flex;
+        justify-content: space-between;
+        vertical-align: middle;
+        padding: 8px 12px;
+        border: var(--dark-border);
+        box-shadow: var(--main-shadow);
     }
     a {
         text-decoration: none;
@@ -310,7 +317,8 @@ $: if (workElem) {observer.observe(workElem)}
         background-position: 50%;
         background-size: cover;
         filter: brightness(90%);
-        border: solid 1px var(--main-brand-color);
+        box-shadow: var(--main-shadow);
+        border-radius: var(--main-border-radius);
         transition: .2s;
     }
     .main-work-thumbnail:hover {
@@ -318,6 +326,13 @@ $: if (workElem) {observer.observe(workElem)}
     }
     .main-desc p {
         margin: 20px;
+    }
+    .more p {
+        color: black;
+        white-space: nowrap;
+        margin: 0;
+        padding: 0;
+        font-size: 14px;
     }
 
     /* rest */
@@ -354,7 +369,7 @@ $: if (workElem) {observer.observe(workElem)}
         margin: 0 0 0 25px;
     }
     .active-item .wrapper .work-icon {
-        filter: saturate(120%);
+        filter: saturate(130%) brightness(110%);
     }
     .active-item .wrapper {
         transform: scale(1.1);
@@ -363,7 +378,7 @@ $: if (workElem) {observer.observe(workElem)}
         width: 45px;
         height: 45px;
         background-size: cover;
-        filter:saturate(50%) brightness(60%);
+        filter:saturate(80%) brightness(80%);
         transition: .2s;
     }
     .work-icon:hover {
@@ -373,13 +388,16 @@ $: if (workElem) {observer.observe(workElem)}
         transform: scale(1.1);
     }
     .wrapper {
-        border: solid 1px var(--main-brand-color);
+        border: var(--dark-border);
+        border-radius: var(--main-border-radius);
         width: 45px;
         height: 45px;
         transition: .2s;
         cursor: pointer;
         display: inline-block;
         margin: 0 15px 0 0;
+        overflow: hidden;
+        box-shadow: var(--main-shadow);
     }
     .work-sidebar {
         position: fixed;
@@ -408,11 +426,13 @@ $: if (workElem) {observer.observe(workElem)}
 
 
     .above-txt {
-        line-height: 1.5;
+        line-height: 1.2;
+        padding-bottom: 7px;
     }
     .below-txt {
         border-top: solid 1px var(--main-brand-color);
-        line-height: 1.5;
+        line-height: 1.2;
+        padding-top: 6px;
     }
     .inner {
         width: 1000px;

@@ -4,7 +4,7 @@
     import Repo from "../lib/work/Repo.svelte";
     import Button from '../lib/work/Button.svelte'
 </script>
-<MainPage workIndex=4>
+<MainPage workId="vision-translate">
     <TextSection
         title="Project Info"
         subsections={[

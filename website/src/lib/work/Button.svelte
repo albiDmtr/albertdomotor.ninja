@@ -22,6 +22,9 @@
         display: block;
         width: fit-content;
         margin-top: 16px;
+        border-radius: var(--main-border-radius);
+        border: var(--dark-border);
+        box-sizing: border-box;
     }
     a:hover {
         border: solid 1px white;

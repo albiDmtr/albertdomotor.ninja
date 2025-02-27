@@ -7,7 +7,7 @@
     import mainPage from '../../assets/works/AIC/main-page.jpg'
     import Button from '../lib/work/Button.svelte'
 </script>
-<MainPage workIndex=0>
+<MainPage workId="aicontentfy">
     <TextSection
         title="Project Info"
         subsections={[

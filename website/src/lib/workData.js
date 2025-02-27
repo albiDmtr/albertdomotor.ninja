@@ -3,20 +3,37 @@ import pjThumbnail from '../../assets/works/thumbnails/PJ_thumbnail.mp4'
 import marvinThumbnail from '../../assets/works/thumbnails/marvin_thumbnail.mp4'
 import vtThumbnail from '../../assets/works/thumbnails/VT_thumbnail.mp4'
 import xsvThumbnail from '../../assets/works/thumbnails/XSV_thumbnail.mp4'
+import ttThumbnail from '../../assets/works/thumbnails/TT_thumbnail.mp4'
+import ddtThumbnail from '../../assets/works/thumbnails/DDT_thumbnail.mp4'
 
 import aicFallback from '../../assets/works/thumbnails/fallbacks/AIC.png'
 import pjFallback from '../../assets/works/thumbnails/fallbacks/PJ.png'
 import marvinFallback from '../../assets/works/thumbnails/fallbacks/marvin.png'
 import vtFallback from '../../assets/works/thumbnails/fallbacks/VT.png'
 import xsvFallback from '../../assets/works/thumbnails/fallbacks/XSV.png'
+import ttFallback from '../../assets/works/thumbnails/fallbacks/TT.png'
+import ddtFallback from '../../assets/works/thumbnails/fallbacks/DDT.png'
 
 import aicIcon from '../../assets/work_icons/aic.png'
 import xsvIcon from '../../assets/work_icons/xsv.png'
 import pjIcon from '../../assets/work_icons/pj.png'
 import marvinIcon from '../../assets/work_icons/marvin.png'
 import vtIcon from '../../assets/work_icons/vt.png'
+import ttIcon from '../../assets/work_icons/tt.png'
+import ddtIcon from '../../assets/work_icons/ddt.png'
 
 export const workData = [
+    {
+        "title": "TwinTorsion",
+        "description":"As part of my traineeship at AIContentfy, I implemented various frontend features and backend changes to make the platform's user experience more polished.",
+        "time":"July - December 2024",
+        "thumbnail": ttThumbnail,
+        "fallback": ttFallback,
+        "icon": ttIcon,
+        "actionUrl": "https://twintorsion.aalto.fi/",
+        "urlSafe" : "twintorsion",
+        "index":0
+    },
     {
         "title": "AIContentfy",
         "description":"As part of my traineeship at AIContentfy, I implemented various frontend features and backend changes to make the platform's user experience more polished.",
@@ -26,7 +43,7 @@ export const workData = [
         "icon": aicIcon,
         "actionUrl": "https://aicontentfy.com/",
         "urlSafe" : "aicontentfy",
-        "index":0
+        "index":1
     },
     {
         "title": "XSValley",
@@ -37,7 +54,18 @@ export const workData = [
         "icon": xsvIcon,
         "actionUrl": "https://aicontentfy.com/",
         "urlSafe" : "xsvalley",
-        "index":1
+        "index":2
+    },
+    {
+        "title": "DDT Lab",
+        "description":"As part of my traineeship at AIContentfy, I implemented various frontend features and backend changes to make the platform's user experience more polished.",
+        "time":"December 2024 - January 2025",
+        "thumbnail": ddtThumbnail,
+        "fallback": ddtFallback,
+        "icon": ddtIcon,
+        "actionUrl": "https://ddtlab.aalto.fi/",
+        "urlSafe" : "ddt-lab",
+        "index":3
     },
     {
         "title": "Programozd a jövőd!",
@@ -48,7 +76,7 @@ export const workData = [
         "icon": pjIcon,
         "actionUrl": "https://www.youtube.com/watch?v=E0sbYyfXweU&list=PL81QBF6Zpc2wpM3Tha00biOWdJ876KQzi",
         "urlSafe" : "programozd-a-jovod",
-        "index":2
+        "index":4
     },
     {
         "title": "marvin.py",
@@ -59,7 +87,7 @@ export const workData = [
         "icon": marvinIcon,
         "actionUrl": "https://github.com/albiDmtr/marvin",
         "urlSafe" : "marvin",
-        "index":3
+        "index":5
     },
     {
         "title": "Vision Translate",
@@ -70,6 +98,6 @@ export const workData = [
         "icon": vtIcon,
         "actionUrl": "https://chrome.google.com/webstore/detail/vision-translate-smart-hi/aemapjnikiphnefgmocicmlmbdhodkea",
         "urlSafe" : "vision-translate",
-        "index":4
+        "index":6
     }
 ]

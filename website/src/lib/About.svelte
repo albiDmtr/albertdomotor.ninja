@@ -4,10 +4,8 @@ import CallMade from "svelte-material-icons/CallMade.svelte"
 import {githubUrl, linkedinUrl} from "./data"
 import viewport from './useViewportAction'
 import {sectionEnter, sectionLeave} from "./store"
-import { easterEgg } from "./helpers"
 let aboutElem
 
-const setupEasterEgg = (el) => easterEgg(document, el)
 </script>
 <div class="about-wrapper">
 <div class="about-section-main notshown fading" bind:this={aboutElem} id="about"
@@ -19,37 +17,49 @@ const setupEasterEgg = (el) => easterEgg(document, el)
     <h2>About</h2>
     </div>
     <div class="main-desc">
-        <p use:setupEasterEgg>I'm Albert Dömötör, software engineer and second year student at Aalto University.
-        I'm mostly familiar with frontend and backend web development but I'm interested in
+        <p>I'm Albert Dömötör, software engineer and third year student at Aalto University.
+        I'm mostly familiar with fullstack web development but I'm interested in
         everything that has to do with building things.
         <br/>I currently reside in Espoo, Finland.
         </p>
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
+        <!-- svelte-ignore a11y-no-static-element-interactions -->
         <div class="gh button" on:click={() => window.open(githubUrl, '_blank')}></div>
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
+        <!-- svelte-ignore a11y-no-static-element-interactions -->
         <div class="ln button" on:click={() => window.open(linkedinUrl, '_blank')}></div>
         <br/>
         <div class="titles">
             <p class="time">Currently at:</p>
             <div class="current occupation aalto">
                 <div class="img"></div>
-                <div>
+                <div class="txt">
                     <p>Student<br/><span>Aalto University</span></p>
                 </div>
             </div>
 
             <p class="time">Previously:</p>
+            <div class="occupation digitwin">
+                <div class="img"></div>
+                <div class="txt">
+                    <p>Full Stack Developer – Research Assistant<br/><span>DigiTwin Lab - Aalto University</span></p>
+                </div>
+                <a href="https://www.aalto.fi/en/aiic/digitwin" target="_blank" class="arrow-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
+                    </svg>                      
+                </a>
+            </div>
             <div class="occupation aic">
                 <div class="img"></div>
-                <div>
+                <div class="txt">
                     <p>Fullstack Software Developer<br/><span>AIContentfy</span></p>
                 </div>
-                <a href="https://aicontentfy.com/" target="_blank"><span class="url"><CallMade /></span></a>
-            </div>
-            <div class="occupation pj">
-                <div class="img"></div>
-                <div>
-                    <p>Campaign Ambassador<br/><span>Programozd a jövőd!</span></p>
-                </div>
-                <a href="https://programozdajovod.hu/" target="_blank"><span class="url"><CallMade /></span></a>
+                <a href="https://aicontentfy.com/" target="_blank" class="arrow-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
+                    </svg>
+                </a>
             </div>
         </div>
     </div>
@@ -61,11 +71,11 @@ const setupEasterEgg = (el) => easterEgg(document, el)
     .aalto .img {
         background-image: url('../../assets/occupation_icons/aalto.png');
     }
+    .digitwin .img {
+        background-image: url('../../assets/occupation_icons/digitwin.png');
+    }
     .aic .img {
         background-image: url('../../assets/occupation_icons/aic.png');
-    }
-    .pj .img {
-        background-image: url('../../assets/occupation_icons/pj.png');
     }
 
     /* rest */
@@ -79,54 +89,69 @@ const setupEasterEgg = (el) => easterEgg(document, el)
         transform: scale(1.1);
     }
     .button {
-        width: 24px;
-        height: 24px;
+        width: 28px;
+        height: 28px;
         background-color: var(--main-brand-color);
         margin: 8px 8px 0 0;
         display: inline-block;
-        background-size: 80%;
+        background-size: 55%;
         background-repeat: no-repeat;
         background-position: 50%;
         transition: .2s;
         cursor: pointer;
+        border-radius: var(--main-border-radius);
     }
-    .url:hover {
+    .arrow-link:hover {
         transform: scale(1.1);
     }
-    .url {
+    .arrow-link {
         color: rgba(255,255,255,0.8);
-        font-size: 22px;
         float: right;
-        margin: 11px 8px 0 0;
+        margin: 4px 14px 0 0;
         cursor: pointer;
         transition: .2s;
+    }
+    .arrow-link svg {
+        width: 18px;
+        height: 18px;
     }
     .occupation div p span {
         font-size: 12px;
     }
     .occupation div p {
-        position: relative;
-        top: -8px;
         margin: 0 0 0 8px;
         line-height: 1;
+        max-width: calc(100% - 16px);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
     .occupation div {
-        max-width: 300px;
-        display: inline-block;
         height: 48px;
+    }
+    .occupation .txt {
+        flex-shrink: 1;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        overflow: hidden;
     }
     .time {
         font-size: 12px;
         margin: 6px 0;
     }
     .img {
-        width: 48px;
+        width: 49px;
         height: 48px;
         background-color: rgba(255,255,255, 0.8);
-        background-size: 70%;
+        background-size: 60%;
         background-repeat: no-repeat;
         background-position: 50%;
         display: inline-block;
+        flex-shrink: 0;
+        flex-grow: 0;
     }
     .current .img {
         background-color: var(--main-brand-color);
@@ -138,8 +163,13 @@ const setupEasterEgg = (el) => easterEgg(document, el)
         border: solid 1px rgba(255,255,255, 0.8);
         height: 48px;
         margin: 8px;
-        width: 350px;
+        width: 420px;
         transition: .2s;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-radius: var(--main-border-radius);
+        overflow: hidden;
     }
     .current.occupation {
         border: solid 1px var(--main-brand-color);

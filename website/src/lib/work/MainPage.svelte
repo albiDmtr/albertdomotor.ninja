@@ -9,7 +9,9 @@
 
     activeSection.set("");
 
-    export let workIndex
+    export let workId
+    let workIndex = workData.findIndex(work => work.urlSafe === workId)
+
     let isHovered = false
     let scrollPos = 0
 
@@ -35,7 +37,11 @@
         on:click={() => {document.querySelector('body')?.classList.remove("stop-scrolling")}}
         data-cooltransition>
     <div class="back {isHovered ? 'hover' : ''}" on:mouseenter={() => {isHovered = true}} on:mouseleave={() => {isHovered = false}}>
-        <div class="arrow"><span><ArrowLeft/></span></div><div class="back-txt"><p>Works</p></div>
+        <div class="arrow">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.6" stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+            </svg>
+        </div><div class="back-txt"><p>Works</p></div>
     </div>
     </a>
     <div class="main-header">
@@ -71,6 +77,7 @@
         z-index: 10 !important;
         margin-top: 140px;
         transition: .8s;
+        border-radius: var(--main-border-radius);
     }
     .main-header video.shrunk {
         filter: none;
@@ -135,11 +142,15 @@
         font-size: 34px;
         margin: 0;
         transition: .2s;
-    }
-    .arrow span {
         position: relative;
-        top: 7px;
-        left: 7px;
+    }
+    .arrow svg {
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
     .back-txt {
         width: 75px;
@@ -160,6 +171,7 @@
         transition: .2s;
         cursor: pointer;
         z-index: 13;
+        border-radius: var(--main-border-radius);
     }
     .hover .arrow {
         background-color: white;
