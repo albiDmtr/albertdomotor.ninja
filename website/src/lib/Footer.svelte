@@ -12,9 +12,11 @@
     }
     .footer p {
         color: rgba(255,255,255, 0.8);
-        font-family: 'Geist', sans-serif;
+        font-family: 'Geist Mono', monospace;
+        text-transform: uppercase;
         text-align: right;
-        margin-right: 80px;
+        margin: 0 80px 28px 0;
+        font-size: 14px;
         position: relative;
     }
 </style>

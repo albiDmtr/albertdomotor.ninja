@@ -168,6 +168,7 @@
 <style>
     .left-side {
         width: 400px;
+        flex-shrink: 0;
         text-align: right;
     }
     .left-side h1 {
@@ -197,13 +198,15 @@
         transition: .2s;
     }
     .socials a:hover {
-        background-color: var(--main-brand-color);
+        background-color: white;
+        border: solid 1px white;
         color: black;
         opacity: .8;
     }
 
     .right-side {
         width: 400px;
+        flex-shrink: 0;
     }
     .right-side h2 {
         text-transform: uppercase;
@@ -225,7 +228,8 @@
         transition: .2s;
     }
     .btn-more:hover {
-        background-color: var(--main-brand-color);
+        background-color: white;
+        border: solid 1px white;
         color: black;
         opacity: .8;
     }
