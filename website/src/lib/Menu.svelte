@@ -188,7 +188,6 @@
             bottom: 10px;
             left: 10px;
             backdrop-filter: none;
-            border-radius: var(--main-border-radius);
             overflow: hidden;
             border: var(--dark-border);
             box-sizing: border-box;
@@ -248,6 +247,8 @@
         .menu-items div a {
             font-size: 22px;
             font-weight: 500;
+            text-transform: uppercase;
+            font-family: 'Geist Mono', monospace;
         }
 
         @keyframes iconMoveOut {
