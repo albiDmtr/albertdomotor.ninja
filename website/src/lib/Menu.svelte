@@ -114,7 +114,7 @@
         transition: .2s;
     } 
     .main-menu div {
-        font-family: 'Inter', sans-serif;
+        font-family: 'Geist', sans-serif;
         height: 48px;
     }
     .main-logo {

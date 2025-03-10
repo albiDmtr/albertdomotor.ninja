@@ -14,7 +14,7 @@ let aboutElem
     on:exitViewport={() => {sectionLeave("about"); aboutElem.classList.remove("shown"); aboutElem.classList.add("notshown")}}>
     <div class="inner">
     <div class="main-title">
-    <h2>About</h2>
+    <h2 class="section-title">About</h2>
     </div>
     <div class="main-desc">
         <p>I'm Albert Dömötör, software engineer and third year student at Aalto University.
@@ -202,17 +202,6 @@ let aboutElem
         width: 800px;
         border-left: solid 1px var(--main-brand-color);
         padding: 20px;
-    }
-    h2 {
-        color: rgba(255,255,255, 0.8);
-        font-family: 'Inter', sans-serif;
-        margin: 0;
-        float: right;
-    }
-    p {
-        color: rgba(255,255,255, 0.8);
-        font-family: 'Inter', sans-serif;
-        margin: 0;
     }
     @media (max-width: 1000px) {
         .inner {

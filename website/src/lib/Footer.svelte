@@ -12,7 +12,7 @@
     }
     .footer p {
         color: rgba(255,255,255, 0.8);
-        font-family: 'Inter', sans-serif;
+        font-family: 'Geist', sans-serif;
         text-align: right;
         margin-right: 80px;
         position: relative;

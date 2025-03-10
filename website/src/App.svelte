@@ -15,7 +15,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=true>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=true>
+<link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Geist:wght@100..900&display=swap" rel="stylesheet">
 <div id=app>
   <main>
   <Route>
@@ -69,12 +71,23 @@
     }
 
     :global(p, h1, h2, h3, h4, h5, h6) {
-      color: white;
-      font-family: 'Inter', sans-serif;
+      color: rgba(255,255,255, 0.8);
+      font-family: 'Geist', sans-serif;
+      margin: 0;
     }
+    
+    :global(.section-title) {
+        color: rgba(255,255,255, 0.8);
+        font-family: 'Geist Mono', monospace;
+        text-transform: uppercase;
+        font-weight: 550;
+        margin: 0;
+        float: right;
+    }
+
     :global(a) {
       color: var(--main-brand-color);
-      font-family: 'Inter', sans-serif;
+      font-family: 'Geist', sans-serif;
     }
     :global(.notshown) {
       transition: 2s;

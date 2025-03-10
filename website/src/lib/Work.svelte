@@ -86,7 +86,7 @@ $: if (workElem) {observer.observe(workElem)}
         }}>
         <div class="inner fading">
             <div class="main-title">
-            <h2 class="above-txt">Works:</h2>
+            <h2 class="above-txt section-title">Works</h2>
             <h2 class="below-txt">{workData[workNo] ? workData[workNo].title : ""}</h2>
             </div>
             <div class="main-desc">
@@ -257,7 +257,10 @@ $: if (workElem) {observer.observe(workElem)}
         color: white;
         opacity: 0.8;
         text-align: right;
-        font-family: 'Inter', sans-serif;
+        text-transform: uppercase;
+        font-family: 'Geist Mono', monospace;
+        font-size: 14px;
+        margin-right: 8px;
         width: 80%;
     }
     .button-cont {
@@ -267,14 +270,6 @@ $: if (workElem) {observer.observe(workElem)}
         width: 650px;
         height: fit-content;
         padding: 8px;
-    }
-    .worktime {
-        float: right;
-        width: 200px;
-        margin: 0 !important;
-        position: relative;
-        bottom: -10px;
-        right: -20px;
     }
     .action-button {
         height: 45px;
@@ -288,7 +283,8 @@ $: if (workElem) {observer.observe(workElem)}
         transition: .2s;
     }
     .more {
-        font-family: 'Inter', sans-serif;
+        font-family: 'Geist Mono', monospace;
+        text-transform: uppercase;
         background: var(--main-brand-color);
         overflow: hidden;
         text-align: center;
@@ -301,7 +297,6 @@ $: if (workElem) {observer.observe(workElem)}
         justify-content: space-between;
         vertical-align: middle;
         padding: 8px 12px;
-        border: var(--dark-border);
         box-shadow: var(--main-shadow);
     }
     a {
@@ -433,6 +428,7 @@ $: if (workElem) {observer.observe(workElem)}
         border-top: solid 1px var(--main-brand-color);
         line-height: 1.2;
         padding-top: 6px;
+        font-size: 16px;
     }
     .inner {
         width: 1000px;
@@ -453,13 +449,12 @@ $: if (workElem) {observer.observe(workElem)}
     }
     h2 {
         color: rgba(255,255,255, 0.8);
-        font-family: 'Inter', sans-serif;
         margin: 0;
         float: right;
     }
     p {
         color: rgba(255,255,255, 0.8);
-        font-family: 'Inter', sans-serif;
+        font-family: 'Geist', sans-serif;
         margin: 0;
     }
     /* rest */

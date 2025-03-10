@@ -13,14 +13,14 @@
 </div>
 <style>
     h1 {
-        font-family: 'Inter', sans-serif;
+        font-family: 'Geist', sans-serif;
         color: var(--main-brand-color);
         font-size: 84px;
         margin: 0;
         padding: 0;
     }
     p {
-        font-family: 'Inter', sans-serif;
+        font-family: 'Geist', sans-serif;
         color: white;
         font-size: 22px;
         opacity: 0.8;
@@ -28,7 +28,7 @@
         padding: 0;
     }
     a {
-        font-family: 'Inter', sans-serif;
+        font-family: 'Geist', sans-serif;
         color: var(--main-brand-color);
         font-size: 22px;
         opacity: 0.8;

@@ -174,7 +174,7 @@ on:click={() => {imgOpen = false}}>
         100% {opacity: 1;}
     }
     p {
-        font-family: 'Inter', sans-serif;
+        font-family: 'Geist', sans-serif;
         color: white;
         opacity: 0.8;
     }

@@ -73,7 +73,7 @@
         border: solid 1px var(--main-brand-color);
     }
     p {
-        font-family: 'Inter', sans-serif;
+        font-family: 'Geist', sans-serif;
         color: white;
         opacity: 0.8;
     }

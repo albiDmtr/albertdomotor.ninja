@@ -12,7 +12,7 @@
     on:exitViewport={() => {sectionLeave("contact"); contactElem.classList.remove("shown"); contactElem.classList.add("notshown")}}>
         <div class="inner fading">
             <div class="main-title">
-            <h2>Contact</h2>
+            <h2 class="section-title">Contact</h2>
             </div>
             <div class="main-desc">
                 <p>Feel free to reach out to me. I'm always open to discuss new projects.</p>
@@ -80,15 +80,9 @@
         border-left: solid 1px var(--main-brand-color);
         padding: 20px;
     }
-    h2 {
-        color: rgba(255,255,255, 0.8);
-        font-family: 'Inter', sans-serif;
-        margin: 0;
-        float: right;
-    }
     p {
         color: rgba(255,255,255, 0.8);
-        font-family: 'Inter', sans-serif;
+        font-family: 'Geist', sans-serif;
         margin: 0;
     }
     @media (max-width: 1000px) {

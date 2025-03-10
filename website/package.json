@@ -27,6 +27,7 @@
     "spltjs": "^1.1.0",
     "svelte-material-icons": "^3.0.5",
     "svelte-preprocess-import-assets": "^1.0.1",
-    "svelte-routing": "^2.4.0"
+    "svelte-routing": "^2.4.0",
+    "twgl.js": "^5.5.4"
   }
 }
