@@ -141,6 +141,7 @@
         transition: .2s;
         cursor: pointer;
         border-radius: var(--main-border-radius);
+        overflow: hidden;
         box-shadow: var(--main-shadow);
     }
     .main-menu:hover {
