@@ -295,7 +295,7 @@
             justify-content: left;
         }
         .right-side {
-            padding-bottom: 100px;
+            padding-bottom: 64px;
             width: 80vw;
             max-width: 600px;
         }
@@ -305,6 +305,7 @@
         }
         .center {
             margin-bottom: 0;
+            margin-top: -40px;
             width: 60vh;
             height: 60vh;
         }
