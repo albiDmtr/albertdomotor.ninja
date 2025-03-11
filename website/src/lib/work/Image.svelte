@@ -82,7 +82,7 @@ on:click={() => {imgOpen = false}}>
         height: 40px;
         border: solid 1px var(--main-brand-color);
         border-radius: var(--main-border-radius);
-        background-color: rgba(5,5,46,.35);
+        background-color: var(--main-tr-color);
         color: var(--main-brand-color);
         cursor: pointer;
         transition: .4s;
@@ -105,8 +105,8 @@ on:click={() => {imgOpen = false}}>
         position: relative;
         top: -34px;
         left: -15px;
-        background-color: rgba(5,5,46,.35);
-        backdrop-filter: blur(16px);
+        background-color: var(--main-tr-color);
+        backdrop-filter: var(--backdrop-filter);
         overflow: hidden;
         padding: 15px;
     }
@@ -164,7 +164,7 @@ on:click={() => {imgOpen = false}}>
         max-width: none;
         max-height: none;
         border: none;
-        backdrop-filter: blur(16px);
+        backdrop-filter: var(--backdrop-filter);
     }
     .open * {
         animation: fadeIn 0.3s ease-in-out 0s 1;

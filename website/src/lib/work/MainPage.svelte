@@ -163,7 +163,7 @@
         height: 50px;
         width: 125px;
         border: solid 1px var(--main-brand-color);
-        backdrop-filter: blur(16px);
+        backdrop-filter: var(--backdrop-filter);
         background-color: rgba(5,5,46,.5);
         position: fixed;
         top: 20px;

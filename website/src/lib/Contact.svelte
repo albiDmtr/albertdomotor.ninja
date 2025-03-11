@@ -90,18 +90,17 @@
             display: block;
             width: 100%;
             margin: 0 auto;
-            position: relative;
-            left: -8px;
         }
         .main-title {
             width: auto;
             height: auto;
             max-width: 600px;
             width: 80vw;
+            margin: 0 auto;
         }
         .main-title h2 {
             float: left;
-            margin: 15px 20px;
+            margin: 15px 0;
         }
         .main-desc {
             max-width: 600px;
@@ -110,7 +109,7 @@
             overflow: hidden;
             border-top: solid 1px var(--main-brand-color);
             border-left: none;
-            padding: 15px;
+            padding: 15px 0;
         }
     }
 </style>

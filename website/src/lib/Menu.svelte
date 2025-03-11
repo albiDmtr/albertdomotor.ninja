@@ -22,17 +22,13 @@
     <div class="main-logo" on:click={() => scrollToElem("top")} on:mouseenter={() => {onHover = true}}  on:mouseleave={() => {onHover = false}}></div>
     <button class="hamburger" on:click={() => {isMenuOpened = !isMenuOpened; isHamburgerTapped = true}} >
         {#if isMenuOpened}
-            <span class="close">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-                </svg>                  
-            </span>
+            <svg class="close" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+            </svg>                  
         {:else}
-            <span class="menu">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                </svg>                  
-            </span>
+            <svg class="menu" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
         {/if}
     </button>
     <div class="menu-items">
@@ -63,20 +59,13 @@
         display: none;
         z-index: 999;
     }
-    .hamburger span {
-        margin-top: 7px;
-        width: 40px;
-        height: 50px;
-        padding: 0;
-        overflow: hidden;
-    }
     .hamburger {
         display: none;
-        background: var(--main-brand-color);
-        font-size: 40px;
-        width: 55px;
-        height: 55px !important;
-        color: black;
+        background: var(--main-tr-color);
+        backdrop-filter: var(--backdrop-filter);
+        width: 40px;
+        height: 40px !important;
+        color: var(--main-brand-color);
         border: none;
         overflow: hidden;
         transition: .6s;
@@ -86,7 +75,8 @@
     }
     .menuOpen .hamburger {
         color: black;
-        background: rgb(250, 250, 250);
+        background-color: transparent;
+        border-left: solid 2px black;
     }
     .logoHovered .main-logo {
         background-color: rgb(255,255,255)
@@ -131,8 +121,8 @@
     .main-menu {
         display: flex;
         border: 1px solid var(--main-brand-color);
-        backdrop-filter: blur(16px);
-        background-color: rgba(5,5,46,.35);
+        backdrop-filter: var(--backdrop-filter);
+        background-color: var(--main-tr-color);
         position: fixed;
         width: 500px;
         bottom: 20px;
@@ -158,8 +148,8 @@
             position: fixed;
             bottom: 0;
             right: 0;
-            width:55px;
-            height: 55px;
+            width: 40px;
+            height: 40px;
             font-size: 40px;
             background-color: var(--main-brand-color);
             color: black;
@@ -176,7 +166,7 @@
         .arrow-down.active {
             opacity: 1;
         }
-        .hamburger span {
+        .hamburger svg {
             animation: iconMoveIn 0.6s ease-in-out 0s 1;
         }
         .main-menu:hover {
@@ -185,19 +175,17 @@
         .main-menu {
             width: auto;
             position: fixed;
-            height: 55px;
+            height: 40px;
             bottom: 10px;
             left: 10px;
             backdrop-filter: none;
             overflow: hidden;
-            border: var(--dark-border);
             box-sizing: border-box;
         }
         .main-logo {
-            width: 55px;
-            height: 55px !important;
+            width: 40px;
+            height: 40px !important;
             z-index: 1002;
-            background-color: rgb(250,250,250);
             opacity: 1;
             border: none !important;
         }
@@ -205,10 +193,12 @@
             display: block;
             z-index: 1001;
         }
-        .hamburger span {
+        .hamburger svg {
             position: absolute;
             top: 50%;
-            margin-top: 4px;
+            width: 28px;
+            height: 28px;
+            margin-top: 0px;
             transform: translate(-50%, -50%);
         }
         .main-menu .menu-items {
@@ -238,7 +228,7 @@
             display: block;
             background: var(--main-brand-color);
             width: 100px;
-            height: 55px;
+            height: 40px;
             margin-left: 50px;
         }
         /* cause of menu jumping down iOS error */
@@ -246,33 +236,34 @@
             padding-top: 40px !important;
         }
         .menu-items div a {
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 500;
             text-transform: uppercase;
             font-family: 'Geist Mono', monospace;
+            color: black;
         }
 
         @keyframes iconMoveOut {
             0%   {margin-left: 0;}
-            100% {margin-left: -55px;}
+            100% {margin-left: -40px;}
         }
         @keyframes iconMoveIn {
-            0%   {margin-left: -55px;}
+            0%   {margin-left: -40px;}
             100% {margin-left: 0;}
         }
         @keyframes menuOpen {
-            0%   {height: 0; width: 65px;}
-            50%   {height: 100vh; width: 65px;}
+            0%   {height: 0; width: 51px;}
+            50%   {height: 100vh; width: 51px;}
             100%   {height: 100vh; width: 100vw; position: fixed; top: 0;}
         }
         @keyframes menuClose {
             0%   {height: 100vh; width: 100vw; position: fixed; bottom: 0;}
-            50%   {height: 100vh; width: 65px;}
-            100%   {height: 0; width: 65px;}
+            50%   {height: 100vh; width: 51px;}
+            100%   {height: 0; width: 51px;}
         }
 
         :global(.selected) {
-            color: rgba(255,255,255,0.5) !important;
+            color: rgba(0,0,0,0.6) !important;
         }
     }
 </style>

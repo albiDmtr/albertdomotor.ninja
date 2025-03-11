@@ -40,12 +40,13 @@
         const [screenMidX, screenMidY] = [window.innerWidth/2, window.innerHeight/2];
         const mouse = [0, 0];
         document.addEventListener('mousemove', (event) => {
-            mouse[0] = ((event.clientX - screenMidX)/screenMidX) * -0.014;
+            mouse[0] = ((event.clientX - screenMidX)/screenMidX) * -0.014 - 0.005;
             mouse[1] = ((event.clientY - screenMidY)/screenMidY) * -0.017;
+            console.log(mouse);
         });
             
         document.addEventListener('touchmove', (event) => {
-            mouse[0] = (event.touches[0].clientX / gl.canvas.clientWidth  * 2 - 1) * -0.014;
+            mouse[0] = (event.touches[0].clientX / gl.canvas.clientWidth  * 2 - 1) * -0.014 - 0.005;
             mouse[1] = (event.touches[0].clientY / gl.canvas.clientHeight * 2 - 1) * -0.017;
         });
             
@@ -153,7 +154,9 @@
             </a>
         </div>
     </div>
-    <canvas id="me" bind:this={canvasElem}></canvas>
+    <div class="center">
+        <canvas id="me" bind:this={canvasElem}></canvas>
+    </div>
     <div class="right-side">
         <h2>Software Engineer, Digital Systems and Design student at Aalto University</h2>
         <button class="btn-more" on:click={() => scrollToElem("about")}>
@@ -166,10 +169,18 @@
 
 </div>
 <style>
+    .center {
+        width: 80vh;
+        height: 80vh;
+        margin-bottom: 15vh;
+        flex-shrink: 1;
+        position: relative;
+    }
     .left-side {
         width: 400px;
         flex-shrink: 0;
         text-align: right;
+        z-index: 4;
     }
     .left-side h1 {
         font-size: 40px;
@@ -196,6 +207,8 @@
         font-family: 'Geist Mono', monospace;
         font-weight: 500;
         transition: .2s;
+        backdrop-filter: var(--backdrop-filter);
+        background-color: var(--main-tr-color);
     }
     .socials a:hover {
         background-color: white;
@@ -206,6 +219,7 @@
 
     .right-side {
         width: 400px;
+        z-index: 4;
         flex-shrink: 0;
     }
     .right-side h2 {
@@ -216,7 +230,8 @@
     }
     .btn-more {
         color: var(--main-brand-color);
-        background: none;
+        backdrop-filter: var(--backdrop-filter);
+        background-color: var(--main-tr-color);
         border: solid 1px var(--main-brand-color);
         border-radius: var(--main-border-radius);
         font-size: 14px;
@@ -245,7 +260,10 @@
     #me {
         height: 80vh;
         width: 80vh;
-        margin-bottom: 15vh;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         background-color: red;
     }
     .main-container {
@@ -258,13 +276,37 @@
     .main-container {
         height: 100vh;
         width: 100vw !important;
-        overflow: hidden;
         overflow-anchor: none;
         z-index: 1;
     }
 
-    @media (max-aspect-ratio: 1/1) {
+    @media (max-width: 1100px) {
         /*mobile*/
-        
+        .main-container {
+            flex-direction: column;
+        }
+        .left-side {
+            padding-top: 14px;
+            width: 80vw;
+            max-width: 600px;
+            text-align: left;
+        }
+        .socials {
+            justify-content: left;
+        }
+        .right-side {
+            padding-bottom: 100px;
+            width: 80vw;
+            max-width: 600px;
+        }
+        #me {
+            width: 60vh;
+            height: 60vh;
+        }
+        .center {
+            margin-bottom: 0;
+            width: 60vh;
+            height: 60vh;
+        }
     }
 </style>

@@ -44,8 +44,8 @@
         max-width: 70%;
         position: relative;
         left: -15px;
-        background-color: rgba(5,5,46,.35);
-        backdrop-filter: blur(16px);
+        background-color: var(--main-tr-color);
+        backdrop-filter: var(--backdrop-filter);
         overflow: hidden;
         padding: 15px;
     }

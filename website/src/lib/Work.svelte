@@ -241,8 +241,8 @@ $: if (workElem) {observer.observe(workElem)}
     .main-work-desc {
         transition: .2s;
         border: solid 1px var(--main-brand-color);
-        backdrop-filter: blur(16px);
-        background-color: rgba(5,5,46,.35);
+        backdrop-filter: var(--backdrop-filter);
+        background-color: var(--main-tr-color);
         margin-top: -120px;
         margin-left: -20px;
         width: 650px;

@@ -100,7 +100,7 @@
         padding: 0 14px;
         border: solid 1px var(--main-brand-color);
         border-bottom: none;
-        background-color: rgba(5,5,46,.35);
+        background-color: var(--main-tr-color);
         transition: .2s;
     }
     .repo-name-cont:hover {

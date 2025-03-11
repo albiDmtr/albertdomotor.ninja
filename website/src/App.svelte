@@ -63,6 +63,8 @@
       --main-border-radius: 5px;
       --dark-border: solid 1px rgba(10, 10, 10, 0.102);
       --main-shadow: 0 1px 3px 0 rgb(0 0 0 / .1), 0 1px 2px -1px rgb(0 0 0 / .1);
+      --main-tr-color: rgba(5,5,46,.35);
+      --backdrop-filter: blur(16px);
     }
 
     :global(h2) {
