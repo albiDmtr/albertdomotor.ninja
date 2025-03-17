@@ -42,7 +42,6 @@
         document.addEventListener('mousemove', (event) => {
             mouse[0] = ((event.clientX - screenMidX)/screenMidX) * -0.014 - 0.005;
             mouse[1] = ((event.clientY - screenMidY)/screenMidY) * -0.017;
-            console.log(mouse);
         });
             
         document.addEventListener('touchmove', (event) => {

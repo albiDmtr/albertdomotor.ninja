@@ -19,10 +19,9 @@ $: {if (workWrapper && workElem) {
     scrollLength = workWrapper.offsetHeight - workElem.offsetHeight
 } }
 let stepSize
-$: {scrollLength ? stepSize = (scrollLength / workData.length) : ""}
+$: {scrollLength ? stepSize = (scrollLength / workData.slice(0, 5).length) : ""}
 
 let workNo = 0
-
 let moreHover = false
 
 // scrolling to the correct section
@@ -32,7 +31,6 @@ if (section) {
     setTimeout(() => scrollToElem(section), 1)
 }
 
-// effectActive csak odaplaccsanaskor valtozzon
 let bgActive = false
 
 const observer = new IntersectionObserver(
@@ -45,8 +43,10 @@ $: if (workElem) {observer.observe(workElem)}
 </script>
 <div class="work-sidebar unactive" bind:this={workSidebar}>
     <div class="works-txt"><p>Works</p></div>
-    {#each workData as work, index}
+    {#each workData.slice(0, 5) as work, index}
         <div class="work-item {hoveredIcon == work.urlSafe ? "hover" : ""} {workNo == index ? 'active-item' : ''}">
+            <!-- svelte-ignore a11y-click-events-have-key-events -->
+            <!-- svelte-ignore a11y-no-static-element-interactions -->
             <div class="wrapper"
                 on:click={() => scrollToElem(work.urlSafe)} 
                 on:mouseenter={() => hoveredIcon = work.urlSafe}
@@ -54,10 +54,22 @@ $: if (workElem) {observer.observe(workElem)}
             <div class="txt"><p>{work.title}</p></div>
         </div>
     {/each}
+    <div class="work-item">
+        <div class="wrapper">
+            <a data-cooltransition
+                href="/project-archive">
+                <div class="more-works">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+                    </svg>                  
+                </div>
+            </a>
+        </div>
+    </div>
 </div>
 <div class="work-wrapper" bind:this={workWrapper} >
     {#key stepSize}
-    {#each workData as work}
+    {#each workData.slice(0, 5) as work}
         <div class="pos-elem"
             id="{work.urlSafe}"
             style="position: absolute; top: {(stepSize/2)+(work.index*stepSize)}px;"
@@ -131,7 +143,7 @@ $: if (workElem) {observer.observe(workElem)}
     </div>
 {/key}
 <div class="preload-cont">
-{#each workData as work}
+{#each workData.slice(0, 5) as work}
     <video autoplay muted loop playsinline class="thumbnailImg">
         <source src={work.thumbnail} type="video/mp4" />
     </video>
@@ -139,6 +151,26 @@ $: if (workElem) {observer.observe(workElem)}
 {/each}
 </div>
 <style>
+    .more-works {
+        width: 45px;
+        height: 45px;
+        border-radius: var(--main-border-radius);
+        border: none;
+        box-sizing: border-box;
+        backdrop-filter: var(--backdrop-filter);
+        background-color: var(--main-tr-color);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: rgba(255,255,255, 0.8);
+        transition: .2s;
+    }
+
+    .more-works svg {
+        width: 28px;
+        height: 28px;
+    }
+
     .pos-elem {
         z-index: -1;
         width: 100px;
@@ -480,6 +512,9 @@ $: if (workElem) {observer.observe(workElem)}
         100% {opacity: 0; visibility: hidden;}
     }
     @media (max-width: 1200px) {
+        .more-works {
+            color: var(--main-brand-color);
+        }
         .bg-img {
             display: none;
         }
@@ -493,14 +528,17 @@ $: if (workElem) {observer.observe(workElem)}
             position: fixed;
             left: 0;
             top: initial;
-            bottom: 12vh;
+            bottom: 10vh;
         }
         .work-item .txt {
             display: none;
         }
         .work-item {
             width: 45px;
-            margin: 10px;
+            margin: 6px;
+        }
+        .wrapper {
+            margin: 0;
         }
         .inner {
             display: block;
@@ -510,19 +548,17 @@ $: if (workElem) {observer.observe(workElem)}
             top: -6vh;
         }
         .main-desc {
-            margin: 0;
-            width: auto;
+            margin: 0 auto;
+            width: fit-content;
         }
         .main-work-thumbnail {
             width: 95vw;
             height: calc(95vw / (16/9));
-            margin-left: calc(2.5vw - 5px );
         }
         .main-title {
             width: 95vw;
             height: 85px;
             padding: 0;
-            margin-left: calc(2.5vw - 5px );
         }
         .above-txt {
             text-align: left;
@@ -537,7 +573,6 @@ $: if (workElem) {observer.observe(workElem)}
         .main-work-desc {
             margin: 0;
             width: 95vw;
-            margin-left: calc(2.5vw - 5px );
         }
         .work-time {
             display: none;

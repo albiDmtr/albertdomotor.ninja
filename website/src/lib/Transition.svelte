@@ -26,16 +26,17 @@
     let transition = ""
     router.subscribe( _ => {transition = "out"; setTimeout(() => {transition = ""},transitionTime)})
 
-    const clickHandler = (e, link) => {
+    const clickHandler = (e) => {
+        const href = e.currentTarget.href;
         e.preventDefault()
-        setTimeout(() => { router.goto(link.href) }, transitionTime )
+        setTimeout(() => { router.goto(href);}, transitionTime )
         transition = "in"
     }
     const setListeners = () => {
         const links = document.querySelectorAll('[data-cooltransition]')
         for (var link of links) {
             link.setAttribute("data-tinro-ignore", true)
-            link.addEventListener("click", (e) => {clickHandler(e, link)})
+            link.addEventListener("click", (e) => {clickHandler(e)})
         }
     }
     router.subscribe(() => setTimeout(setListeners,1))

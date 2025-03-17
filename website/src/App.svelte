@@ -10,6 +10,7 @@
     import Transition from "./lib/Transition.svelte"
     import Notfound from "./routes/Notfound.svelte"
     import Cv from "./routes/CV.svelte";
+    import ProjectArchive from "./routes/ProjectArchive.svelte";
 
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,6 +28,9 @@
     </Route>
     <Route path="/cv">
       <Cv />
+    </Route>
+    <Route path="/project-archive">
+      <ProjectArchive />
     </Route>
     <Route path="/work/*">
         <Route path="/">

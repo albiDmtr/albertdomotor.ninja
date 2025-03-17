@@ -1,5 +1,5 @@
 <script>
-      import Menu from "../lib/Menu.svelte"
+        import Menu from "../lib/Menu.svelte"
         import Cursor from "../lib/Cursor.svelte"
 </script>
 

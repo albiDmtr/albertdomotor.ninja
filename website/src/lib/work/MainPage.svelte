@@ -24,9 +24,6 @@
     router.subscribe( _ => {window.scrollTo(0, 0);})
 </script>
 <svelte:head>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Merriweather:ital,wght@1,700&display=swap" rel="stylesheet">
     <title>Work – {workData[workIndex].title}</title>
 </svelte:head>
 <Cursor/>
