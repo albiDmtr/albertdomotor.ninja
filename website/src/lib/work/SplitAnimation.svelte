@@ -81,18 +81,23 @@
     }
     .alt {
         border: solid 1px var(--main-brand-color);
+        border-radius: var(--main-border-radius);
         width: fit-content;
         max-width: 70%;
         position: relative;
-        top: -34px;
+        top: -24px;
         left: -15px;
         background-color: var(--main-tr-color);
         backdrop-filter: var(--backdrop-filter);
         overflow: hidden;
-        padding: 15px;
+        padding: 8px 12px;
     }
     .alt p {
         margin: 0;
+        font-size: 14px;
+        font-family: 'Geist Mono', monospace;
+        text-transform: uppercase;
+
     }
     .img {
         height: 100%;
@@ -100,7 +105,6 @@
         background-repeat: no-repeat;
         background-position: 50%;
         transition: .3s;
-        cursor:zoom-in;
     }
     .img:hover {
         transform: scale(1.02);
@@ -128,10 +132,12 @@
     .main-img-cont {
         width: 900px;
         height: 500px;
+        box-sizing: border-box;
         padding: 30px 60px 30px 60px;
         text-align: center;
         background-color: rgba(5,5,46,.5);
         border: solid 1px var(--main-brand-color);
+        border-radius: var(--main-border-radius);
     }
     .open {
         z-index: 10000;
@@ -171,6 +177,7 @@
             width: calc(100% - 8px);
             height: 450px;
             padding: 4px;
+            margin: 0 auto;
         }
         .alt {
             position: relative;

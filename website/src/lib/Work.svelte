@@ -241,8 +241,8 @@ $: if (workElem) {observer.observe(workElem)}
     .main-work-desc {
         transition: .2s;
         border: solid 1px var(--main-brand-color);
-        backdrop-filter: var(--backdrop-filter);
-        background-color: var(--main-tr-color);
+        backdrop-filter: blur(16px);
+        background-color: rgba(5,5,46,.35);
         margin-top: -120px;
         margin-left: -20px;
         width: 650px;
@@ -297,7 +297,6 @@ $: if (workElem) {observer.observe(workElem)}
         justify-content: space-between;
         vertical-align: middle;
         padding: 8px 12px;
-        box-shadow: var(--main-shadow);
     }
     a {
         text-decoration: none;

@@ -34,11 +34,10 @@
 </script>
 <a class="gh-url" href="{ghUrl}" target="_blank">
 <div class="gh-cont">
-    <div class="gh-button">
-    </div>
-    <div class="repo-name-cont">
-        <p>{ghName}</p>
-    </div>
+    <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9.45 11C9.45 11 9.95 11.5 9.95 12.5V15.5M6 11C6 11 5.5 11.5 5.5 12.5V15.5M5 13.5C5 13.5 3.5 13.5 2.5 13C1.5 12.5 1 11.5 1 11.5M9.5 11C9.5 11 12 10.5 13 9.5C14 8.5 14.5 7 14 5.5C13.5 4 13 3.5 13 3.5V2C13 1.5 12.75 1 12.75 1C12.75 1 12.5 1 11.5 1.25C10.5 1.5 10 2 10 2C10 2 8.54311 1.7 7.5 1.7C6.45689 1.7 5.5 2 5.5 2M5.86051 11.005C5.86051 11.005 3.36051 10.505 2.36051 9.50498C1.36051 8.50498 0.86051 7.00498 1.36051 5.50498C1.86051 4.00498 2.36051 3.50498 2.36051 3.50498M2.35 3.5V2C2.35 1.5 2.6 1 2.6 1C2.6 1 2.85 1 3.85 1.25C4.85 1.5 5.35 2 5.35 2" stroke="currentColor" stroke-linecap="round"/>
+    </svg>
+    <span>{ghName}</span>
 </div>
 </a>
 <div class="main-md-cont"
@@ -70,47 +69,35 @@
     </div>
 </div>
 <style>
-    .gh-button {
-        height: 45px;
-        width: 45px;
-        display: inline-block;
-        background-color: var(--main-brand-color);
-        background-image: url('../../../assets/social_icons/github.png');
-        background-size: 60%;
-        background-position: 50%;
-        background-repeat: no-repeat;
-        transition: .2s;
-    }
-    .gh-button:hover {
-        background-size: 65%;
-    }
     .gh-cont {
-        height: 45px;
-        width: fit-content;
-        display: flex;
-        vertical-align: middle;
-        transition: .2s;
-        opacity: 1;
-    }
-    .repo-name-cont {
-        display: inline-block;
-        height: 44px;
-        width: fit-content;
-        color: white;
-        padding: 0 14px;
+        color: var(--main-brand-color);
         border: solid 1px var(--main-brand-color);
-        border-bottom: none;
-        background-color: var(--main-tr-color);
+        border-radius: var(--main-border-radius);
+        font-size: 14px;
+        padding: 8px 12px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        width: fit-content;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-family: Geist Mono, monospace;
+        font-weight: 500;
         transition: .2s;
+        -webkit-backdrop-filter: var(--backdrop-filter);
+        backdrop-filter: var(--backdrop-filter);
+        background-color: var(--main-tr-color);
+        position: relative;
+        left: 32px;
+        bottom: -12px;
     }
-    .repo-name-cont:hover {
-        background: var(--main-brand-color);
-        color: black !important;
+    .gh-cont:hover {
+        background-color: white;
+        border: solid 1px white;
+        color: black;
+        opacity: .8;
     }
-    .repo-name-cont p {
-        margin: 0;
-        line-height: 44px;
-    }
+
     .gh-url {
         text-decoration: none;
     }
@@ -133,7 +120,6 @@
         float: right;
         display: inline-block;
         padding: 0px 5px 5px 5px;
-        margin-top: 12px;
         border-radius: 5px;
     }
     .md-head .gh-txt:hover {
@@ -146,7 +132,7 @@
     }
     .md-head {
         border-bottom: solid 1px rgb(220,220,220);
-        padding: 0 15px;
+        padding: 10px 15px;
     }
     :global(.md a) {
         color: rgb(9,105,218);
@@ -174,8 +160,10 @@
     .main-md-cont {
         width: 900px;
         height: auto;
-        padding: 15px 25px;
+        box-sizing: border-box;
+        padding: 22px 32px;
         border: solid 1px var(--main-brand-color);
+        border-radius: var(--main-border-radius);
         background-color: rgba(5,5,46,.40);
     }
     .md {
@@ -209,10 +197,18 @@
         transition: opacity 1.2s;
         transition-delay: 0.3s;
     }
+
+    :global(.md-inner p, .md-inner h1, .md-inner h2, .md-inner h3, .md-inner h4, .md-inner h5, .md-inner h6, .md-inner span) {
+        font-family: 'Inter', sans-serif;
+        margin-block-start: 0.67em;
+        margin-block-end: 0.67em;
+    }
+
     @media (max-width: 1000px) {
         .main-md-cont {
             width: calc(100% - 8px);
             padding: 4px;
+            margin: 0 auto;
         }
         .md:hover {
             transform: none;

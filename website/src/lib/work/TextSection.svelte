@@ -36,7 +36,7 @@
         padding: 0 20px 20px 20px;
     }
     .sub-elem h4 {
-        font-size: 22px;
+        font-size: 18px;
         font-weight: bold;
         margin: 0 0 5px 0;
     }
@@ -56,15 +56,17 @@
         width: 100%;
         display: flex;
         flex-direction: row;
-        margin: 40px 0;
+        margin: 36px 0;
     }
     h3 {
         color: var(--main-brand-color);
-        font-size: 22px;
-        font-weight: 800;
+        font-size: 20px;
+        font-weight: 500;
         text-wrap: nowrap;
         padding: 16px;
         float: right;
+        font-family: 'Geist Mono', monospace;
+        text-transform: uppercase;
     }
     .title {
         flex-basis: 150px;
@@ -75,8 +77,8 @@
         border-left: solid 1px var(--main-brand-color);
     }
     p {
-        font-size: 20px;
-        line-height: 1.6;
+        font-size: 16px;
+        line-height: 1.4;
         padding: 16px;
     }
     :global(.out-view) {

@@ -47,7 +47,7 @@ on:click={() => {imgOpen = false}}>
     <span>
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-        </svg>          
+        </svg>       
     </span>
     </button>
 <div class="main-img-cont {imgOpen ? 'open' : 'closed'} {inView ? "in-view" : "out-view"}"
@@ -103,15 +103,19 @@ on:click={() => {imgOpen = false}}>
         width: fit-content;
         max-width: 70%;
         position: relative;
-        top: -34px;
+        top: -24px;
         left: -15px;
         background-color: var(--main-tr-color);
         backdrop-filter: var(--backdrop-filter);
         overflow: hidden;
-        padding: 15px;
+        padding: 8px 12px;
     }
     .alt p {
         margin: 0;
+        font-size: 14px;
+        font-family: 'Geist Mono', monospace;
+        text-transform: uppercase;
+
     }
     .img {
         width: 100%;
@@ -149,6 +153,7 @@ on:click={() => {imgOpen = false}}>
         width: 900px;
         height: 500px;
         padding: 30px 60px 30px 60px;
+        box-sizing: border-box;
         text-align: center;
         background-color: rgba(5,5,46,.5);
         border: solid 1px var(--main-brand-color);
@@ -159,8 +164,8 @@ on:click={() => {imgOpen = false}}>
         position: fixed;
         top: 0;
         left: 0;
-        width: calc(100vw - 120px);
-        height: calc(100vh - 30px);
+        width: 100vw;
+        height: 100vh;
         max-width: none;
         max-height: none;
         border: none;
@@ -192,6 +197,7 @@ on:click={() => {imgOpen = false}}>
             width: calc(100% - 8px);
             height: 450px;
             padding: 4px;
+            margin: 0 auto;
         }
         .alt {
             position: relative;
@@ -210,14 +216,16 @@ on:click={() => {imgOpen = false}}>
         }
         .close-btn {
             position: fixed;
-            top: 0;
-            left: calc(100vw - 55px);
-            width: 55px;
-            height: 55px;
+            top: 10px;
+            left: calc(100vw - 50px);
+            width: 40px;
+            height: 40px;
             background-color: var(--main-brand-color);
         }
-        .close-btn span {
-            font-size: 30px;
+        .close-btn span svg {
+            width: 28px;
+            height: 28px;
+            margin-top: 2px;
             color: black;
         }
         .open .img {

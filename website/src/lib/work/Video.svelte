@@ -1,6 +1,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
 <script>
-    import { killLenis, newLenis } from "../helpers"
+    import { stopLenis, resumeLenis } from "../helpers"
     import viewport from '../useViewportAction'
     import Close from "svelte-material-icons/Close.svelte"
 
@@ -10,11 +10,13 @@
     let inView = false
 
     const disableCursor = () => {
-        document.querySelector(".cursor").style.opacity = 0
+        document.querySelector(".cursor").style.opacity = 0;
+        stopLenis();
     }
 
     const enableCursor = () => {
-        document.querySelector(".cursor").style.opacity = 1
+        document.querySelector(".cursor").style.opacity = 1;
+        resumeLenis();
     }
 
 </script>
@@ -40,17 +42,23 @@
     }
     .alt {
         border: solid 1px var(--main-brand-color);
+        border-radius: var(--main-border-radius);
         width: fit-content;
         max-width: 70%;
         position: relative;
+        top: 0px;
         left: -15px;
         background-color: var(--main-tr-color);
         backdrop-filter: var(--backdrop-filter);
         overflow: hidden;
-        padding: 15px;
+        padding: 8px 12px;
     }
     .alt p {
         margin: 0;
+        font-size: 14px;
+        font-family: 'Geist Mono', monospace;
+        text-transform: uppercase;
+
     }
     .img {
         width: 100%;
@@ -67,10 +75,12 @@
     .main-img-cont {
         width: 900px;
         height: 500px;
+        box-sizing: border-box;
         padding: 30px 60px 30px 60px;
         text-align: center;
         background-color: rgba(5,5,46,.5);
         border: solid 1px var(--main-brand-color);
+        border-radius: var(--main-border-radius);
     }
     p {
         font-family: 'Geist', sans-serif;
@@ -98,6 +108,7 @@
         .alt {
             position: relative;
             left: 10px;
+            top: 10px;
         }
         .img:hover {
             transform: none;

@@ -46,3 +46,15 @@ export const newLenis = (lerp, multiplier) => {
         wheelMultiplier: multiplier
     }));
 }
+
+export const stopLenis = () => {
+    if (get(lenis)) {
+        get(lenis).stop();
+    }
+}
+
+export const resumeLenis = () => {
+    if (get(lenis)) {
+        get(lenis).start();
+    }
+}
