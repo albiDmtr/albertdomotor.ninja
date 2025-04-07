@@ -1,4 +1,5 @@
 <script>
+<<<<<<< Updated upstream
 import {parallaxElems, handleParallax, disableEffect, enableEffect} from "./Parallax"
 //let parallaxElems = []
 //const handleParallax = () => {console.log("ee")}
@@ -6,6 +7,17 @@ import ParallaxElem from "./ParallaxElem.svelte";
 import viewport from './useViewportAction'
 import {activeSection} from "./store"
 let mainElem
+=======
+    import viewport from './useViewportAction'
+    import {sectionEnter, sectionLeave} from "./store"
+    import { onMount } from 'svelte';
+    import * as twgl from 'twgl.js';
+    import texture from '../../assets/3d/texture.jpg';
+    import depth from '../../assets/3d/depth.jpg';
+    import { linkedinUrl, githubUrl } from './data';
+    import { scrollToElem } from './helpers';
+    import ParallaxElem from './ParallaxElem.svelte';
+>>>>>>> Stashed changes
 
 setTimeout(() => {
     mainElem.classList.add("opening-active")
@@ -19,6 +31,7 @@ setTimeout(() => {
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Merriweather:ital,wght@1,700&display=swap" rel="stylesheet">
 </svelte:head>
 <div
+<<<<<<< Updated upstream
     class="main-parallax-container opening-unactive"
     on:mousemove={handleParallax}
     bind:this="{mainElem}">
@@ -36,6 +49,49 @@ setTimeout(() => {
             Software Engineer, Digital Systems and Design student at Aalto University
         </div>
     </ParallaxElem>
+=======
+    class="main-container"
+    id="top"
+    use:viewport
+    on:enterViewport={() => {sectionEnter("");}}
+    on:exitViewport={() => {sectionLeave("");}}>
+
+    <canvas id="me" bind:this={canvasElem}></canvas>
+    
+    <ParallaxElem  front=1.5>
+        <div class="name">
+            <h1>Albert Dömötör</h1>
+            <div class="socials">
+                <a class="linkedin" href="{linkedinUrl}" target="_blank">
+                    <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5.25 6.25C5.25 5.97386 5.02614 5.75 4.75 5.75C4.47386 5.75 4.25 5.97386 4.25 6.25H5.25ZM4.25 11.75C4.25 12.0261 4.47386 12.25 4.75 12.25C5.02614 12.25 5.25 12.0261 5.25 11.75H4.25ZM8.25 6.25C8.25 5.97386 8.02614 5.75 7.75 5.75C7.47386 5.75 7.25 5.97386 7.25 6.25H8.25ZM7.25 11.75C7.25 12.0261 7.47386 12.25 7.75 12.25C8.02614 12.25 8.25 12.0261 8.25 11.75H7.25ZM12.25 8.25L12.75 8.25026L12.75 8.25L12.25 8.25ZM11.7482 11.7479C11.748 12.024 11.9718 12.248 12.2479 12.2481C12.524 12.2483 12.748 12.0245 12.7482 11.7484L11.7482 11.7479ZM7.25 9.25C7.25 9.52614 7.47386 9.75 7.75 9.75C8.02614 9.75 8.25 9.52614 8.25 9.25L7.25 9.25ZM10.25 6.24814L10.2495 5.74814L10.2495 5.74814L10.25 6.24814ZM4.75 3.25C4.47386 3.25 4.25 3.47386 4.25 3.75C4.25 4.02614 4.47386 4.25 4.75 4.25V3.25ZM4.758 3.75H5.258C5.258 3.47386 5.03414 3.25 4.758 3.25V3.75ZM4.258 3.758C4.258 4.03414 4.48186 4.258 4.758 4.258C5.03414 4.258 5.258 4.03414 5.258 3.758H4.258ZM13.1875 0.75L13.1875 1.25L13.1875 0.75ZM3.8125 0.75V1.25V0.75ZM4.25 6.25V11.75H5.25V6.25H4.25ZM7.25 6.25V11.75H8.25V6.25H7.25ZM11.75 8.24974L11.7482 11.7479L12.7482 11.7484L12.75 8.25026L11.75 8.24974ZM8.25 9.25C8.25 8.5398 8.37123 7.907 8.66608 7.46454C8.93714 7.05777 9.39605 6.74894 10.2505 6.74814L10.2495 5.74814C9.10395 5.74921 8.31286 6.1913 7.83392 6.91C7.37877 7.593 7.25 8.4602 7.25 9.25L8.25 9.25ZM10.2505 6.74814C10.6628 6.74776 10.9387 6.84932 11.1288 6.97611C11.3221 7.10502 11.4573 7.28067 11.5527 7.47173C11.649 7.66474 11.6997 7.86388 11.7255 8.01901C11.7382 8.09539 11.7444 8.15795 11.7474 8.19947C11.7488 8.22014 11.7495 8.23534 11.7498 8.24412C11.7499 8.24851 11.75 8.25128 11.75 8.2523C11.75 8.25281 11.75 8.25289 11.75 8.25251C11.75 8.25232 11.75 8.25202 11.75 8.2516C11.75 8.25139 11.75 8.25115 11.75 8.25089C11.75 8.25075 11.75 8.25053 11.75 8.25046C11.75 8.25024 11.75 8.25 12.25 8.25C12.75 8.25 12.75 8.24975 12.75 8.24949C12.75 8.24939 12.75 8.24912 12.75 8.24893C12.75 8.24854 12.75 8.24812 12.75 8.24767C12.75 8.24677 12.75 8.24574 12.75 8.24459C12.75 8.24228 12.7499 8.23948 12.7499 8.2362C12.7498 8.22965 12.7496 8.22116 12.7492 8.21087C12.7486 8.19031 12.7473 8.16246 12.7448 8.12835C12.74 8.06029 12.7305 7.96633 12.712 7.85489C12.6753 7.63438 12.601 7.3327 12.4473 7.02502C12.2927 6.71539 12.0529 6.39045 11.6837 6.14418C11.3113 5.8958 10.8372 5.7476 10.2495 5.74814L10.2505 6.74814ZM4.75 4.25H4.758V3.25H4.75V4.25ZM4.258 3.75V3.758H5.258V3.75H4.258ZM13.1875 1.25C13.8008 1.25 14.389 1.49364 14.8227 1.92732L15.5298 1.22021C14.9086 0.598995 14.066 0.25 13.1875 0.25L13.1875 1.25ZM14.8227 1.92732C15.2564 2.36099 15.5 2.94919 15.5 3.5625H16.5C16.5 2.68397 16.151 1.84142 15.5298 1.22021L14.8227 1.92732ZM15.5 3.5625V12.9375H16.5V3.5625H15.5ZM15.5 12.9375C15.5 13.5508 15.2564 14.139 14.8227 14.5727L15.5298 15.2798C16.151 14.6586 16.5 13.816 16.5 12.9375H15.5ZM14.8227 14.5727C14.389 15.0064 13.8008 15.25 13.1875 15.25V16.25C14.066 16.25 14.9086 15.901 15.5298 15.2798L14.8227 14.5727ZM13.1875 15.25H3.8125V16.25H13.1875V15.25ZM3.8125 15.25C3.19919 15.25 2.61099 15.0064 2.17732 14.5727L1.47021 15.2798C2.09142 15.901 2.93397 16.25 3.8125 16.25V15.25ZM2.17732 14.5727C1.74364 14.139 1.5 13.5508 1.5 12.9375H0.5C0.5 13.816 0.848995 14.6586 1.47021 15.2798L2.17732 14.5727ZM3.8125 0.25C2.93397 0.25 2.09142 0.598995 1.47021 1.22021L2.17732 1.92732C2.61099 1.49364 3.19919 1.25 3.8125 1.25L3.8125 0.25ZM1.47021 1.22021C0.848995 1.84142 0.5 2.68397 0.5 3.5625H1.5C1.5 2.94919 1.74364 2.36099 2.17732 1.92732L1.47021 1.22021ZM3.8125 1.25H13.1875V0.25H3.8125V1.25ZM1.5 12.9375V3.5625H0.5V12.9375H1.5Z" fill="currentColor"/>
+                    </svg>                                                                           
+                    LinkedIn
+                </a>
+                <a class="github" href="{githubUrl}" target="_blank">
+                    <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9.45 11C9.45 11 9.95 11.5 9.95 12.5V15.5M6 11C6 11 5.5 11.5 5.5 12.5V15.5M5 13.5C5 13.5 3.5 13.5 2.5 13C1.5 12.5 1 11.5 1 11.5M9.5 11C9.5 11 12 10.5 13 9.5C14 8.5 14.5 7 14 5.5C13.5 4 13 3.5 13 3.5V2C13 1.5 12.75 1 12.75 1C12.75 1 12.5 1 11.5 1.25C10.5 1.5 10 2 10 2C10 2 8.54311 1.7 7.5 1.7C6.45689 1.7 5.5 2 5.5 2M5.86051 11.005C5.86051 11.005 3.36051 10.505 2.36051 9.50498C1.36051 8.50498 0.86051 7.00498 1.36051 5.50498C1.86051 4.00498 2.36051 3.50498 2.36051 3.50498M2.35 3.5V2C2.35 1.5 2.6 1 2.6 1C2.6 1 2.85 1 3.85 1.25C4.85 1.5 5.35 2 5.35 2" stroke="currentColor" stroke-linecap="round"/>
+                    </svg>                    
+                    GitHub
+                </a>
+            </div>
+        </div>
+    </ParallaxElem>
+
+    
+    <ParallaxElem  front=1>
+        <div class="about">
+            <h2>Software Engineer, Digital Systems and Design student at Aalto University</h2>
+            <button class="btn-more" on:click={() => scrollToElem("about")}>
+                <span>More</span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3" />
+                </svg>              
+            </button>
+        </div>
+    </ParallaxElem>
+
+>>>>>>> Stashed changes
 </div>
 <div class="placeholder"
 id="top"
@@ -43,6 +99,7 @@ use:viewport
 on:enterViewport={() => {activeSection.set(""); enableEffect();}}
 on:exitViewport={disableEffect}></div>
 <style>
+<<<<<<< Updated upstream
     /* parallax */
     .main-parallax-img {
         animation: float-img 20s linear 0s infinite;
@@ -78,6 +135,63 @@ on:exitViewport={disableEffect}></div>
         75% {transform: translate(-14px, 0px);}
         87.5% {transform: translate(-9.3px, 9.3px);}
         100% {transform: translate(0px, 14px);}
+=======
+    .name {
+        width: 400px;
+        text-align: right;
+        position: absolute;
+        top: 48vh;
+        right: 60vw;
+    }
+    .name h1 {
+        font-size: 40px;
+        font-weight: 550;
+    }
+    
+    .socials {
+        display: flex;
+        gap: 12px;
+        margin-top: 6px;
+        justify-content: right;
+    }
+    .socials a {
+        color: var(--main-brand-color);
+        border: solid 1px var(--main-brand-color);
+        border-radius: var(--main-border-radius);
+        font-size: 14px;
+        padding: 8px 12px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        width: fit-content;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-family: 'Geist Mono', monospace;
+        font-weight: 500;
+        transition: .2s;
+        backdrop-filter: var(--backdrop-filter);
+        background-color: var(--main-tr-color);
+    }
+    .socials a:hover {
+        background-color: white;
+        border: solid 1px white;
+        color: black;
+        opacity: .8;
+    }
+
+    .about {
+        width: 400px;
+        z-index: 4;
+        position: absolute;
+        top: 60vh;
+        right: 16vw;
+    }
+    .about h2 {
+        text-transform: uppercase;
+        font-family: 'Geist Mono', monospace;
+        font-weight: 550;
+        font-size: 20px;
+>>>>>>> Stashed changes
     }
     @keyframes float-domotor {
         0% {transform: translate(0px, 7px);}
@@ -90,6 +204,7 @@ on:exitViewport={disableEffect}></div>
         87.5% {transform: translate(-4.7px, 4.7px);}
         100% {transform: translate(0px, 7px);}
     }
+<<<<<<< Updated upstream
     @keyframes float-img {
         0% {transform: translate(-0px, -7px);}
         12.5% {transform: translate(-4.7px, -4.7px);}
@@ -100,6 +215,36 @@ on:exitViewport={disableEffect}></div>
         75% {transform: translate(7px, 0px);}
         87.5% {transform: translate(4.7px, -4.7px);}
         100% {transform: translate(0px, -7px);}
+=======
+    .btn-more:hover {
+        background-color: white;
+        border: solid 1px white;
+        color: black;
+        opacity: .8;
+    }
+    .btn-more span {
+        text-transform: uppercase;
+        font-family: 'Geist Mono', monospace;
+        font-weight: 500;
+    }
+    .btn-more svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    #me {
+        height: 80vh;
+        width: 80vh;
+        position: absolute;
+        top: 2vh;
+        left: calc(50vw - 40vh);
+        background-color: transparent;
+    }
+    .main-container {
+        width: 100%;
+        height: 100vh;
+        position: relative;
+>>>>>>> Stashed changes
     }
 
     /* rest */

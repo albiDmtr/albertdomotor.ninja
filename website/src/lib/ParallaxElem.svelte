@@ -19,5 +19,10 @@
 <style>
     div {
         z-index: 1;
+<<<<<<< Updated upstream
+=======
+        transition: 0.5s;
+        transition-timing-function: ease-out;
+>>>>>>> Stashed changes
     }
 </style>
