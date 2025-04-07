@@ -160,7 +160,6 @@
     
     @media (max-width: 1000px) {
         .main-title h1 {
-            font-size: 60px;
             width: 80vw;
         }
         .main-header video {
@@ -172,12 +171,11 @@
             top: 10px;
         }
         .main-title.sticked h1 {
-            font-size: 38px;
             width: 51vw;
         }
         .main-title {
             position: fixed;
-            top: 70px;
+            top: 50px;
         }
         .main-work-page {
             padding-bottom: 0px;
