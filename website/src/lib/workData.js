@@ -25,7 +25,7 @@ import ddtIcon from '../../assets/work_icons/ddt.png'
 export const workData = [
     {
         "title": "TwinTorsion",
-        "description":"As part of my traineeship at AIContentfy, I implemented various frontend features and backend changes to make the platform's user experience more polished.",
+        "description":"At the Aalto University DigiTwin Lab, I was responsible for the TwinTorsion Editor, a web application aiding the design and optimization of powertrains using digital twins.",
         "time":"July - December 2024",
         "thumbnail": ttThumbnail,
         "fallback": ttFallback,
@@ -58,7 +58,7 @@ export const workData = [
     },
     {
         "title": "DDT Lab",
-        "description":"As part of my traineeship at AIContentfy, I implemented various frontend features and backend changes to make the platform's user experience more polished.",
+        "description":"DDT Lab is a platform built as part of my job at the Aalto University DigiTwin lab for the definition of requirements for FMI models used in the collaborative design of powertrains.",
         "time":"December 2024 - January 2025",
         "thumbnail": ddtThumbnail,
         "fallback": ddtFallback,

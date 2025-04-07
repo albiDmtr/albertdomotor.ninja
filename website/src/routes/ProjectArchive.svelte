@@ -36,6 +36,13 @@ data-cooltransition>
 
 <div class="main-page">
     <h1 class="main-title">Project Archive</h1>
+    
+    <div class="no-projects">
+        <p>No archived projects yet.</p>
+        <a href="/?section=work"
+            class="btn-back go-back">Go back to Works</a>
+    </div>
+
 </div>
 
 <style>
@@ -89,6 +96,23 @@ data-cooltransition>
         height: 16px;
     }
 
+
+    .go-back {
+        position: relative !important;
+        top: 0 !important;
+        left: 0 !important;
+    }
+    .no-projects {
+        width: 100%;
+        max-width: 900px;
+        height: 400px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 12px;
+    }
 
     @media (max-width: 500px) {
         .btn-back span {

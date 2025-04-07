@@ -2,8 +2,10 @@
     import { Route } from "tinro"
     import Home from "./routes/Home.svelte"
     import Work from "./routes/Work.svelte"
+    import TwinTorsion from "./routes/TwinTorsion.svelte"
     import Aicontentfy from "./routes/Aicontentfy.svelte"
     import XSvalley from "./routes/XSvalley.svelte"
+    import DDTLab from "./routes/DDTLab.svelte"
     import Programozdajovod from "./routes/Programozdajovod.svelte"
     import Marvin from "./routes/Marvin.svelte"
     import Visiontranslate from "./routes/Visiontranslate.svelte"
@@ -36,11 +38,17 @@
         <Route path="/">
             <Work />
         </Route>
+        <Route path="/twintorsion">
+          <TwinTorsion />
+      </Route>
         <Route path="/aicontentfy">
             <Aicontentfy />
         </Route>
         <Route path="/xsvalley">
             <XSvalley />
+        </Route>
+        <Route path="/ddt-lab">
+            <DDTLab />
         </Route>
         <Route path="/programozd-a-jovod">
             <Programozdajovod />
